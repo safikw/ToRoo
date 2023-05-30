@@ -14,6 +14,7 @@
 		A2EF5B682A252325001EBA7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2EF5B672A252325001EBA7B /* Preview Assets.xcassets */; };
 		A2EF5B6A2A252325001EBA7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B692A252325001EBA7B /* Persistence.swift */; };
 		A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B6B2A252325001EBA7B /* ToRoo.xcdatamodeld */; };
+		A2EF5B772A25BA7C001EBA7B /* ViewBaru.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B762A25BA7C001EBA7B /* ViewBaru.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A2EF5B672A252325001EBA7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A2EF5B692A252325001EBA7B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A2EF5B6C2A252325001EBA7B /* ToRoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToRoo.xcdatamodel; sourceTree = "<group>"; };
+		A2EF5B762A25BA7C001EBA7B /* ViewBaru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBaru.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				A2EF5B6B2A252325001EBA7B /* ToRoo.xcdatamodeld */,
 				A2EF5B662A252325001EBA7B /* Preview Content */,
 				478074942A25BB2400BAB916 /* cacacac.swift */,
+				A2EF5B762A25BA7C001EBA7B /* ViewBaru.swift */,
 			);
 			path = ToRoo;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				A2EF5B6A2A252325001EBA7B /* Persistence.swift in Sources */,
 				A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */,
 				478074952A25BB2400BAB916 /* cacacac.swift in Sources */,
+				A2EF5B772A25BA7C001EBA7B /* ViewBaru.swift in Sources */,
 				A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */,
 				A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */,
 			);
