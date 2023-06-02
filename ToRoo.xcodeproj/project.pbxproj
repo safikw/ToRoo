@@ -14,6 +14,7 @@
 		A2EF5B6A2A252325001EBA7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B692A252325001EBA7B /* Persistence.swift */; };
 		A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B6B2A252325001EBA7B /* ToRoo.xcdatamodeld */; };
 		A2EF5B9F2A278E16001EBA7B /* SleepStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B9E2A278E16001EBA7B /* SleepStore.swift */; };
+		A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		A2EF5B692A252325001EBA7B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A2EF5B6C2A252325001EBA7B /* ToRoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToRoo.xcdatamodel; sourceTree = "<group>"; };
 		A2EF5B9E2A278E16001EBA7B /* SleepStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStore.swift; sourceTree = "<group>"; };
+		A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEnum.swift; sourceTree = "<group>"; };
+		A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToRoo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,9 @@
 		A2EF5B5F2A252324001EBA7B /* ToRoo */ = {
 			isa = PBXGroup;
 			children = (
+				A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */,
+				A2EF5BA12A2799C6001EBA7B /* Utils */,
+				A2EF5BA02A2799BE001EBA7B /* Views */,
 				A2EF5B9D2A278E06001EBA7B /* Model */,
 				A2EF5B602A252324001EBA7B /* ToRooApp.swift */,
 				A2EF5B622A252324001EBA7B /* ContentView.swift */,
@@ -82,6 +88,21 @@
 				A2EF5B9E2A278E16001EBA7B /* SleepStore.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A2EF5BA02A2799BE001EBA7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2EF5BA12A2799C6001EBA7B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */,
 				A2EF5B6A2A252325001EBA7B /* Persistence.swift in Sources */,
 				A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* SleepStore.swift in Sources */,
@@ -284,12 +306,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ToRoo/ToRoo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToRoo/Preview Content\"";
 				DEVELOPMENT_TEAM = D4KUJS22Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,12 +338,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ToRoo/ToRoo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToRoo/Preview Content\"";
 				DEVELOPMENT_TEAM = D4KUJS22Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
