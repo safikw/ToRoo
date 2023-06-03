@@ -15,6 +15,7 @@
 		A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B6B2A252325001EBA7B /* ToRoo.xcdatamodeld */; };
 		A2EF5B9F2A278E16001EBA7B /* SleepStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B9E2A278E16001EBA7B /* SleepStore.swift */; };
 		A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */; };
+		A2EF5BA62A2B273B001EBA7B /* SleepSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA52A2B273B001EBA7B /* SleepSummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A2EF5B9E2A278E16001EBA7B /* SleepStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStore.swift; sourceTree = "<group>"; };
 		A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEnum.swift; sourceTree = "<group>"; };
 		A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToRoo.entitlements; sourceTree = "<group>"; };
+		A2EF5BA52A2B273B001EBA7B /* SleepSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		A2EF5BA02A2799BE001EBA7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2EF5BA52A2B273B001EBA7B /* SleepSummary.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */,
 				A2EF5B6A2A252325001EBA7B /* Persistence.swift in Sources */,
 				A2EF5B6D2A252325001EBA7B /* ToRoo.xcdatamodeld in Sources */,
+				A2EF5BA62A2B273B001EBA7B /* SleepSummary.swift in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* SleepStore.swift in Sources */,
 				A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */,
 				A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */,
