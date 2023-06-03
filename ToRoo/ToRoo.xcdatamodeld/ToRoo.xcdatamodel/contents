@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Challenge" representedClassName="Challenge" syncable="YES" codeGenerationType="class"/>
     <entity name="Character" representedClassName="Character" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify"/>
+        <attribute name="lastImageUpdate" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="sleepRecords" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SleepRecords" inverseName="character" inverseEntity="SleepRecords"/>
     </entity>
     <entity name="SleepRecords" representedClassName="SleepRecords" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sleepStages" optional="YES" attributeType="Transformable"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="sleepRecords" inverseEntity="Character"/>
     </entity>
 </model>
