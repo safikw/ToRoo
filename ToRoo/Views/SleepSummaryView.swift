@@ -27,6 +27,7 @@ struct SleepSummary: View {
             healthStore.requestAuthorization{
                 success in
                 //update UI Here
+                
             }
         }
     }
