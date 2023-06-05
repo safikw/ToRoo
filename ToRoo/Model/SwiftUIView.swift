@@ -5,16 +5,10 @@
 //  Created by Safik Widiantoro on 04/06/23.
 //
 
-import SwiftUI
+import Foundation
 
-struct SwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
-    }
+struct Sleep: Identifiable {
+    let id = UUID()
+    let count: Int
+    let date: Date
 }
