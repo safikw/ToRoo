@@ -13,13 +13,11 @@ class SleepStore: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
     
-    
     init() {
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         }
     }
-    
     
     func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
@@ -59,7 +57,7 @@ class SleepStore: ObservableObject {
             return
         }
         
-        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 3, sortDescriptors: nil) { query, results, error in
             if error != nil {
                 // Handle error
                 return
@@ -106,6 +104,7 @@ class SleepStore: ObservableObject {
             
             // Create a SleepEntry object and add it to the sleepData array
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
+            let chartEntry = SleepChartData(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages)
             sleepData.append(sleepEntry)
         }
         

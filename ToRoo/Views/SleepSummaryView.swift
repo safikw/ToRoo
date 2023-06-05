@@ -12,7 +12,6 @@ import HealthKit
 struct SleepSummaryView: View {
     @StateObject var healthStore = SleepStore()
     
-    
     var body: some View {
         List(healthStore.sleepData) { sleep in
             VStack(alignment: .leading) {
@@ -41,7 +40,6 @@ struct SleepSummaryView: View {
         //request access healthStore
         .onAppear() {
             healthStore.requestAuthorization()
-            
         }
         
     }

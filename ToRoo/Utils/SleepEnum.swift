@@ -29,3 +29,7 @@ struct SleepEntry: Identifiable {
     let duration: TimeInterval
 }
 
+enum Constants {
+    static let previewChartHeight: CGFloat = 100
+    static let detailChartHeight: CGFloat = 300
+}
