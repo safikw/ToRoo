@@ -10,6 +10,7 @@
     <entity name="SleepRecords" representedClassName="SleepRecords" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="sleepStages" optional="YES" attributeType="Transformable"/>
+        <attribute name="totalSleep" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="sleepRecords" inverseEntity="Character"/>
     </entity>
 </model>

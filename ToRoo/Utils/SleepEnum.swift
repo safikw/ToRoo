@@ -8,15 +8,24 @@
 import Foundation
 
 public enum HKCategoryValueSleepAnalysis : Int {
-    case InBed = 0
+    case InBed
     
-    case asleepUnspecified = 1
+    case asleepUnspecified
     
-    case awake = 2
+    case awake
     
-    case asleepCore = 3
+    case asleepCore
     
-    case asleepDeep = 4
+    case asleepDeep
     
-    case asleepREM = 5
+    case asleepREM
 }
+
+struct SleepEntry: Identifiable {
+    var id = UUID()
+    let startDate: Date
+    let endDate: Date
+    let sleepStages: HKCategoryValueSleepAnalysis
+    let duration: TimeInterval
+}
+
