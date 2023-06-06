@@ -10,6 +10,7 @@ import CoreData
 import HealthKit
 
 struct ContentView: View {
+    @StateObject var healthStore = SleepStore()
 
 //    @Environment(\.managedObjectContext) private var viewContext
 //
@@ -19,8 +20,8 @@ struct ContentView: View {
 //    private var items: FetchedResults<Item>
     
     var body: some View {
-        TimeBarChartView()
-        SleepSummaryView()
+        TimeBarChartView(healthStore: healthStore)
+        SleepSummaryView(healthStore: healthStore)
     }
 }
 

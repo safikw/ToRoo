@@ -10,7 +10,8 @@ import HealthKit
 
 
 struct SleepSummaryView: View {
-    @StateObject var healthStore = SleepStore()
+    
+    @ObservedObject var healthStore: SleepStore
     
     var body: some View {
         List(healthStore.sleepData) { sleep in
@@ -18,22 +19,23 @@ struct SleepSummaryView: View {
                 Text("Start: \(healthStore.formatDate(sleep.startDate))")
                 Text("End: \(healthStore.formatDate(sleep.endDate))")
                 Text("Duration: \(healthStore.formatDuration(sleep.duration))")
-                switch sleep.sleepStages.rawValue {
-                case 0:
-                    Text("Sleep Stages: InBed")
-                case 1:
-                    Text("Sleep Stages: asleepUnspecified")
-                case 2:
-                    Text("Sleep Stages: awake")
-                case 3:
-                    Text("Sleep Stages: asleepCore")
-                case 4:
-                    Text("Sleep Stages: asleepDeep")
-                case 5:
-                    Text("Sleep Stages: asleepREM")
-                default:
-                    Text("Sleep Stages: asleepUnspecified")
-                }
+                Text("Sleep Stages:\(sleep.sleepStages)")
+//                switch sleep.sleepStages.rawValue {
+//                case 0:
+//                    Text("Sleep Stages: InBed")
+//                case 1:
+//                    Text("Sleep Stages: asleepUnspecified")
+//                case 2:
+//                    Text("Sleep Stages: awake")
+//                case 3:
+//                    Text("Sleep Stages: asleepCore")
+//                case 4:
+//                    Text("Sleep Stages: asleepDeep")
+//                case 5:
+//                    Text("Sleep Stages: asleepREM")
+//                default:
+//                    Text("Sleep Stages: asleepUnspecified")
+//                }
                 
             }
         }  

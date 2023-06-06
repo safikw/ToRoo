@@ -21,11 +21,12 @@ public enum HKCategoryValueSleepAnalysis : Int {
     case asleepREM
 }
 
+
 struct SleepEntry: Identifiable {
     var id = UUID()
     let startDate: Date
     let endDate: Date
-    let sleepStages: HKCategoryValueSleepAnalysis
+    let sleepStages: String
     let duration: TimeInterval
 }
 

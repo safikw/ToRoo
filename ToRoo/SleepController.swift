@@ -12,6 +12,11 @@ import HealthKit
 class SleepStore: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
+    let mockData: [SleepEntry] = [
+        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Core", duration: 14977.496917009354),
+        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Rem", duration: 14977.496917009354),
+        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Deep", duration: 14977.496917009354),
+    ]
     
     init() {
         if HKHealthStore.isHealthDataAvailable() {
@@ -57,7 +62,7 @@ class SleepStore: ObservableObject {
             return
         }
         
-        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 3, sortDescriptors: nil) { query, results, error in
+        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
             if error != nil {
                 // Handle error
                 return
@@ -83,20 +88,20 @@ class SleepStore: ObservableObject {
             let endDate = sample.endDate
             
             // Determine the sleep quality based on the value of the sample
-            let sleepStages: HKCategoryValueSleepAnalysis
+            let sleepStages: String
             switch sample.value {
             case HKCategoryValueSleepAnalysis.InBed.rawValue:
-                sleepStages = .InBed
+                sleepStages = "In Bed"
             case HKCategoryValueSleepAnalysis.awake.rawValue:
-                sleepStages = .awake
+                sleepStages = "Awake"
             case HKCategoryValueSleepAnalysis.asleepREM.rawValue:
-                sleepStages = .asleepREM
+                sleepStages = "REM"
             case HKCategoryValueSleepAnalysis.asleepDeep.rawValue:
-                sleepStages = .asleepDeep
+                sleepStages = "Deep"
             case HKCategoryValueSleepAnalysis.asleepCore.rawValue:
-                sleepStages = .asleepCore
+                sleepStages = "Core"
             default:
-                sleepStages = .asleepUnspecified
+                sleepStages = "Unis"
             }
             
             // Calculate the duration of the sleep sample
@@ -104,8 +109,9 @@ class SleepStore: ObservableObject {
             
             // Create a SleepEntry object and add it to the sleepData array
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
-            let chartEntry = SleepChartData(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages)
+            
             sleepData.append(sleepEntry)
+//            print(sleepData)
         }
         
         DispatchQueue.main.async {
