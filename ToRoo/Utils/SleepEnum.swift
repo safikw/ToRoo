@@ -21,11 +21,19 @@ public enum HKCategoryValueSleepAnalysis : Int {
     case asleepREM
 }
 
+func date(year: Int, month: Int, day: Int = 1, hour: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date {
+    Calendar.current.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minutes, second: seconds)) ?? Date()
+}
+
 struct SleepEntry: Identifiable {
     var id = UUID()
     let startDate: Date
     let endDate: Date
-    let sleepStages: HKCategoryValueSleepAnalysis
+    let sleepStages: String
     let duration: TimeInterval
 }
 
+enum Constants {
+    static let previewChartHeight: CGFloat = 100
+    static let detailChartHeight: CGFloat = 300
+}

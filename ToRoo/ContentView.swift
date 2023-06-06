@@ -10,6 +10,7 @@ import CoreData
 import HealthKit
 
 struct ContentView: View {
+    @StateObject var healthStore = SleepStore()
 
 //    @Environment(\.managedObjectContext) private var viewContext
 //
@@ -19,13 +20,14 @@ struct ContentView: View {
 //    private var items: FetchedResults<Item>
     
     var body: some View {
-        SleepSummaryView()
+        TimeBarChartView(healthStore: healthStore)
+        SleepSummaryView(healthStore: healthStore)
     }
 }
 
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//        ContentView()
 //    }
 //}
