@@ -10,13 +10,17 @@ import Charts
 
 struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
+    private let startOfOpeningHours = date(year: 2023, month: 6, day: 05, hour: 00, minutes: 00)
+    private let endOfOpeningHours = date(year: 2023, month: 6, day: 05, hour: 23, minutes: 59)
 
     
     var body: some View {
         EventChart(events: healthStore.sleepData,
-                   chartXScaleRangeStart: getScaleRange(hour: 1, minute: 0, second: 0),
-                   chartXScaleRangeEnd: Date())
+                   chartXScaleRangeStart: startOfOpeningHours,
+                   chartXScaleRangeEnd: endOfOpeningHours)
     }
+    
+
     
     func getScaleRange(hour: Int, minute: Int, second: Int) -> Date{
         let calendar = Calendar.current
@@ -40,6 +44,8 @@ struct TimeBarChartView: View {
         return rangeDate
     }
 }
+
+
 struct EventChart: View {
     @State private var plotWidth: CGFloat = 0
     var events: [SleepEntry]
@@ -56,6 +62,7 @@ struct EventChart: View {
                             y: .value("stages", event.sleepStages)
                         )
                         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .foregroundStyle(getForegroundColor(stages: event.sleepStages))
                     }
                 }
             }
@@ -63,6 +70,30 @@ struct EventChart: View {
             .frame(height: Constants.detailChartHeight)
             .chartXScale(domain: chartXScaleRangeStart...chartXScaleRangeEnd)
         }
+    }
+    private func getForegroundColor(stages: String) -> AnyGradient {
+        
+        let stageColors: [String: Color] = [
+            "Core": .cyan,
+            "Deep": .blue,
+            "REM": .purple,
+            "Awake": .orange,
+            "In Bed": .brown,
+            "Unis": .black
+        ]
+//        let color = stageColors[stages]
+//        switch HKCategoryValueSleepAnalysis.RawValue(){
+//        case 0 :
+//            return color!.gradient
+//        default :
+//            return color!.gradient
+//
+//        }
+        
+        if let color = stageColors[stages] {
+            return color.gradient
+        }
+        return Color.gray.gradient
     }
 }
 
