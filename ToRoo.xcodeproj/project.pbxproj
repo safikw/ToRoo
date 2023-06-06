@@ -73,6 +73,25 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		A2A6B7F12A2FA01100048231 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */,
+				A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */,
+				A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */,
+				A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		A2A6B7F22A2FA01F00048231 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				74B121812A2D8E780080CF55 /* TimeBarChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		A2EF5B542A252323001EBA7B = {
 			isa = PBXGroup;
 			children = (
@@ -126,11 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */,
-				74B121812A2D8E780080CF55 /* TimeBarChartView.swift */,
-				A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */,
-				A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */,
-				A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */,
-				A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */,
+				A2A6B7F22A2FA01F00048231 /* Chart */,
+				A2A6B7F12A2FA01100048231 /* Date */,
 			);
 			path = Views;
 			sourceTree = "<group>";

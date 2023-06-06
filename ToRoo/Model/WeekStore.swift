@@ -20,10 +20,15 @@ class WeekStore: ObservableObject {
             calcWeeks(with: selectedDate)
         }
     }
+    
+    @Published var dayChart: Int
+
 
     init(with date: Date = Date()) {
+        self.dayChart = Int(date.toString(format: "dd"))!
         self.selectedDate = Calendar.current.startOfDay(for: date)
         calcWeeks(with: selectedDate)
+//        self.dayChart = self.selectedDate.toString(format: "dd")
     }
 
     private func calcWeeks(with date: Date) {

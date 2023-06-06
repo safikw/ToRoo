@@ -59,8 +59,8 @@ struct WeekHeaderView: View {
     }
 }
 
-struct WeekHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeekHeaderView()
-    }
-}
+//struct WeekHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WeekHeaderView()
+//    }
+//}

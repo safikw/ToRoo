@@ -24,7 +24,7 @@ struct ContentView: View {
         VStack{
             InfiniteWeekView()
                 .environmentObject(weekStore)
-            TimeBarChartView(healthStore: healthStore)
+            TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
             SleepSummaryView(healthStore: healthStore)
         }
         
