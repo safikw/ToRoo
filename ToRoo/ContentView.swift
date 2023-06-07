@@ -11,6 +11,7 @@ import HealthKit
 
 struct ContentView: View {
     @StateObject var healthStore = SleepStore()
+    @StateObject var weekStore: WeekStore = WeekStore()
 
 //    @Environment(\.managedObjectContext) private var viewContext
 //
@@ -20,8 +21,13 @@ struct ContentView: View {
 //    private var items: FetchedResults<Item>
     
     var body: some View {
-        TimeBarChartView(healthStore: healthStore)
-        SleepSummaryView(healthStore: healthStore)
+        VStack{
+            InfiniteWeekView()
+                .environmentObject(weekStore)
+            TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+            SleepSummaryView(healthStore: healthStore)
+        }
+        
     }
 }
 

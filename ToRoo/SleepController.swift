@@ -12,11 +12,6 @@ import HealthKit
 class SleepStore: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
-//    let mockData: [SleepEntry] = [
-//        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Core", duration: 14977.496917009354),
-//        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Rem", duration: 14977.496917009354),
-//        SleepEntry(id: UUID(), startDate: Date(), endDate: Date(), sleepStages: "Deep", duration: 14977.496917009354),
-//    ]
     
     init() {
         if HKHealthStore.isHealthDataAvailable() {

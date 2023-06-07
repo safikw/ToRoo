@@ -10,8 +10,17 @@ import Charts
 
 struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
-    private let startOfOpeningHours = date(year: 2023, month: 6, day: 05, hour: 00, minutes: 00)
-    private let endOfOpeningHours = date(year: 2023, month: 6, day: 05, hour: 23, minutes: 59)
+    @EnvironmentObject var weekStore: WeekStore
+    let dayChart: String
+    private var startOfOpeningHours: Date
+    private var endOfOpeningHours: Date
+
+    init(healthStore: SleepStore, weekStore: WeekStore) {
+        self.healthStore = healthStore
+        self.dayChart = weekStore.selectedDate.toString(format: "dd")
+        self.startOfOpeningHours = date(year: 2023, month: 6, day: Int(dayChart)!, hour: 00, minutes: 00)
+        self.endOfOpeningHours = date(year: 2023, month: 6, day: Int(dayChart)!, hour: 23, minutes: 59)
+    }
 
     
     var body: some View {
@@ -99,6 +108,6 @@ struct EventChart: View {
 
 struct TimeBarChartView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeBarChartView(healthStore: SleepStore())
+        TimeBarChartView(healthStore: SleepStore(), weekStore: WeekStore())
     }
 }
