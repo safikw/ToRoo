@@ -20,22 +20,6 @@ struct SleepSummaryView: View {
                 Text("End: \(healthStore.formatDate(sleep.endDate))")
                 Text("Duration: \(healthStore.formatDuration(sleep.duration))")
                 Text("Sleep Stages:\(sleep.sleepStages)")
-//                switch sleep.sleepStages.rawValue {
-//                case 0:
-//                    Text("Sleep Stages: InBed")
-//                case 1:
-//                    Text("Sleep Stages: asleepUnspecified")
-//                case 2:
-//                    Text("Sleep Stages: awake")
-//                case 3:
-//                    Text("Sleep Stages: asleepCore")
-//                case 4:
-//                    Text("Sleep Stages: asleepDeep")
-//                case 5:
-//                    Text("Sleep Stages: asleepREM")
-//                default:
-//                    Text("Sleep Stages: asleepUnspecified")
-//                }
                 
             }
         }  
