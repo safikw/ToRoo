@@ -116,7 +116,6 @@
 				A2EF5BA02A2799BE001EBA7B /* Views */,
 				A2EF5B9D2A278E06001EBA7B /* Model */,
 				A2EF5B602A252324001EBA7B /* ToRooApp.swift */,
-				A2EF5B9E2A278E16001EBA7B /* SleepController.swift */,
 				A2EF5B622A252324001EBA7B /* ContentView.swift */,
 				A2EF5B642A252325001EBA7B /* Assets.xcassets */,
 				A2EF5B6B2A252325001EBA7B /* ToRoo.xcdatamodeld */,
@@ -137,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A6B7E42A2F9B8800048231 /* WeekStore.swift */,
+				A2EF5B9E2A278E16001EBA7B /* SleepController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -60,9 +60,8 @@ struct WeekView: View {
                     .cornerRadius(10)
 
                     .onTapGesture {
-                        withAnimation {
                             weekStore.selectedDate = week.dates[i]
-                        }
+                        
                     }
                     .frame(maxWidth: .infinity)
                 

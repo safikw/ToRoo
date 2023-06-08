@@ -40,8 +40,6 @@ struct WeekHeaderView: View {
                     DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
                         .datePickerStyle(.compact)
                                     .labelsHidden()
-//                                    .frame(width: 24)
-                    
                     SwiftUIWrapper{
                                         Image(systemName: "calendar")
                                             .font(.system(size: 24))
@@ -49,10 +47,7 @@ struct WeekHeaderView: View {
                                     }
                                     .allowsHitTesting(false)
                                     .frame(height: 35)
-//                                    .userInteractionDisabled()
 
-//
-                    
             }
 //            .padding(.init(top: 5, leading: 10, bottom: -3, trailing: 8))
         }

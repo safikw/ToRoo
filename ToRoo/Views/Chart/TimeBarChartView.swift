@@ -14,19 +14,27 @@ struct TimeBarChartView: View {
     let dayChart: String
     private var startOfOpeningHours: Date
     private var endOfOpeningHours: Date
-
     init(healthStore: SleepStore, weekStore: WeekStore) {
         self.healthStore = healthStore
         self.dayChart = weekStore.selectedDate.toString(format: "dd")
         self.startOfOpeningHours = date(year: 2023, month: 6, day: Int(dayChart)!, hour: 00, minutes: 00)
         self.endOfOpeningHours = date(year: 2023, month: 6, day: Int(dayChart)!, hour: 23, minutes: 59)
     }
+    
 
     
     var body: some View {
+
         EventChart(events: healthStore.sleepData,
                    chartXScaleRangeStart: startOfOpeningHours,
                    chartXScaleRangeEnd: endOfOpeningHours)
+    }
+    
+    func formatDuration(_ duration: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: duration) ?? ""
     }
     
 
@@ -57,11 +65,16 @@ struct TimeBarChartView: View {
 
 struct EventChart: View {
     @State private var plotWidth: CGFloat = 0
-    var events: [SleepEntry]
+    @State var events: [SleepEntry]
     var chartXScaleRangeStart: Date
     var chartXScaleRangeEnd: Date
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
+            
+            ForEach(events.indices, id: \.self) { event in
+                Text("\(event)")
+            }
+            
             Chart {
                 ForEach(events, id: \.startDate) { event in
                     Plot {
@@ -80,6 +93,7 @@ struct EventChart: View {
             .chartXScale(domain: chartXScaleRangeStart...chartXScaleRangeEnd)
         }
     }
+
     private func getForegroundColor(stages: String) -> AnyGradient {
         
         let stageColors: [String: Color] = [
@@ -90,15 +104,6 @@ struct EventChart: View {
             "In Bed": .brown,
             "Unis": .black
         ]
-//        let color = stageColors[stages]
-//        switch HKCategoryValueSleepAnalysis.RawValue(){
-//        case 0 :
-//            return color!.gradient
-//        default :
-//            return color!.gradient
-//
-//        }
-        
         if let color = stageColors[stages] {
             return color.gradient
         }
@@ -106,8 +111,8 @@ struct EventChart: View {
     }
 }
 
-struct TimeBarChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeBarChartView(healthStore: SleepStore(), weekStore: WeekStore())
-    }
-}
+//struct TimeBarChartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeBarChartView(healthStore: SleepStore(), weekStore: WeekStore(), sleepEntry: SleepEntry)
+//    }
+//}
