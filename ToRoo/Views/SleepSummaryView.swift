@@ -16,23 +16,35 @@ struct SleepSummaryView: View {
     
     
     var body: some View {
-        VStack{
-            TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
-            List(healthStore.sleepData) { sleep in
-                VStack(alignment: .leading) {
-                    Text("Start: \(healthStore.formatDate(sleep.startDate))")
-                    Text("End: \(healthStore.formatDate(sleep.endDate))")
-                    Text("Duration: \(healthStore.formatDuration(sleep.duration))")
-                    Text("Sleep Stages:\(sleep.sleepStages)")
-                    
-                }
+        
+        
+        
+        ScrollView(.vertical){
+            VStack(spacing: 20){
+                InfiniteWeekView()
+                    .environmentObject(weekStore)
+//                List(healthStore.sleepData) { sleep in
+//                    VStack(alignment: .leading) {
+//                        Text("Start: \(healthStore.formatDate(sleep.startDate))")
+//                        Text("End: \(healthStore.formatDate(sleep.endDate))")
+//                        Text("Duration: \(healthStore.formatDuration(sleep.duration))")
+//                        Text("Sleep Stages:\(sleep.sleepStages)")
+//
+//                    }
+//                }.frame(height: 100)
+                
+                
+                TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
+                
+                
+                
             }
             //request access healthStore
             .onAppear() {
                 healthStore.requestAuthorization()
             }
         }
-
         
     }
     

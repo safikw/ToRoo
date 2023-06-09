@@ -13,18 +13,16 @@ struct InfiniteWeekView: View {
 //    @State var tasks: [Task] = MockTasks().all()
 
     var body: some View {
-        GeometryReader { geometry in
-            NavigationStack {
-                ZStack {
-                    VStack {
-                        WeekHeaderView()
-                        WeeksTabView() { week in
-                            WeekView(week: week)
-                        }.frame(height: 150)
-                    }
-                }
+                        VStack {
+                            WeekHeaderView()
+                            WeeksTabView() { week in
+                                WeekView(week: week)
+                            }
+                    
+                
             }
-        }
+        
+        
     }
 }
 

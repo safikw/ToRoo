@@ -13,13 +13,8 @@ struct ContentView: View {
     @StateObject var weekStore: WeekStore = WeekStore()
     
     var body: some View {
-        VStack{
-            InfiniteWeekView()
-                .environmentObject(weekStore)
-            TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
-            OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
-            SleepSummaryView(healthStore: healthStore)
-        }
+        SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+        
 
         
     }

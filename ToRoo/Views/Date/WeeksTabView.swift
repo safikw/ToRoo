@@ -41,6 +41,7 @@ struct WeeksTabView<Content: View>: View {
                 .frame(maxWidth: .infinity)
                 .tag(2)
         }
+        .frame(height: 200)
         .tabViewStyle(.page(indexDisplayMode: .never))
         .onChange(of: activeTab) { value in
             if value == 0 {
