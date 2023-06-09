@@ -81,6 +81,7 @@ class SleepStore: ObservableObject {
         for sample in samples {
             let startDate = sample.startDate
             let endDate = sample.endDate
+
             
             // Determine the sleep quality based on the value of the sample
             let sleepStages: String
@@ -96,14 +97,22 @@ class SleepStore: ObservableObject {
             case HKCategoryValueSleepAnalysis.asleepCore.rawValue:
                 sleepStages = "Core"
             default:
-                sleepStages = "Unis"
+                sleepStages = "Unspecified"
             }
             
             // Calculate the duration of the sleep sample
             let duration = endDate.timeIntervalSince(startDate)
             
+            let filteredEntries = sleepData.filter { entry in
+                entry.startDate >= startDate && entry.endDate <= endDate && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
+            }
+            
+
+            let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+            let percentage = duration / totalDuration * 100
+            
             // Create a SleepEntry object and add it to the sleepData array
-            let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
+            let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration, percentage: percentage)
             
             sleepData.append(sleepEntry)
 //            print(sleepData)

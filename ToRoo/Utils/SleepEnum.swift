@@ -31,6 +31,24 @@ struct SleepEntry: Identifiable, Equatable{
     let endDate: Date
     let sleepStages: String
     let duration: TimeInterval
+    let percentage: Double
+    
+    init(id: UUID = UUID(), startDate: Date, endDate: Date, sleepStages: String, duration: TimeInterval, percentage: Double) {
+        self.id = id
+        self.startDate = startDate
+        self.endDate = endDate
+        self.sleepStages = sleepStages
+        self.duration = duration
+        self.percentage = SleepEntry.getTotalDuration(for: SleepEntry.allEntries, sleepStage: sleepStages)
+    }
+    
+    static var allEntries: [SleepEntry] = []
+    
+    static func getTotalDuration(for entries: [SleepEntry], sleepStage: String) -> TimeInterval {
+        let filteredEntries = entries.filter { $0.sleepStages == sleepStage }
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        return totalDuration
+    }
 }
 
 struct Series: Identifiable {
@@ -48,3 +66,5 @@ enum Constants {
     static let previewChartHeight: CGFloat = 100
     static let detailChartHeight: CGFloat = 300
 }
+
+

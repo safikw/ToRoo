@@ -6,19 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
 import HealthKit
 
 struct ContentView: View {
     @StateObject var healthStore = SleepStore()
     @StateObject var weekStore: WeekStore = WeekStore()
-
-//    @Environment(\.managedObjectContext) private var viewContext
-//
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
     
     var body: some View {
         VStack{
@@ -28,13 +20,14 @@ struct ContentView: View {
             OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
             SleepSummaryView(healthStore: healthStore)
         }
+
         
     }
 }
 
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
