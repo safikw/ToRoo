@@ -21,36 +21,24 @@ struct WeekView: View {
                             .fontWeight(.semibold)
                             .padding([.top, .bottom], 10)
                             .foregroundColor(week.dates[i] == week.referenceDate ?  .white : Color("CalendarHover") )
-//                            .frame(maxWidth:.infinity)
                         Spacer()
                             .frame(height: 4)
                         ZStack {
-//                            HStack{
-//                                Spacer()
-//                                    .frame(width: 5)
-//                                Circle()
-//                                    .foregroundColor(week.dates[i] == week.referenceDate ? .accentColor : .clear)
-//                                Spacer()
-//                                    .frame(width: 5)
-//                            }
                             Text(week.dates[i].toString(format: "d"))
                                 .font(.system(size: 16))
                                 .monospaced()
 //                                .frame(maxWidth: .infinity)
                                 .foregroundColor(week.dates[i] == week.referenceDate ? .white : Color("CalendarHover"))
-                            
-                            
                         }
                         ZStack{
                             Circle()
-                                .size(width: 46, height: 55)
-                                .padding(.top, -6)
+                                .size(width: 52, height: 55)
+                                .padding(.top, -4)
                                 .foregroundColor(week.dates[i] == week.referenceDate ? Color("Calendar") : .white)
                             Image("toroChar")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40)
-                            
                         }
                         
                     
@@ -58,7 +46,7 @@ struct WeekView: View {
                     .background(week.dates[i] == week.referenceDate ? Color("CalendarHover") : Color("Calendar"))
                     .frame(height: 110)
                     .cornerRadius(10)
-
+                    .shadow(radius: 5)
                     .onTapGesture {
                             weekStore.selectedDate = week.dates[i]
                         

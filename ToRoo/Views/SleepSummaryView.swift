@@ -32,8 +32,6 @@ struct SleepSummaryView: View {
 //
 //                    }
 //                }.frame(height: 100)
-                
-                
                 TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
                 

@@ -96,7 +96,7 @@ struct EventChart: View {
                                     VStack(alignment: .leading, spacing: 6) {
                                         Text("Duration: \(TimeBarChartView.getEventsTotalDuration([selectedEvent]))")
                                             .font(.body.bold())
-                                            .foregroundColor(.black)
+                                            .foregroundColor(Color("CalendarHover"))
                                     }
                                     .padding(.horizontal, 10)
                                     .padding(.vertical, 4)
