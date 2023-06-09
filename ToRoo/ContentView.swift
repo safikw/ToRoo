@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 import HealthKit
 
 struct ContentView: View {
@@ -14,13 +13,13 @@ struct ContentView: View {
     @StateObject var weekStore: WeekStore = WeekStore()
     
     var body: some View {
-       
-        VStack{
-            InfiniteWeekView()
-                .environmentObject(weekStore)
+        HomeView()
+//                InfiniteWeekView()
+//                    .environmentObject(weekStore)
+////                SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+            
+        
 
-            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-        }
         
     }
 }

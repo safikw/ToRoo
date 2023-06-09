@@ -74,20 +74,20 @@ struct WeekView: View {
     }
 }
 
-struct WeekView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeekView(week: .init(index: 1, dates:
-                                [
-                                    Date().yesterday.yesterday.yesterday,
-                                    Date().yesterday.yesterday,
-                                    Date().yesterday,
-                                    Date(),
-                                    Date().tomorrow,
-                                    Date().tomorrow.tomorrow,
-                                    Date().tomorrow.tomorrow.tomorrow
-                                ],
-                             referenceDate: Date()))
-        .environmentObject(WeekStore())
-
-    }
-}
+//struct WeekView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WeekView(week: .init(index: 1, dates:
+//                                [
+//                                    Date().yesterday.yesterday.yesterday,
+//                                    Date().yesterday.yesterday,
+//                                    Date().yesterday,
+//                                    Date(),
+//                                    Date().tomorrow,
+//                                    Date().tomorrow.tomorrow,
+//                                    Date().tomorrow.tomorrow.tomorrow
+//                                ],
+//                             referenceDate: Date()))
+//        .environmentObject(WeekStore())
+//
+//    }
+//}

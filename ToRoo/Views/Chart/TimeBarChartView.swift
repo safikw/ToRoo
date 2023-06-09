@@ -16,26 +16,36 @@ struct TimeBarChartView: View {
     let yearChart: String
     private var startOfOpeningHours: Date
     private var endOfOpeningHours: Date
+    
     init(healthStore: SleepStore, weekStore: WeekStore) {
         self.healthStore = healthStore
         self.dayChart = weekStore.selectedDate.toString(format: "dd")
         self.monthChart = weekStore.selectedDate.toString(format: "MM")
         self.yearChart = weekStore.selectedDate.toString(format: "yyyy")
         self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
-        self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 08, minutes: 59)
+        self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 23, minutes: 59)
     }
-    
+        
+        
+        var body: some View {
+            VStack{
+                let filteredEntries = healthStore.sleepData.filter { entry in
+                    entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
+                }
+                
 
-    
-    var body: some View {
-        VStack{
-            EventChart(events: healthStore.sleepData.filter{ entry in
-                return entry.sleepStages != "Unis" && entry.sleepStages != "In Bed" },
-                       chartXScaleRangeStart: startOfOpeningHours,
-                       chartXScaleRangeEnd: endOfOpeningHours)
+                let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+
+                Text("\(healthStore.formatDuration(totalDuration))")
+                
+                EventChart(events: healthStore.sleepData.filter{ entry in
+                    return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" },
+                           chartXScaleRangeStart: startOfOpeningHours,
+                           chartXScaleRangeEnd: endOfOpeningHours)
+            }
         }
-    }
-    
+        
+        
     static func getEventsTotalDuration(_ events: [SleepEntry]) -> String {
         var durationInSeconds: TimeInterval = 0
         for event in events {
@@ -52,7 +62,9 @@ struct TimeBarChartView: View {
 
         return formatter.string(from: seconds) ?? "N/A"
     }
-}
+        
+    }
+
 
 
 struct EventChart: View {
@@ -62,13 +74,9 @@ struct EventChart: View {
     var events: [SleepEntry]
     var chartXScaleRangeStart: Date
     var chartXScaleRangeEnd: Date
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            
-            ForEach(events.indices, id: \.self) { event in
-                Text("\(event)")
-            }
-            
             Chart {
                 ForEach(events, id: \.startDate) { event in
                     Plot {
@@ -112,7 +120,6 @@ struct EventChart: View {
                             SpatialTapGesture()
                                 .onEnded { value in
                                     let location = value.location
-
                                     if let date: Date = proxy.value(atX: location.x) {
                                         if let event = events.first(where: { sleepEntry in
                                             date >= sleepEntry.startDate && date <= sleepEntry.endDate
@@ -152,6 +159,8 @@ struct EventChart: View {
         }
         return Color.gray.gradient
     }
+    
+    
 }
 
 //struct TimeBarChartView_Previews: PreviewProvider {

@@ -18,15 +18,15 @@ struct SleepSummaryView: View {
     var body: some View {
         VStack{
             TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
-//            List(healthStore.sleepData) { sleep in
-//                VStack(alignment: .leading) {
-//                    Text("Start: \(healthStore.formatDate(sleep.startDate))")
-//                    Text("End: \(healthStore.formatDate(sleep.endDate))")
-//                    Text("Duration: \(healthStore.formatDuration(sleep.duration))")
-//                    Text("Sleep Stages:\(sleep.sleepStages)")
-//                    
-//                }
-//            }
+            List(healthStore.sleepData) { sleep in
+                VStack(alignment: .leading) {
+                    Text("Start: \(healthStore.formatDate(sleep.startDate))")
+                    Text("End: \(healthStore.formatDate(sleep.endDate))")
+                    Text("Duration: \(healthStore.formatDuration(sleep.duration))")
+                    Text("Sleep Stages:\(sleep.sleepStages)")
+                    
+                }
+            }
             //request access healthStore
             .onAppear() {
                 healthStore.requestAuthorization()
