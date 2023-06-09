@@ -25,6 +25,7 @@ struct ContentView: View {
             InfiniteWeekView()
                 .environmentObject(weekStore)
             TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+            OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
             SleepSummaryView(healthStore: healthStore)
         }
         

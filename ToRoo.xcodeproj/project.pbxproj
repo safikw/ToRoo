@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
 		A2A6B7E32A2F9B4300048231 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E22A2F9B4300048231 /* DateExtension.swift */; };
 		A2A6B7E52A2F9B8800048231 /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E42A2F9B8800048231 /* WeekStore.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDimensionalBarChartView.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
 		A2A6B7E22A2F9B4300048231 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A2A6B7E42A2F9B8800048231 /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				74B121812A2D8E780080CF55 /* TimeBarChartView.swift */,
+				7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */,
 				A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */,
 				A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */,
+				7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */,
 				A2A6B7EC2A2F9CB300048231 /* WeekHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
