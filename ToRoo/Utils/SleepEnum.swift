@@ -51,6 +51,17 @@ struct SleepEntry: Identifiable, Equatable{
     }
 }
 
+struct Series: Identifiable {
+    /// Data Group.
+    let category: String
+
+    /// Size of data in gigabytes?
+    let size: Double
+
+    /// The identifier for the series.
+    var id: String { category }
+}
+
 enum Constants {
     static let previewChartHeight: CGFloat = 100
     static let detailChartHeight: CGFloat = 300
