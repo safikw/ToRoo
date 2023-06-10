@@ -40,6 +40,9 @@ struct OneDimensionalBarChartView: View {
         VStack {
             HStack {
                 Text("ToRoo’s Zzzz Meter")
+                    .font(.system(size: 24))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("PrimaryColor"))
                 Spacer()
 //                Text("\(totalSize, specifier: "%.1f") GB of 100%")
 //                    .foregroundColor(.secondary)

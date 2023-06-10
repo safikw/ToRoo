@@ -65,7 +65,7 @@ struct HomeView: View {
                 }
                 Spacer()
             }
-            .background(Color("CalendarHover"))
+            .background(Color("PrimaryColor"))
             .ignoresSafeArea()
         }
     }

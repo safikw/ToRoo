@@ -20,7 +20,7 @@ struct WeekView: View {
                             .font(.system(size: 16))
                             .fontWeight(.semibold)
                             .padding([.top, .bottom], 10)
-                            .foregroundColor(week.dates[i] == week.referenceDate ?  .white : Color("CalendarHover") )
+                            .foregroundColor(week.dates[i] == week.referenceDate ?  .white : Color("PrimaryColor") )
                         Spacer()
                             .frame(height: 4)
                         ZStack {
@@ -28,13 +28,13 @@ struct WeekView: View {
                                 .font(.system(size: 16))
                                 .monospaced()
 //                                .frame(maxWidth: .infinity)
-                                .foregroundColor(week.dates[i] == week.referenceDate ? .white : Color("CalendarHover"))
+                                .foregroundColor(week.dates[i] == week.referenceDate ? .white : Color("PrimaryColor"))
                         }
                         ZStack{
                             Circle()
                                 .size(width: 52, height: 55)
                                 .padding(.top, -4)
-                                .foregroundColor(week.dates[i] == week.referenceDate ? Color("Calendar") : .white)
+                                .foregroundColor(week.dates[i] == week.referenceDate ? Color("SecondaryColor") : .white)
                             Image("toroChar")
                                 .resizable()
                                 .scaledToFit()
@@ -43,7 +43,7 @@ struct WeekView: View {
                         
                     
                     }
-                    .background(week.dates[i] == week.referenceDate ? Color("CalendarHover") : Color("Calendar"))
+                    .background(week.dates[i] == week.referenceDate ? Color("PrimaryColor") : Color("SecondaryColor"))
                     .frame(height: 110)
                     .cornerRadius(10)
                     .shadow(radius: 5)
