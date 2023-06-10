@@ -16,11 +16,8 @@ struct SleepSummaryView: View {
     
     
     var body: some View {
-        
-        
-        
         ScrollView(.vertical){
-            VStack(spacing: 20){
+            VStack(){
                 InfiniteWeekView()
                     .environmentObject(weekStore)
 //                List(healthStore.sleepData) { sleep in
@@ -40,7 +37,7 @@ struct SleepSummaryView: View {
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
-                .padding()
+                
                 
                 
                 
@@ -48,12 +45,12 @@ struct SleepSummaryView: View {
                 
                 
                 
-            }
+            }.padding()
             //request access healthStore
             .onAppear() {
                 healthStore.requestAuthorization()
             }
-        }
+        }.navigationBarBackButtonHidden(true)
         
     }
     

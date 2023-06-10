@@ -68,7 +68,6 @@ struct HomeView: View {
             .background(Color("CalendarHover"))
             .ignoresSafeArea()
         }
-
     }
 }
 
