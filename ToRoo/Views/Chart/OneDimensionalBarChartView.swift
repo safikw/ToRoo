@@ -54,8 +54,7 @@ struct OneDimensionalBarChartView: View {
                 BarMark(
                     x: .value("Data Size", element.size)
                 )
-                
-                .foregroundStyle(getForegroundColor(stages: element.category))
+                .foregroundStyle(by: .value("Data Category", element.category))
             }
         }
         .chartPlotStyle { plotArea in
