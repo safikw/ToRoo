@@ -39,10 +39,10 @@ struct OneDimensionalBarChartView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("iPhone")
+                Text("ToRoo’s Zzzz Meter")
                 Spacer()
-                Text("\(totalSize, specifier: "%.1f") GB of 100%")
-                    .foregroundColor(.secondary)
+//                Text("\(totalSize, specifier: "%.1f") GB of 100%")
+//                    .foregroundColor(.secondary)
             }
             chart
         }
@@ -54,7 +54,8 @@ struct OneDimensionalBarChartView: View {
                 BarMark(
                     x: .value("Data Size", element.size)
                 )
-                .foregroundStyle(by: .value("Data Category", element.category))
+                
+                .foregroundStyle(getForegroundColor(stages: element.category))
             }
         }
         .chartPlotStyle { plotArea in
@@ -73,6 +74,22 @@ struct OneDimensionalBarChartView: View {
         .chartLegend(position: .bottom, spacing: 8)
         .chartLegend(.visible)
         .frame(height: 50)
+    }
+    private func getForegroundColor(stages: String) -> AnyGradient {
+        
+        let stageColors: [String: Color] = [
+            "Core": .cyan,
+            "Deep": .blue,
+            "REM": .purple,
+            "Awake": .orange,
+            "In Bed": .brown,
+            "Unspecified": .black
+        ]
+        
+        if let color = stageColors[stages] {
+            return color.gradient
+        }
+        return Color.gray.gradient
     }
 }
 
@@ -109,22 +126,7 @@ extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
             series: [series]
         )
     }
-    private func getForegroundColor(stages: String) -> AnyGradient {
-        
-        let stageColors: [String: Color] = [
-            "Core": .cyan,
-            "Deep": .blue,
-            "REM": .purple,
-            "Awake": .orange,
-            "In Bed": .brown,
-            "Unspecified": .black
-        ]
-        
-        if let color = stageColors[stages] {
-            return color.gradient
-        }
-        return Color.gray.gradient
-    }
+
 }
 
 struct OneDimensionalBarChartView_Previews: PreviewProvider {

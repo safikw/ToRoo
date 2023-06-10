@@ -33,17 +33,10 @@ struct SleepSummaryView: View {
                     TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
                         .padding()
                 }
-                
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
-                
-                
-                
-                
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
-                
-                
                 
             }.padding()
             //request access healthStore

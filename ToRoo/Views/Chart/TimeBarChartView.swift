@@ -37,8 +37,15 @@ struct TimeBarChartView: View {
 
                 let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
                 
-
-                Text("\(healthStore.formatDuration(totalDuration))")
+                HStack{
+                    VStack(alignment: .leading){
+                        Text("TIME ASLEEP")
+                        Text("\(healthStore.formatDuration(totalDuration))")
+                    }
+                    
+                    Spacer()
+                }
+                
                 
                 EventChart(events: healthStore.sleepData.filter{ entry in
                     return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" },

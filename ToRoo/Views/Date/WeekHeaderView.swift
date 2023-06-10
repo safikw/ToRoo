@@ -49,8 +49,8 @@ struct WeekHeaderView: View {
                                     .frame(height: 35)
 
             }
-//            .padding(.init(top: 5, leading: 10, bottom: -3, trailing: 8))
         }
+            .padding(.bottom, -15)
     }
 }
 
