@@ -58,6 +58,7 @@ struct OneDimensionalBarChartView: View {
                     x: .value("Data Size", element.size)
                 )
                 .foregroundStyle(by: .value("Data Category", element.category))
+                .cornerRadius(30)
             }
         }
         .chartPlotStyle { plotArea in
@@ -67,7 +68,7 @@ struct OneDimensionalBarChartView: View {
                 #else
                 .background(Color(.systemFill))
                 #endif
-                .cornerRadius(8)
+                .cornerRadius(30)
         }
         .accessibilityChartDescriptor(self)
         .chartXAxis(.hidden)
