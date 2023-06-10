@@ -39,34 +39,42 @@ struct SleepSummaryView: View {
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
-                HStack{
-                    Text("Sleep Eficiency: 85%")
-                        .font(.system(size: 24))
-                        .foregroundColor(Color("CalendarHover"))
-                    
-                    Button() {
-                        showingPopover.toggle()
-                    }label: {
-                        Image(systemName: "info.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16)
-                    }
-                    .iOSPopover(isPresented: $showingPopover, arrowDirection: .up){
-                        ScrollViewReader { value in
-                            ScrollView{
-                                Text("""
-                The amount of time you spend actually sleeping while in bed is known as sleep  efficiency. This measurement should ideally be 85 percent or more for optimal health benefits\n(National Sleep Foundation, thensf.org).
-                """)
-                                .padding()
-                            }.frame(height: 155)
+                
+                    VStack{
+                        HStack{
+                            Text("Sleep Eficiency: ")
+                                .font(.system(size: 16))
+                            
+                            Button() {
+                                showingPopover.toggle()
+                            }label: {
+                                Image(systemName: "info.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 16)
+                            }
+                            .iOSPopover(isPresented: $showingPopover, arrowDirection: .up){
+                                ScrollViewReader { value in
+                                    ScrollView{
+                                        Text("""
+                        The amount of time you spend actually sleeping while in bed is known as sleep  efficiency. This measurement should ideally be 85 percent or more for optimal health benefits\n(National Sleep Foundation, thensf.org).
+                        """)
+                                        .padding()
+                                    }.frame(height: 155)
+                                }
+                            }
                         }
-                    }
+                        Text("85%")
+                            .font(.system(size: 32))
+                            .foregroundColor(Color("CalendarHover"))
+                            .fontWeight(.bold)
+                            .padding(.bottom, 10)
+                    
+
+                    
+                    
                     
                 }
-//                .padding()
-//                .background(.gray.opacity(0.2))
-//                .cornerRadius(10)
                 
                 Text("Weekly Zzz Report")
                     .font(.system(size: 24))
@@ -102,10 +110,6 @@ struct SleepSummaryView: View {
                         }
                     }
                 }
-
-                
-
-                
                 
             }.padding()
             //request access healthStore
@@ -178,7 +182,6 @@ struct PopOverController<Content: View>:UIViewControllerRepresentable{
             parent.isPresented = false
         }
     }
-
 }
 
 //custom hosting controller for wraping to it's swiftUI view size
