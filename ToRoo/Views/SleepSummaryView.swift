@@ -197,8 +197,8 @@ class CustomHostingView<Content: View>: UIHostingController<Content>{
 
 
 
-//struct SleepSummary_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SleepSummaryView()
-//    }
-//}
+struct SleepSummary_Previews: PreviewProvider {
+    static var previews: some View {
+        SleepSummaryView(healthStore: SleepStore(), weekStore: WeekStore())
+    }
+}
