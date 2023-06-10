@@ -18,9 +18,7 @@ struct InfiniteWeekView: View {
                             WeeksTabView() { week in
                                 WeekView(week: week)
                             }
-                    
-                
-            }
+                        }
         
         
     }

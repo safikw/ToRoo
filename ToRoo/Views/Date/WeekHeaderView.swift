@@ -23,9 +23,9 @@ struct WeekHeaderView: View {
                 Spacer()
                 
                 Button {
-    //                withAnimation {
+                    withAnimation {
                         weekStore.selectToday()
-    //                }
+                    }
                 } label: {
                     Text("Today")
                         .font(.system(size: 14))
@@ -40,13 +40,14 @@ struct WeekHeaderView: View {
                     DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
                         .datePickerStyle(.compact)
                                     .labelsHidden()
+                                    .frame(width: 24, height: 35)
                     SwiftUIWrapper{
                                         Image(systemName: "calendar")
                                             .font(.system(size: 24))
                                             .foregroundColor(.primary)
                                     }
+                    
                                     .allowsHitTesting(false)
-                                    .frame(height: 35)
 
             }
         }

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct WeeklyReportView: View {
     var body: some View {
+        VStack(alignment: .leading){
         Text("Weekly Zzz Report")
-            .font(.system(size: 24))
+                .font(.sfRoundedBold(fontSize: 32))
             .fontWeight(.bold)
             .foregroundColor(Color("PrimaryColor"))
         Text(
@@ -18,6 +19,7 @@ struct WeeklyReportView: View {
         Behold, your Weekly Zzz Report is revealed! It's the golden nugget that unveils your typical time spent in dreamland. Armed with this knowledge, you'll conquer the freelance realm with vigor and vitality.
         """
         )
+        .font(.body)
         Text("Your average sleep hour is:")
             .foregroundColor(Color("PrimaryColor"))
         HStack{
@@ -25,9 +27,18 @@ struct WeeklyReportView: View {
                 Circle()
                     .frame(width: 180)
                     .foregroundColor(Color.gray.opacity(0.2))
+                Circle()
+                    .frame(width: 150)
+                    .foregroundColor(Color.white)
                 VStack{
                     Text("2.6hr")
+                        .font(.system(size: 48))
+                        .foregroundColor(.red)
+                    Text("on average this week")
+                        .foregroundColor(.red)
+                        .font(.caption)
                     Text("4 - 11 May 2023")
+                        .font(.caption)
                 }
             }
             
@@ -44,7 +55,8 @@ struct WeeklyReportView: View {
                 }
             }
         }
-    }
+        }
+}
 }
 
 struct WeeklyReportView_Previews: PreviewProvider {

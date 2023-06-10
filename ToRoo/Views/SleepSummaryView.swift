@@ -14,23 +14,14 @@ struct SleepSummaryView: View {
     @ObservedObject var healthStore: SleepStore
     @ObservedObject var weekStore: WeekStore
     
-    @State var showingPopover = false
-    
     
     var body: some View {
         ScrollView(.vertical){
-            VStack(alignment: .leading){
+            VStack{
                 InfiniteWeekView()
                     .environmentObject(weekStore)
-                //                List(healthStore.sleepData) { sleep in
-                //                    VStack(alignment: .leading) {
-                //                        Text("Start: \(healthStore.formatDate(sleep.startDate))")
-                //                        Text("End: \(healthStore.formatDate(sleep.endDate))")
-                //                        Text("Duration: \(healthStore.formatDuration(sleep.duration))")
-                //                        Text("Sleep Stages:\(sleep.sleepStages)")
-                //
-                //                    }
-                //                }.frame(height: 100)
+                
+                
                 VStack{
                     TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
                         .padding()
@@ -38,46 +29,19 @@ struct SleepSummaryView: View {
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
+                
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
                 
-                VStack(alignment: .leading){
-                    Text("Sleep Eficiency: ")
-                        .font(.system(size: 16))
-                    HStack(alignment: .top){
-                        Text("85%")
-                            .font(.system(size: 32))
-                            .foregroundColor(Color("PrimaryColor"))
-                            .fontWeight(.bold)
-                            .padding(.bottom, 10)
-                        Button() {
-                            showingPopover.toggle()
-                        }label: {
-                            Image(systemName: "info.circle")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 16)
-                        }
-                        .iOSPopover(isPresented: $showingPopover, arrowDirection: .up){
-                            ScrollViewReader { value in
-                                ScrollView{
-                                    Text("""
-                        The amount of time you spend actually sleeping while in bed is known as sleep  efficiency. This measurement should ideally be 85 percent or more for optimal health benefits\n(National Sleep Foundation, thensf.org).
-                        """)
-                                    .padding()
-                                }.frame(height: 155)
-                            }
-                        }
-                    }
-                }
+                
                 
                 WeeklyReportView()
-                
-            }.padding()
+            }.padding([.leading,.trailing], 10)
             //request access healthStore
-                .onAppear() {
-                    healthStore.requestAuthorization()
-                }
-        }.navigationBarBackButtonHidden(true)
+            .onAppear() {
+                healthStore.requestAuthorization()
+            }
+        }
+        .navigationBarBackButtonHidden(true)
         
     }
     
