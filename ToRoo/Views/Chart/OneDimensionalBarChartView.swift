@@ -27,7 +27,7 @@ struct OneDimensionalBarChartView: View {
         self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
         self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 08, minutes: 59)
         self.data = healthStore.sleepData.filter{ entry in
-            return entry.sleepStages != "Unis" && entry.sleepStages != "In Bed" && entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours}.map{entry in
+            return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" && entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours}.map{entry in
                 return (category: entry.sleepStages, size: entry.duration)
             }
     }
@@ -108,6 +108,22 @@ extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
             additionalAxes: [],
             series: [series]
         )
+    }
+    private func getForegroundColor(stages: String) -> AnyGradient {
+        
+        let stageColors: [String: Color] = [
+            "Core": .cyan,
+            "Deep": .blue,
+            "REM": .purple,
+            "Awake": .orange,
+            "In Bed": .brown,
+            "Unspecified": .black
+        ]
+        
+        if let color = stageColors[stages] {
+            return color.gradient
+        }
+        return Color.gray.gradient
     }
 }
 

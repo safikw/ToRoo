@@ -32,7 +32,18 @@ struct SleepSummaryView: View {
 //
 //                    }
 //                }.frame(height: 100)
-                TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+                VStack{
+                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+                        .padding()
+                }
+                
+                .frame(maxWidth: .infinity)
+                .background(.gray.opacity(0.2))
+                .cornerRadius(10)
+                .padding()
+                
+                
+                
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
                 
                 

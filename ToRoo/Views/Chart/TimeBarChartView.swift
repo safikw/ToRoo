@@ -25,6 +25,7 @@ struct TimeBarChartView: View {
         self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
         self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 23, minutes: 59)
     }
+    
         
         
         var body: some View {
@@ -35,6 +36,7 @@ struct TimeBarChartView: View {
                 
 
                 let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+                
 
                 Text("\(healthStore.formatDuration(totalDuration))")
                 
