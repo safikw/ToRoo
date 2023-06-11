@@ -60,10 +60,6 @@ struct SleepFilteringFunc {
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages == "Unspecified"
         }
-        
-//        print(getStartsOfWeek()!)
-//        print(getEndsOfWeek()!)
-        
         let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
         //formatter hour
         let formatter = DateComponentsFormatter()
@@ -74,6 +70,22 @@ struct SleepFilteringFunc {
         
         return formattedTotalDuration
     }
+    
+    static func calculateComparationTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+        let filteredEntries = sleepData.filter { entry in
+            entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "Unspecified"
+        }
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        //formatter hour
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+
+        let formattedTotalDuration = formatter.string(from: TimeInterval(totalDuration))!
+        
+        return formattedTotalDuration
+    }
+    
     
     static func getStartsOfWeek()-> (Date)?{
             let calendar = Calendar.current
@@ -88,9 +100,31 @@ struct SleepFilteringFunc {
             return startOfPreviousWeek
         }
     
-    static func getEndsOfWeek()-> (Date)?{
+    static func getStartsOfPreviousPreviousWeek()-> (Date)?{
             let calendar = Calendar.current
             let currentDate = Date()
+            
+            guard let startOfWeek = calendar.date(byAdding: .weekOfYear, value: -2, to: currentDate),
+                  let startOfPreviousWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startOfWeek))
+            else {
+                return nil
+            }
+            
+            return startOfPreviousWeek
+        }
+    
+    static func getEndsOfPreviousPreviousWeek()-> (Date)?{
+            let calendar = Calendar.current
+            
+        guard let endOfPreviousWeek = calendar.date(byAdding: .day, value: +7, to: getStartsOfPreviousPreviousWeek() ?? Date()) else {
+            return nil
+        }
+            
+            return endOfPreviousWeek
+        }
+    
+    static func getEndsOfWeek()-> (Date)?{
+            let calendar = Calendar.current
             
         guard let endOfPreviousWeek = calendar.date(byAdding: .day, value: +7, to: getStartsOfWeek() ?? Date()) else {
             return nil

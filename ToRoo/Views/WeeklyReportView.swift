@@ -14,6 +14,7 @@ struct WeeklyReportView: View {
         let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)
         let startsOfWeek = SleepFilteringFunc.rangeStartsWeekFormatter()
         let endsOfWeek = SleepFilteringFunc.rangeEndsWeekFormatter()
+        let totalPreviousWeekDuration = SleepFilteringFunc.calculateComparationTotalWeekDuration(sleepData: healthStore.sleepData)
         
         VStack(alignment: .leading){
         Text("Weekly Zzz Report")
@@ -38,14 +39,13 @@ struct WeeklyReportView: View {
                     .foregroundColor(Color.white)
                 VStack{
                     Text("\(totalWeekDuration)")
-                        .font(.sfRoundedBold(fontSize: 36))
-                        .foregroundColor(.red)
+                        .font(.sfRoundedBold(fontSize: 32))
                     Text("on average this week")
                         .font(.sfRoundedRegular(fontSize: 12))
-                        .foregroundColor(.red)
                     Text("\(startsOfWeek) - \(endsOfWeek)")
                         .font(.sfRoundedRegular(fontSize: 12))
-                }
+                        .foregroundColor(.black)
+                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
             }
             
             ZStack{
@@ -56,9 +56,15 @@ struct WeeklyReportView: View {
                     .frame(width: 150)
                     .foregroundColor(Color.white)
                 VStack{
-                    Text("2.6hr")
-                    Text("4 - 11 May 2023")
-                }
+                    Image( totalWeekDuration < totalPreviousWeekDuration ? "ToroDecreased" : "ToroIncreased")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70)
+                    Text(totalWeekDuration < totalPreviousWeekDuration ? "decreased" : "increased")
+                        .font(.sfRoundedMedium(fontSize: 12))
+                    Text("compared to last week")
+                        .font(.sfRoundedRegular(fontSize: 12))
+                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
             }
         }
         }
