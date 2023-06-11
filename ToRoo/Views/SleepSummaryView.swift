@@ -17,16 +17,13 @@ struct SleepSummaryView: View {
     
     var body: some View {
         
-        
-        
         ScrollView(.vertical){
             VStack(alignment: .leading){
                 InfiniteWeekView()
                     .environmentObject(weekStore)
                 
-                
                 VStack{
-                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate)
+                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate, sleepData: healthStore.sleepData)
                         .padding()
                 }
                 .frame(maxWidth: .infinity)
@@ -35,9 +32,6 @@ struct SleepSummaryView: View {
                 
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
                 SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
-                
-                
-                
                 WeeklyReportView()
             }.padding([.leading,.trailing], 10)
             //request access healthStore

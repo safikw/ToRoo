@@ -13,20 +13,32 @@ struct OneDimensionalBarChartView: View {
     @EnvironmentObject var weekStore: WeekStore
     var data: [(category: String, size: Double)] = []
     var selectedDay: Date
+    private var totalPercentage: Double {
+        let totalDuration = data.reduce(0) { $0 + $1.size }
+        return (totalDuration / totalSize) * 100
+    }
 
     
     init(healthStore: SleepStore, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
         self.healthStore = healthStore
-        self.data = healthStore.sleepData.filter{ entry in
-            return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" && entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay)}.map{entry in
-                return (category: entry.sleepStages, size: entry.duration)
-            }
+        self.data = healthStore.sleepData
+            .filter { entry in
+                 return entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay)
+             }
+             .reduce(into: [:]) { dict, entry in
+                 dict[entry.sleepStages, default: 0] += entry.duration
+             }
+             .map { category, totalDuration in
+                 return (category: category, size: totalDuration )
+             }
         self.selectedDay = selectedDay
         
+        
     }
+    
     private var totalSize: Double {
         data
-            .reduce(0) { $0 + $1.size }
+            .reduce(0) { $0 + $1.size } * 100
     }
     
     var body: some View {
@@ -38,18 +50,21 @@ struct OneDimensionalBarChartView: View {
                 Spacer()
             }
             chart
+            
         }
     }
     
     private var chart: some View {
         Chart(data, id: \.category) { element in
+            let sizePercentage = (element.size / totalSize) * 100
             Plot {
                 BarMark(
-                    x: .value("Data Size", element.size)
+                    x: .value("Data Size", sizePercentage)
                 )
                 .foregroundStyle(by: .value("Data Category", element.category))
                 .cornerRadius(30)
             }
+            
         }
         .chartPlotStyle { plotArea in
             plotArea
@@ -62,7 +77,7 @@ struct OneDimensionalBarChartView: View {
         }
         .accessibilityChartDescriptor(self)
         .chartXAxis(.hidden)
-        .chartXScale(range: 0...128)
+        .chartXScale(range: 0...100)
         .chartYScale(range: .plotDimension(endPadding: -8))
         .chartLegend(position: .bottom, spacing: 8)
         .chartLegend(.visible)
@@ -88,12 +103,19 @@ struct OneDimensionalBarChartView: View {
 
 extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
     func makeChartDescriptor() -> AXChartDescriptor {
-        let min = data.map(\.size).min() ?? 0
-        let max = data.map(\.size).max() ?? 0
+//        let min = data.map(\.size).min() ?? 0
+//        let max = data.map(\.size).max() ?? 0
+        
+        let categoryTotal = Dictionary(grouping: data, by: { $0.category })
+            .mapValues { $0.reduce(0, { $0 + $1.size }) }
+        
+        let min = categoryTotal.values.min() ?? 0
+        let max = categoryTotal.values.max() ?? 0
+        
 
         let xAxis = AXCategoricalDataAxisDescriptor(
-            title: "Category",
-            categoryOrder: data.map { $0.category }
+            title: "Category Total",
+            categoryOrder: categoryTotal.keys.sorted()
         )
 
         let yAxis = AXNumericDataAxisDescriptor(
@@ -105,8 +127,8 @@ extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
         let series = AXDataSeriesDescriptor(
             name: "Data Usage Example",
             isContinuous: false,
-            dataPoints: data.map {
-                .init(x: $0.category, y: $0.size)
+            dataPoints: categoryTotal.map { (category, _) in
+                            return .init(x: category, y: 0)
             }
         )
 

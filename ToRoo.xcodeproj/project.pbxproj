@@ -182,7 +182,6 @@
 			children = (
 				A2A6B7E42A2F9B8800048231 /* WeekStore.swift */,
 				A2EF5B9E2A278E16001EBA7B /* SleepController.swift */,
-				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +202,7 @@
 		A2EF5BA12A2799C6001EBA7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
 				A2A6B7E62A2F9BE400048231 /* Enum */,
 				A2A6B7E12A2F9B2600048231 /* Extensions */,
 				A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */,

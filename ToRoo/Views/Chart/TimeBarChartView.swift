@@ -12,45 +12,16 @@ struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
     @EnvironmentObject var weekStore: WeekStore
     var selectedDay: Date
+    var sleepData: [SleepEntry]
     
-    
-    init(healthStore: SleepStore, weekStore: WeekStore, selectedDay: Date) {
+    init(healthStore: SleepStore, weekStore: WeekStore, selectedDay: Date, sleepData: [SleepEntry]) {
         self.healthStore = healthStore
         self.selectedDay = selectedDay
-    }
-    
-    func calculateInBed() -> Double{
-        let filteredEntriesInBed = healthStore.sleepData.filter { entry in
-            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "In Bed"
-        }
-        let totalInBedDuration = filteredEntriesInBed.reduce(0) { $0 + $1.duration }
-        
-        return totalInBedDuration
-    }
-    
-    func calculateTotal() -> Double{
-        let filteredEntries = healthStore.sleepData.filter { entry in
-            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
-        }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
-        
-        return totalDuration
-    }
-    
-    func calculateUnspecified() -> Double{
-        let filteredEntriesUnspecified = healthStore.sleepData.filter { entry in
-            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "Unspecified"
-        }
-        let totalUnspecifiedDuration = filteredEntriesUnspecified.reduce(0) { $0 + $1.duration }
-        
-        return totalUnspecifiedDuration
+        self.sleepData = sleepData
     }
     
     
     var body: some View {
-        let totalDuration = calculateTotal()
-        let totalUnspecifiedDuration = calculateUnspecified()
-        let totalInBedDuration = calculateInBed()
         
         if healthStore.sleepData.isEmpty {
             Text("No Sleep Data today")
@@ -63,8 +34,8 @@ struct TimeBarChartView: View {
                         Text("TIME ASLEEP")
                             .font(.sfRoundedRegular(fontSize: 16))
                         
-                        if totalDuration != 0 || totalUnspecifiedDuration != 0 || totalInBedDuration != 0 {
-                            Text("\(healthStore.formatDuration(totalUnspecifiedDuration != 0 ? totalUnspecifiedDuration : (totalInBedDuration != 0 ? totalInBedDuration : totalDuration)))")
+                        if SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay) != 0 || SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) != 0 || SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) != 0 {
+                            Text("\(healthStore.formatDuration(SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) != 0 ? SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) : (SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) != 0 ? SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) : SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay))))")
                                 .font(.sfRoundedBold(fontSize: 32))
                                 .foregroundColor(Color("PrimaryColor"))
                         } else {

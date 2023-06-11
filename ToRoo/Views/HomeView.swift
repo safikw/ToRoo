@@ -16,6 +16,7 @@ struct HomeView: View {
     @State private var isPanelVisible = false
     @State private var isDetailViewActive = false
     
+    
     var body: some View {
         NavigationStack{
             VStack{

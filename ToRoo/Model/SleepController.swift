@@ -102,27 +102,6 @@ class SleepStore: ObservableObject {
             
             // Calculate the duration of the sleep sample
             let duration = endDate.timeIntervalSince(startDate)
-            
-            let filteredEntries = sleepData.filter { entry in
-                entry.sleepStages != "In Bed"
-            }
-            
-            let filteredInBed = sleepData.filter { entry in
-                entry.sleepStages == "In Bed"
-            }
-            
-            let filteredREM = sleepData.filter { entry in
-                entry.sleepStages == "REM"
-            }
-            
-            let filteredAwake = sleepData.filter { entry in
-                entry.sleepStages == "Awake"
-            }
-            
-            let totalInbed = filteredInBed.reduce(0) { $0 + $1.duration }
-            let totalREM = filteredREM.reduce(0) { $0 + $1.duration }
-            let totalAwake = filteredAwake.reduce(0) { $0 + $1.duration }
-//            print("\(totalAwake) + \(totalAwake/60)")
 
             
             
@@ -131,7 +110,7 @@ class SleepStore: ObservableObject {
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
             
             sleepData.append(sleepEntry)
-            print(sleepEntry)
+//            print(sleepEntry)
         }
         
         DispatchQueue.main.async {
