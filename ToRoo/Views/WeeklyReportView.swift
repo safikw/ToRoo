@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct WeeklyReportView: View {
+    @ObservedObject var healthStore: SleepStore
+    
     var body: some View {
+        let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)
+        let startsOfWeek = SleepFilteringFunc.rangeStartsWeekFormatter()
+        let endsOfWeek = SleepFilteringFunc.rangeEndsWeekFormatter()
+        
         VStack(alignment: .leading){
         Text("Weekly Zzz Report")
                 .font(.sfRoundedBold(fontSize: 32))
@@ -31,13 +37,13 @@ struct WeeklyReportView: View {
                     .frame(width: 150)
                     .foregroundColor(Color.white)
                 VStack{
-                    Text("2.6hr")
-                        .font(.sfRoundedBold(fontSize: 48))
+                    Text("\(totalWeekDuration)")
+                        .font(.sfRoundedBold(fontSize: 36))
                         .foregroundColor(.red)
                     Text("on average this week")
                         .font(.sfRoundedRegular(fontSize: 12))
                         .foregroundColor(.red)
-                    Text("4 - 11 May 2023")
+                    Text("\(startsOfWeek) - \(endsOfWeek)")
                         .font(.sfRoundedRegular(fontSize: 12))
                 }
             }
@@ -59,8 +65,8 @@ struct WeeklyReportView: View {
 }
 }
 
-struct WeeklyReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeeklyReportView()
-    }
-}
+//struct WeeklyReportView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WeeklyReportView(healthStore: healthStore)
+//    }
+//}

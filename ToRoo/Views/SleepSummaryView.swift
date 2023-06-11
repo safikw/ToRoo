@@ -32,7 +32,7 @@ struct SleepSummaryView: View {
                 
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
                 SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
-                WeeklyReportView()
+                WeeklyReportView(healthStore: healthStore)
             }.padding([.leading,.trailing], 10)
             //request access healthStore
             .onAppear() {

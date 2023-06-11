@@ -22,6 +22,9 @@ struct TimeBarChartView: View {
     
     
     var body: some View {
+//        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
+        let totalUnspecified = SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay)
+        let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         
         if healthStore.sleepData.isEmpty {
             Text("No Sleep Data today")
@@ -34,8 +37,8 @@ struct TimeBarChartView: View {
                         Text("TIME ASLEEP")
                             .font(.sfRoundedRegular(fontSize: 16))
                         
-                        if SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay) != 0 || SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) != 0 || SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) != 0 {
-                            Text("\(healthStore.formatDuration(SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) != 0 ? SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay) : (SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) != 0 ? SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay) : SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay))))")
+                        if totalUnspecified != 0 || totalInBed != 0 {
+                            Text("\(healthStore.formatDuration(totalUnspecified != 0 ? totalUnspecified : (totalInBed != 0 ? totalInBed :totalUnspecified)))")
                                 .font(.sfRoundedBold(fontSize: 32))
                                 .foregroundColor(Color("PrimaryColor"))
                         } else {

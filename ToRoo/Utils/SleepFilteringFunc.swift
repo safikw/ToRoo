@@ -38,14 +38,14 @@ struct SleepFilteringFunc {
         return totalInBedDuration
     }
     
-    static func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
-        let filteredEntries = sleepData.filter { entry in
-            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
-        }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
-        
-        return totalDuration
-    }
+//    static func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
+//        let filteredEntries = sleepData.filter { entry in
+//            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
+//        }
+//        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+//        
+//        return totalDuration
+//    }
     
     static func calculateUnspecified(sleepData: [SleepEntry],selectedDay: Date) -> Double{
         let filteredEntriesUnspecified = sleepData.filter { entry in
@@ -54,6 +54,69 @@ struct SleepFilteringFunc {
         let totalUnspecifiedDuration = filteredEntriesUnspecified.reduce(0) { $0 + $1.duration }
         
         return totalUnspecifiedDuration
+    }
+    
+    static func calculateTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+        let filteredEntries = sleepData.filter { entry in
+            entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages == "Unspecified"
+        }
+        
+//        print(getStartsOfWeek()!)
+//        print(getEndsOfWeek()!)
+        
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        //formatter hour
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+
+        let formattedTotalDuration = formatter.string(from: TimeInterval(totalDuration))!
+        
+        return formattedTotalDuration
+    }
+    
+    static func getStartsOfWeek()-> (Date)?{
+            let calendar = Calendar.current
+            let currentDate = Date()
+            
+            guard let startOfWeek = calendar.date(byAdding: .weekOfYear, value: -1, to: currentDate),
+                  let startOfPreviousWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startOfWeek))
+            else {
+                return nil
+            }
+            
+            return startOfPreviousWeek
+        }
+    
+    static func getEndsOfWeek()-> (Date)?{
+            let calendar = Calendar.current
+            let currentDate = Date()
+            
+        guard let endOfPreviousWeek = calendar.date(byAdding: .day, value: +7, to: getStartsOfWeek() ?? Date()) else {
+            return nil
+        }
+            
+            return endOfPreviousWeek
+        }
+    
+    
+    static func rangeStartsWeekFormatter() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d"
+
+        let startsOfWeekString = formatter.string(from: getStartsOfWeek()!)
+
+        return startsOfWeekString
+        
+    }
+    
+    static func rangeEndsWeekFormatter() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM yyyy"
+        let endsOfWeekString = formatter.string(from: getEndsOfWeek()!)
+
+        return endsOfWeekString
+        
     }
 }
 
