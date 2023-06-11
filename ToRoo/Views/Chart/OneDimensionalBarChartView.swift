@@ -11,25 +11,18 @@ import Charts
 struct OneDimensionalBarChartView: View {
     @ObservedObject var healthStore: SleepStore
     @EnvironmentObject var weekStore: WeekStore
-    let dayChart: String
-    let monthChart: String
-    let yearChart: String
     var data: [(category: String, size: Double)] = []
-    private var startOfOpeningHours: Date
-    private var endOfOpeningHours: Date
+    var selectedDay: Date
 
     
-    init(healthStore: SleepStore, weekStore: WeekStore, data: [(category: String, size: Double)]) {
+    init(healthStore: SleepStore, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
         self.healthStore = healthStore
-        self.dayChart = weekStore.selectedDate.toString(format: "dd")
-        self.monthChart = weekStore.selectedDate.toString(format: "MM")
-        self.yearChart = weekStore.selectedDate.toString(format: "yyyy")
-        self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
-        self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 08, minutes: 59)
         self.data = healthStore.sleepData.filter{ entry in
-            return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" && entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours}.map{entry in
+            return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" && entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay)}.map{entry in
                 return (category: entry.sleepStages, size: entry.duration)
             }
+        self.selectedDay = selectedDay
+        
     }
     private var totalSize: Double {
         data
@@ -40,12 +33,9 @@ struct OneDimensionalBarChartView: View {
         VStack {
             HStack {
                 Text("ToRoo’s Zzzz Meter")
-                    .font(.system(size: 24))
-                    .fontWeight(.bold)
+                    .font(.sfRoundedBold(fontSize: 24))
                     .foregroundColor(Color("PrimaryColor"))
                 Spacer()
-//                Text("\(totalSize, specifier: "%.1f") GB of 100%")
-//                    .foregroundColor(.secondary)
             }
             chart
         }
@@ -131,9 +121,9 @@ extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
     }
 
 }
-
-struct OneDimensionalBarChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        OneDimensionalBarChartView(healthStore: SleepStore(), weekStore: WeekStore(), data: [])
-    }
-}
+//
+//struct OneDimensionalBarChartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OneDimensionalBarChartView(healthStore: SleepStore(), weekStore: WeekStore(), data: [],sleepFilteringFunc: SleepFilteringFunc(healthStore: weekStore, weekStore: <#WeekStore#>))
+//    }
+//}

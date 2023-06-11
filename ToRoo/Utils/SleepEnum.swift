@@ -31,15 +31,13 @@ struct SleepEntry: Identifiable, Equatable{
     let endDate: Date
     let sleepStages: String
     let duration: TimeInterval
-    let percentage: Double
     
-    init(id: UUID = UUID(), startDate: Date, endDate: Date, sleepStages: String, duration: TimeInterval, percentage: Double) {
+    init(id: UUID = UUID(), startDate: Date, endDate: Date, sleepStages: String, duration: TimeInterval) {
         self.id = id
         self.startDate = startDate
         self.endDate = endDate
         self.sleepStages = sleepStages
         self.duration = duration
-        self.percentage = SleepEntry.getTotalDuration(for: SleepEntry.allEntries, sleepStage: sleepStages)
     }
     
     static var allEntries: [SleepEntry] = []

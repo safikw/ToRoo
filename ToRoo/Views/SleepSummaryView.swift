@@ -16,21 +16,25 @@ struct SleepSummaryView: View {
     
     
     var body: some View {
+        
+        
+        
         ScrollView(.vertical){
-            VStack{
+            VStack(alignment: .leading){
                 InfiniteWeekView()
                     .environmentObject(weekStore)
                 
                 
                 VStack{
-                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore)
+                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate)
                         .padding()
                 }
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
                 
-                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [])
+                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
+                SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
                 
                 
                 
@@ -42,6 +46,8 @@ struct SleepSummaryView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .background(Color(hex: "#f5f5f5"))
+
         
     }
     
@@ -122,8 +128,8 @@ class CustomHostingView<Content: View>: UIHostingController<Content>{
 
 
 
-struct SleepSummary_Previews: PreviewProvider {
-    static var previews: some View {
-        SleepSummaryView(healthStore: SleepStore(), weekStore: WeekStore())
-    }
-}
+//struct SleepSummary_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SleepSummaryView(healthStore: SleepStore(), weekStore: WeekStore())
+//    }
+//}

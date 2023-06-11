@@ -14,29 +14,23 @@ struct WeekHeaderView: View {
     var body: some View {
             HStack {
                 Text(weekStore.selectedDate.monthToString())
-                    .font(.system(size: 24))
-                    .fontWeight(.heavy)
+                    .font(.sfRoundedHeavy(fontSize: 24))
                     .foregroundColor(.accentColor)
                 Text(weekStore.selectedDate.toString(format: "yyyy"))
-                    .font(.system(size: 24))
-                    .fontWeight(.semibold)
-                Spacer()
-                
+                    .font(.sfRoundedSemiBold(fontSize: 24))
                 Button {
                     withAnimation {
                         weekStore.selectToday()
                     }
                 } label: {
                     Text("Today")
-                        .font(.system(size: 14))
-                        .fontWeight(.semibold)
+                        .font(.sfRoundedSemiBold(fontSize: 14))
                         .foregroundColor(.primary)
                         .padding(4)
                         .background(.secondary)
                         .cornerRadius(4)
                 }
                 ZStack {
-
                     DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
                         .datePickerStyle(.compact)
                                     .labelsHidden()

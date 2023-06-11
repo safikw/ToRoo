@@ -76,9 +76,12 @@ struct HomeView: View {
                         }
                 )
                 .background(
-                    NavigationLink(destination: SleepSummaryView(healthStore: healthStore, weekStore: weekStore), isActive: $isDetailViewActive) {
-                        EmptyView()
+                    withAnimation(){
+                        NavigationLink("Move to summary",isActive: $isDetailViewActive) {
+                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+                        }
                     }
+                    
                 )
                 
             }
@@ -88,9 +91,9 @@ struct HomeView: View {
         }
     }
 }
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(healthStore: SleepStore(), weekStore: WeekStore())
-    }
-}
+//
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(healthStore: SleepStore(), weekStore: WeekStore())
+//    }
+//}

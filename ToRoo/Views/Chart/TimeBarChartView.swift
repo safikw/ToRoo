@@ -11,50 +11,78 @@ import Charts
 struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
     @EnvironmentObject var weekStore: WeekStore
-    let dayChart: String
-    let monthChart: String
-    let yearChart: String
-    private var startOfOpeningHours: Date
-    private var endOfOpeningHours: Date
+    var selectedDay: Date
     
-    init(healthStore: SleepStore, weekStore: WeekStore) {
+    
+    init(healthStore: SleepStore, weekStore: WeekStore, selectedDay: Date) {
         self.healthStore = healthStore
-        self.dayChart = weekStore.selectedDate.toString(format: "dd")
-        self.monthChart = weekStore.selectedDate.toString(format: "MM")
-        self.yearChart = weekStore.selectedDate.toString(format: "yyyy")
-        self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
-        self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 23, minutes: 59)
+        self.selectedDay = selectedDay
     }
     
-        
-        
-        var body: some View {
-            VStack{
-                let filteredEntries = healthStore.sleepData.filter { entry in
-                    entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
-                }
-                
-
-                let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
-                
-                HStack{
-                    VStack(alignment: .leading){
-                        Text("TIME ASLEEP")
-                        Text("\(healthStore.formatDuration(totalDuration))")
-                    }
-                    
-                    Spacer()
-                }
-                
-                
-                EventChart(events: healthStore.sleepData.filter{ entry in
-                    return entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed" },
-                           chartXScaleRangeStart: startOfOpeningHours,
-                           chartXScaleRangeEnd: endOfOpeningHours)
-            }
+    func calculateInBed() -> Double{
+        let filteredEntriesInBed = healthStore.sleepData.filter { entry in
+            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "In Bed"
         }
+        let totalInBedDuration = filteredEntriesInBed.reduce(0) { $0 + $1.duration }
         
+        return totalInBedDuration
+    }
+    
+    func calculateTotal() -> Double{
+        let filteredEntries = healthStore.sleepData.filter { entry in
+            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
+        }
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
         
+        return totalDuration
+    }
+    
+    func calculateUnspecified() -> Double{
+        let filteredEntriesUnspecified = healthStore.sleepData.filter { entry in
+            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "Unspecified"
+        }
+        let totalUnspecifiedDuration = filteredEntriesUnspecified.reduce(0) { $0 + $1.duration }
+        
+        return totalUnspecifiedDuration
+    }
+    
+    
+    var body: some View {
+        let totalDuration = calculateTotal()
+        let totalUnspecifiedDuration = calculateUnspecified()
+        let totalInBedDuration = calculateInBed()
+        
+        if healthStore.sleepData.isEmpty {
+            Text("No Sleep Data today")
+                .font(.system(size: 18))
+        } else {
+            VStack(alignment: .leading, spacing: -20){
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("TIME ASLEEP")
+                            .font(.sfRoundedRegular(fontSize: 16))
+                        
+                        if totalDuration != 0 || totalUnspecifiedDuration != 0 || totalInBedDuration != 0 {
+                            Text("\(healthStore.formatDuration(totalUnspecifiedDuration != 0 ? totalUnspecifiedDuration : (totalInBedDuration != 0 ? totalInBedDuration : totalDuration)))")
+                                .font(.sfRoundedBold(fontSize: 32))
+                                .foregroundColor(Color("PrimaryColor"))
+                        } else {
+                            Text("No Data")
+                                .font(.sfRoundedBold(fontSize: 32))
+                                .foregroundColor(Color("PrimaryColor"))
+                        }
+                    }
+                }
+                EventChart(events: healthStore.sleepData ,
+                           chartXScaleRangeStart: SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay),
+                           chartXScaleRangeEnd: SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay))
+            }
+        }   
+        
+    }
+    
+    
     static func getEventsTotalDuration(_ events: [SleepEntry]) -> String {
         var durationInSeconds: TimeInterval = 0
         for event in events {
@@ -62,17 +90,17 @@ struct TimeBarChartView: View {
         }
         return getFormattedDuration(seconds: durationInSeconds)
     }
-
+    
     static func getFormattedDuration(seconds: Double) -> String {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .abbreviated
         formatter.zeroFormattingBehavior = .pad
         formatter.allowedUnits = [.hour, .minute]
-
+        
         return formatter.string(from: seconds) ?? "N/A"
     }
-        
-    }
+    
+}
 
 
 
@@ -147,7 +175,7 @@ struct EventChart: View {
     private func getEventMiddle(start: Date, end: Date) -> Date {
         Date(timeInterval: (end.timeIntervalSince1970 - start.timeIntervalSince1970) / 2, since: start)
     }
-
+    
     private func getEventMiddle(start: Date, end: Date) -> CGFloat {
         CGFloat((start.timeIntervalSince1970 + end.timeIntervalSince1970) / 2)
     }

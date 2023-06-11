@@ -19,7 +19,7 @@ struct WeeklyReportView: View {
         Behold, your Weekly Zzz Report is revealed! It's the golden nugget that unveils your typical time spent in dreamland. Armed with this knowledge, you'll conquer the freelance realm with vigor and vitality.
         """
         )
-        .font(.body)
+        .font(.caption)
         Text("Your average sleep hour is:")
             .foregroundColor(Color("PrimaryColor"))
         HStack{
@@ -32,13 +32,13 @@ struct WeeklyReportView: View {
                     .foregroundColor(Color.white)
                 VStack{
                     Text("2.6hr")
-                        .font(.system(size: 48))
+                        .font(.sfRoundedBold(fontSize: 48))
                         .foregroundColor(.red)
                     Text("on average this week")
+                        .font(.sfRoundedRegular(fontSize: 12))
                         .foregroundColor(.red)
-                        .font(.caption)
                     Text("4 - 11 May 2023")
-                        .font(.caption)
+                        .font(.sfRoundedRegular(fontSize: 12))
                 }
             }
             

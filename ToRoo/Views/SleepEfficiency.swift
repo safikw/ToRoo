@@ -8,13 +8,62 @@
 import SwiftUI
 
 struct SleepEfficiency: View {
-    @State var showingPopover = false
+    @State private var showingPopover = false
+    @ObservedObject var healthStore: SleepStore
+    @EnvironmentObject var weekStore: WeekStore
+    let dayChart: String
+    let monthChart: String
+    let yearChart: String
+    private var startOfOpeningHours: Date
+    private var endOfOpeningHours: Date
+    var filteredData: [SleepEntry] = []
+//    var sleepEfficiency: Double
+    
+
+    
+    init(healthStore: SleepStore, weekStore: WeekStore) {
+        self.healthStore = healthStore
+        self.dayChart = weekStore.selectedDate.toString(format: "dd")
+        self.monthChart = weekStore.selectedDate.toString(format: "MM")
+        self.yearChart = weekStore.selectedDate.toString(format: "yyyy")
+        self.startOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 00, minutes: 00)
+        self.endOfOpeningHours = date(year: Int(yearChart)!, month: Int(monthChart)!, day: Int(dayChart)!, hour: 23, minutes: 59)
+        self.filteredData = healthStore.sleepData.filter { entry in
+            let isWithinOpeningHours = entry.startDate >= self.startOfOpeningHours && entry.endDate <= self.endOfOpeningHours
+            return isWithinOpeningHours
+        }
+    }
+
+    
+    
     var body: some View {
+        
+        
+        let filteredSleep = filteredData.filter { entry in
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Unspecified"
+        }
+        
+        let filteredREM = filteredData.filter { entry in
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "REM"
+        }
+        
+        let filteredAwake = filteredData.filter { entry in
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
+        }
+        
+        let totalSleep = filteredSleep.reduce(0) { $0 + $1.duration }/60
+        let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
+        let totalAwake = (filteredAwake.reduce(0) { $0 + $1.duration })/60
+        
+        
+        let sleepEfficiency = ((totalSleep  -  totalREM - totalAwake )/480)*100
+        
         VStack(alignment: .leading){
             Text("Sleep Eficiency: ")
                 .font(.system(size: 16))
             HStack(alignment: .top){
-                Text("85%")
+                
+                Text("\(String(format: "%.2f", sleepEfficiency))%")
                     .font(.system(size: 32))
                     .foregroundColor(Color("PrimaryColor"))
                     .fontWeight(.bold)
@@ -39,11 +88,12 @@ struct SleepEfficiency: View {
                 }
             }
         }
+    
     }
 }
 
-struct SleepEfficiency_Previews: PreviewProvider {
-    static var previews: some View {
-        SleepEfficiency()
-    }
-}
+//struct SleepEfficiency_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SleepEfficiency()
+//    }
+//}

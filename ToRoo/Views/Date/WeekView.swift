@@ -17,15 +17,14 @@ struct WeekView: View {
             ForEach(0..<7) { i in
                     VStack {
                         Text(week.dates[i].toString(format: "E").uppercased().prefix(1))
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
+                            .font(.sfRoundedSemiBold(fontSize: 16))
                             .padding([.top, .bottom], 10)
                             .foregroundColor(week.dates[i] == week.referenceDate ?  .white : Color("PrimaryColor") )
                         Spacer()
                             .frame(height: 4)
                         ZStack {
                             Text(week.dates[i].toString(format: "d"))
-                                .font(.system(size: 16))
+                                .font(.sfRoundedRegular(fontSize: 16))
                                 .monospaced()
 //                                .frame(maxWidth: .infinity)
                                 .foregroundColor(week.dates[i] == week.referenceDate ? .white : Color("PrimaryColor"))
