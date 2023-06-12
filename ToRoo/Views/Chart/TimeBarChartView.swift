@@ -41,7 +41,8 @@ struct TimeBarChartView: View {
                         }
                     }
                 }
-                EventChart(events: healthStore.sleepData ,
+                EventChart(events: healthStore.sleepData.filter { entry in
+                    entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"},
                            chartXScaleRangeStart: SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay),
                            chartXScaleRangeEnd: SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay))
             }
