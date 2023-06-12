@@ -38,7 +38,6 @@ struct SleepSummaryView: View {
             }.padding([.leading,.trailing], 10)
             //request access healthStore
         }
-        .navigationBarBackButtonHidden(true)
 
         
     }
