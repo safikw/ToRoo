@@ -62,7 +62,7 @@ struct WeeklyReportView: View {
                         .scaledToFit()
                         .frame(width: 70)
                     Text(totalWeekDuration < totalPreviousWeekDuration ? "decreased" : "increased")
-                        .font(.sfRoundedMedium(fontSize: 12))
+                        .font(.sfRoundedBold(fontSize: 16))
                     Text("compared to last week")
                         .font(.sfRoundedRegular(fontSize: 12))
                 }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)

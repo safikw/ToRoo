@@ -54,9 +54,10 @@ struct OnboardingView: View {
                     .frame(width: 470, height: 460)
                     .offset(x: 50, y: 100)
                 
-//                Text("Skip").onTapGesture {
-//                    onComplete()
-//                }.offset(x: 50, y: -300)
+                Text("Skip").onTapGesture {
+                    onComplete()
+                }.offset(x: 170, y: -410)
+                    .foregroundColor(.blue)
             }.tag(0)
             
             ZStack {
@@ -107,17 +108,17 @@ struct OnboardingView: View {
                     .frame(width: 490, height: 480)
                     .offset(x:10, y:-240)
                 
-                Image(systemName: "arrow.right.circle.fill")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .foregroundColor(.white)
-                    .padding(.top, 600)
+//                Image(systemName: "arrow.right.circle.fill")
+//                    .resizable()
+//                    .frame(width: 60, height: 60)
+//                    .foregroundColor(.white)
+//                    .padding(.top, 600)
                     
             }.tag(1)
             .navigationBarBackButtonHidden(true)
             
             ZStack{
-                Color("ColorBase")
+                Color(hex: "0xffC89FD2")
                     .ignoresSafeArea()
                 Circle()
                     .fill(Color("ColorPurpleDarker"))
@@ -156,6 +157,9 @@ struct OnboardingView: View {
                     .frame(width: 60,height: 60)
                     .offset(x: 4, y: 300)
                     .foregroundColor(.white)
+                    .onTapGesture {
+                        onComplete()
+                    }
             }.tag(2)
             
             
@@ -163,10 +167,10 @@ struct OnboardingView: View {
         .tabViewStyle(PageTabViewStyle())
     }
     
-//    @available(iOS 16.0, *)
-//    struct ContentView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            Onboarding1(onComplete: {})
-//        }
-//    }
+    @available(iOS 16.0, *)
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            OnboardingView(onComplete: {})
+        }
+    }
 }

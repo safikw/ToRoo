@@ -13,6 +13,9 @@
 		7475BC522A34653500B3DB7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color.swift */; };
 		7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
+		A21A5B252A376E9A00F141DF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21A5B242A376E9A00F141DF /* WidgetKit.framework */; };
+		A21A5B272A376E9A00F141DF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21A5B262A376E9A00F141DF /* SwiftUI.framework */; };
+		A21A5B342A376E9B00F141DF /* ToRooWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A21A5B222A376E9A00F141DF /* ToRooWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */; };
 		A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */; };
 		A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */; };
@@ -36,6 +39,30 @@
 		A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A21A5B322A376E9B00F141DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2EF5B552A252323001EBA7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A21A5B212A376E9A00F141DF;
+			remoteInfo = ToRooWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A21A5B352A376E9B00F141DF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A21A5B342A376E9B00F141DF /* ToRooWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStageSheetView.swift; sourceTree = "<group>"; };
 		7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDimensionalBarChartView.swift; sourceTree = "<group>"; };
@@ -44,6 +71,9 @@
 		7475BC512A34653500B3DB7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateView.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
+		A21A5B222A376E9A00F141DF /* ToRooWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToRooWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21A5B242A376E9A00F141DF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A21A5B262A376E9A00F141DF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewInfo.swift; sourceTree = "<group>"; };
 		A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
 		A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEfficiency.swift; sourceTree = "<group>"; };
@@ -77,6 +107,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A21A5B1F2A376E9A00F141DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21A5B272A376E9A00F141DF /* SwiftUI.framework in Frameworks */,
+				A21A5B252A376E9A00F141DF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2EF5B5A2A252323001EBA7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21A5B232A376E9A00F141DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A21A5B242A376E9A00F141DF /* WidgetKit.framework */,
+				A21A5B262A376E9A00F141DF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A2A6B7E12A2F9B2600048231 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				A2EF5B5F2A252324001EBA7B /* ToRoo */,
+				A21A5B232A376E9A00F141DF /* Frameworks */,
 				A2EF5B5E2A252324001EBA7B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A2EF5B5D2A252324001EBA7B /* SleepWithToRoo.app */,
+				A21A5B222A376E9A00F141DF /* ToRooWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +271,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A21A5B212A376E9A00F141DF /* ToRooWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A21A5B382A376E9B00F141DF /* Build configuration list for PBXNativeTarget "ToRooWidgetExtension" */;
+			buildPhases = (
+				A21A5B1E2A376E9A00F141DF /* Sources */,
+				A21A5B1F2A376E9A00F141DF /* Frameworks */,
+				A21A5B202A376E9A00F141DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToRooWidgetExtension;
+			productName = ToRooWidgetExtension;
+			productReference = A21A5B222A376E9A00F141DF /* ToRooWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A2EF5B5C2A252323001EBA7B /* SleepWithToRoo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2EF5B702A252325001EBA7B /* Build configuration list for PBXNativeTarget "SleepWithToRoo" */;
@@ -228,10 +295,12 @@
 				A2EF5B592A252323001EBA7B /* Sources */,
 				A2EF5B5A2A252323001EBA7B /* Frameworks */,
 				A2EF5B5B2A252323001EBA7B /* Resources */,
+				A21A5B352A376E9B00F141DF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A21A5B332A376E9B00F141DF /* PBXTargetDependency */,
 			);
 			name = SleepWithToRoo;
 			productName = ToRoo;
@@ -248,6 +317,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					A21A5B212A376E9A00F141DF = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					A2EF5B5C2A252323001EBA7B = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -267,11 +339,19 @@
 			projectRoot = "";
 			targets = (
 				A2EF5B5C2A252323001EBA7B /* SleepWithToRoo */,
+				A21A5B212A376E9A00F141DF /* ToRooWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A21A5B202A376E9A00F141DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2EF5B5B2A252323001EBA7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +364,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A21A5B1E2A376E9A00F141DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2EF5B592A252323001EBA7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,7 +405,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A21A5B332A376E9B00F141DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A21A5B212A376E9A00F141DF /* ToRooWidgetExtension */;
+			targetProxy = A21A5B322A376E9B00F141DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A21A5B362A376E9B00F141DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D4KUJS22Y9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToRooWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ToRooWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataEmpat.ToRoo.ToRooWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A21A5B372A376E9B00F141DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D4KUJS22Y9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToRooWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ToRooWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataEmpat.ToRoo.ToRooWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A2EF5B6E2A252325001EBA7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +657,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A21A5B382A376E9B00F141DF /* Build configuration list for PBXNativeTarget "ToRooWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A21A5B362A376E9B00F141DF /* Debug */,
+				A21A5B372A376E9B00F141DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A2EF5B582A252323001EBA7B /* Build configuration list for PBXProject "SleepWithToRoo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

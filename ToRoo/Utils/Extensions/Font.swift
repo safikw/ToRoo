@@ -11,30 +11,30 @@ import SwiftUI
 extension Font {
     
     static func sfRoundedBlack(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Black", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Black", size: fontSize)
     }
     
     static func sfRoundedBold(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Bold", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Bold", size: fontSize)
     }
     
     static func sfRoundedHeavy(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Heavy", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Heavy", size: fontSize)
     }
     
     static func sfRoundedLight(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Light", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Light", size: fontSize)
     }
     
     static func sfRoundedMedium(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Medium", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Medium", size: fontSize)
     }
     
     static func sfRoundedRegular(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Regular", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Regular", size: fontSize)
     }
     
     static func sfRoundedSemiBold(fontSize: Double) -> Font {
-        Font.custom("SFProRounded-Semibold", size: fontSize)
+        Font.custom("SF-Pro-Rounded-Semibold", size: fontSize)
     }
 }

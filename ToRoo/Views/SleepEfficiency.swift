@@ -85,6 +85,7 @@ struct SleepEfficiency: View {
                 """)
                             .padding()
                         }.frame(height: 155)
+                            .shadow(radius: 25)
                     }
                 }
             }
