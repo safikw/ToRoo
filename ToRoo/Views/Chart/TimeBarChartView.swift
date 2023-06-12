@@ -10,20 +10,13 @@ import Charts
 
 struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
-    @EnvironmentObject var weekStore: WeekStore
+    @ObservedObject var weekStore: WeekStore
     var selectedDay: Date
     var sleepData: [SleepEntry]
-    
-    init(healthStore: SleepStore, weekStore: WeekStore, selectedDay: Date, sleepData: [SleepEntry]) {
-        self.healthStore = healthStore
-        self.selectedDay = selectedDay
-        self.sleepData = sleepData
-    }
     
     
     var body: some View {
         let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
-        let totalUnspecified = SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay)
         let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         
         if healthStore.sleepData.isEmpty {
@@ -37,8 +30,8 @@ struct TimeBarChartView: View {
                         Text("TIME ASLEEP")
                             .font(.sfRoundedRegular(fontSize: 16))
                         
-                        if totalUnspecified != 0 || totalInBed != 0 {
-                            Text("\(healthStore.formatDuration(totalUnspecified != 0 ? totalUnspecified : (totalInBed != 0 ? totalInBed :totalInBed)))")
+                        if totalDuration != 0 || totalInBed != 0 {
+                            Text("\(healthStore.formatDuration(totalInBed != 0 ? totalInBed : totalDuration))")
                                 .font(.sfRoundedBold(fontSize: 32))
                                 .foregroundColor(Color("PrimaryColor"))
                         } else {
