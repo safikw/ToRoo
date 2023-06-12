@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InfiniteWeekView: View {
     @EnvironmentObject var weekStore: WeekStore
+    @EnvironmentObject var healthStore: SleepStore
 
 //    @State var tasks: [Task] = MockTasks().all()
 
@@ -16,7 +17,7 @@ struct InfiniteWeekView: View {
                         VStack {
                             WeekHeaderView()
                             WeeksTabView() { week in
-                                WeekView(week: week)
+                                WeekView(week: week).environmentObject(healthStore)
                             }
                         }
         

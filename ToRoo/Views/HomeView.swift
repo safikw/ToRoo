@@ -24,7 +24,6 @@ struct HomeView: View {
     @State private var rotationDegrees = 0.0
     @State var moving = false
     @State private var selectedDate = Date()
-    let notify = NotificationHandler()
     
     
     var body: some View {
@@ -52,10 +51,10 @@ struct HomeView: View {
                         .font(.sfRoundedBlack(fontSize: 32))
                         .padding(.bottom, 20)
                     Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
-                    Image("toroChar")
+                    Image(CharacterStateView(healthStore: healthStore, weekStore: weekStore, selectedDay: Date(), sleepData: healthStore.sleepData).imageState())
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 318)
+                        .frame(width: 318, height: 219)
                         .shadow(radius: 25, y: 10)
                         .offset(y: moving ? -60: -50)
                         .onAppear{
@@ -76,10 +75,7 @@ struct HomeView: View {
                     .background(Rectangle().fill(Color(hex: "#EADFEF")).cornerRadius(12))
                     .shadow(color:Color(uiColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)) ,radius: 16, y: 4)
                     .offset(y: 65)
-                VStack(spacing: 20){
-                    
-                }
-                
+
                 Spacer()
                 ZStack{
                     Image("BAWAH")
