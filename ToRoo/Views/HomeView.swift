@@ -15,6 +15,13 @@ struct HomeView: View {
     
     @State private var isPanelVisible = false
     @State private var isDetailViewActive = false
+    private var animation: Animation {
+        .linear
+        .speed(0.1)
+        .repeatForever(autoreverses: true)
+    }
+    @State private var rotationDegrees = 0.0
+    @State var moving = false
     
     
     var body: some View {
@@ -25,6 +32,13 @@ struct HomeView: View {
                     .foregroundColor(.white)
                     .frame(width: 24, height: 24)
                     .offset(x: 150, y: 60)
+                    .onTapGesture {
+                        withAnimation(.easeOut) {
+                            isPanelVisible.toggle()
+                            
+                        }
+                        
+                    }
                 
             ZStack {
                 Image("radial").resizable().scaledToFit()
@@ -33,13 +47,20 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .textCase(.uppercase)
                         .font(.sfRoundedBlack(fontSize: 32))
+                        .padding(.bottom, 20)
                     Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
                     Image("toroChar")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 318)
                         .shadow(radius: 25, y: 10)
-                }.offset(y: -60)
+                        .offset(y: moving ? -60: -50)
+                        .onAppear{
+                            withAnimation(animation){
+                                moving = true
+                            }
+                        }
+                }
             }.offset(y: 45)
 
                 Text("Someone had a blissful slumber while the rest of us were working overtime. Living the dream!")
@@ -89,6 +110,15 @@ struct HomeView: View {
             .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
                                        endPoint: UnitPoint(x: 0.5, y: 1)))
             .ignoresSafeArea()
+            .overlay (
+                Group {
+                    if isPanelVisible {
+                        withAnimation(.easeInOut) {
+                            PopUpViewInfo (isPanelVisible: $isPanelVisible)
+                        }
+                    }
+                }
+            )
         }
     }
 }
