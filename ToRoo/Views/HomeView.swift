@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import UserNotifications
 
 struct HomeView: View {
     @ObservedObject var healthStore: SleepStore
@@ -23,6 +24,7 @@ struct HomeView: View {
     @State private var rotationDegrees = 0.0
     @State var moving = false
     @State private var selectedDate = Date()
+    let notify = NotificationHandler()
     
     
     var body: some View {
@@ -77,11 +79,11 @@ struct HomeView: View {
                 VStack(spacing: 20){
                     
                     Button("req askjdba"){
-                        requestNotif()
+                        notify.requestNotif()
                     }
                     
                     Button("send notif in 5 sec") {
-                        schedulerNotif(date: Date(), type: "time", timeInterval: 5, title: "hi", body: "this is a reminder you set")
+                        notify.schedulerNotif(date: Date(), type: "time", timeInterval: 5, title: "hi", body: "this is a reminder you set")
                     }
                     
                 }

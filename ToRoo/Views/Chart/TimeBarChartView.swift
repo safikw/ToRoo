@@ -22,7 +22,7 @@ struct TimeBarChartView: View {
     
     
     var body: some View {
-//        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
+        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
         let totalUnspecified = SleepFilteringFunc.calculateUnspecified(sleepData: sleepData, selectedDay: selectedDay)
         let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         
@@ -38,7 +38,7 @@ struct TimeBarChartView: View {
                             .font(.sfRoundedRegular(fontSize: 16))
                         
                         if totalUnspecified != 0 || totalInBed != 0 {
-                            Text("\(healthStore.formatDuration(totalUnspecified != 0 ? totalUnspecified : (totalInBed != 0 ? totalInBed :totalUnspecified)))")
+                            Text("\(healthStore.formatDuration(totalUnspecified != 0 ? totalUnspecified : (totalInBed != 0 ? totalInBed :totalInBed)))")
                                 .font(.sfRoundedBold(fontSize: 32))
                                 .foregroundColor(Color("PrimaryColor"))
                         } else {
