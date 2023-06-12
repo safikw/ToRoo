@@ -49,10 +49,10 @@ struct HomeView: View {
                         .font(.sfRoundedBlack(fontSize: 32))
                         .padding(.bottom, 20)
                     Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
-                    Image("toroChar")
+                    Image(CharacterStateView(healthStore: healthStore, weekStore: weekStore, selectedDay: Date(), sleepData: healthStore.sleepData).imageState())
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 318)
+                        .frame(width: 318, height: 219)
                         .shadow(radius: 25, y: 10)
                         .offset(y: moving ? -60: -50)
                         .onAppear{

@@ -34,7 +34,7 @@ struct WeekView: View {
                                 .size(width: 52, height: 55)
                                 .padding(.top, -4)
                                 .foregroundColor(week.dates[i] == week.referenceDate ? Color("SecondaryColor") : .white)
-                            Image("toroChar")
+                            Image("7")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40)

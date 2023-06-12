@@ -103,8 +103,6 @@ struct OneDimensionalBarChartView: View {
 
 extension OneDimensionalBarChartView: AXChartDescriptorRepresentable {
     func makeChartDescriptor() -> AXChartDescriptor {
-//        let min = data.map(\.size).min() ?? 0
-//        let max = data.map(\.size).max() ?? 0
         
         let categoryTotal = Dictionary(grouping: data, by: { $0.category })
             .mapValues { $0.reduce(0, { $0 + $1.size }) }

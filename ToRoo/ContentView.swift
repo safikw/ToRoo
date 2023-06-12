@@ -14,7 +14,9 @@ struct ContentView: View {
     
     var body: some View {
 //        SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-        HomeView(healthStore: healthStore, weekStore: weekStore)
+        HomeView(healthStore: healthStore, weekStore: weekStore).onAppear() {
+            healthStore.requestAuthorization()
+        }
     }
 }
 

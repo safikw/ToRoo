@@ -17,6 +17,7 @@
 		7475BC4E2A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC452A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf */; };
 		7475BC502A34619100B3DB7C /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC472A34619100B3DB7C /* SF-Pro-Rounded-Black.otf */; };
 		7475BC522A34653500B3DB7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color.swift */; };
+		7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
 		A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */; };
 		A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */; };
@@ -51,6 +52,7 @@
 		7475BC452A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Regular.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
 		7475BC472A34619100B3DB7C /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Black.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
 		7475BC512A34653500B3DB7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateView.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
 		A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewInfo.swift; sourceTree = "<group>"; };
 		A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
@@ -191,13 +193,14 @@
 		A2EF5BA02A2799BE001EBA7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */,
+				7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */,
 				A2A6B7F22A2FA01F00048231 /* Chart */,
 				A2A6B7F12A2FA01100048231 /* Date */,
 				A263145A2A32BED50044D204 /* HomeView.swift */,
 				A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */,
 				A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */,
 				A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */,
+				A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */,
 				A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */,
 				A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */,
+				7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* SleepController.swift in Sources */,
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
 				A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */,
@@ -441,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToRoo/Preview Content\"";
-				DEVELOPMENT_TEAM = D4KUJS22Y9;
+				DEVELOPMENT_TEAM = 89KL5SB92J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToRoo/Info.plist;
@@ -458,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = safik;
+				PRODUCT_BUNDLE_IDENTIFIER = drymrz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

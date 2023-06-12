@@ -56,7 +56,7 @@ struct WeeklyReportView: View {
                     .frame(width: 150)
                     .foregroundColor(Color.white)
                 VStack{
-                    Image( totalWeekDuration < totalPreviousWeekDuration ? "ToroDecreased" : "ToroIncreased")
+                    Image( totalWeekDuration < totalPreviousWeekDuration ? "8" : "7")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
