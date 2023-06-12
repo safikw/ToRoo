@@ -24,7 +24,6 @@ struct HomeView: View {
     @State private var rotationDegrees = 0.0
     @State var moving = false
     @State private var selectedDate = Date()
-    let notify = NotificationHandler()
     
     
     var body: some View {
@@ -76,24 +75,7 @@ struct HomeView: View {
                     .background(Rectangle().fill(Color(hex: "#EADFEF")).cornerRadius(12))
                     .shadow(color:Color(uiColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)) ,radius: 16, y: 4)
                     .offset(y: 65)
-                VStack(spacing: 20){
-                    
-                    Button("req askjdba"){
-                        notify.requestNotif()
-                    }
-                    
-                    Button("send notif in 5 sec") {
-                        notify.schedulerNotif(date: Date(), type: "time", timeInterval: 5, title: "hi", body: "this is a reminder you set")
-                    }
-                    
-                }
-                
-                
-//                NavigationLink{
-//                    SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-//                }label: {
-//                    Text("Sleep Summary Screen")
-//                }.offset(y: 100)
+
                 Spacer()
                 ZStack{
                     Image("BAWAH")

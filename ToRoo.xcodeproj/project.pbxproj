@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74336CEE2A37088500EB7C47 /* SleepStageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */; };
 		7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */; };
 		7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC3C2A345D9000B3DB7C /* Font.swift */; };
 		7475BC482A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC3F2A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStageSheetView.swift; sourceTree = "<group>"; };
 		7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDimensionalBarChartView.swift; sourceTree = "<group>"; };
 		7475BC3C2A345D9000B3DB7C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7475BC3E2A345F5400B3DB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */,
 				A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */,
 				A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */,
+				74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */,
 				7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */,
 				A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */,
+				74336CEE2A37088500EB7C47 /* SleepStageSheetView.swift in Sources */,
 				7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */,
 				A2A6B7EC2A2F9CB300048231 /* WeekHeaderView.swift in Sources */,
 			);

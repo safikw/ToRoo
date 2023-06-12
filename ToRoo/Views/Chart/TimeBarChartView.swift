@@ -11,9 +11,9 @@ import Charts
 struct TimeBarChartView: View {
     @ObservedObject var healthStore: SleepStore
     @ObservedObject var weekStore: WeekStore
+    @State var isSheetPresented = false
     var selectedDay: Date
     var sleepData: [SleepEntry]
-    
     
     var body: some View {
         let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
@@ -40,6 +40,21 @@ struct TimeBarChartView: View {
                                 .foregroundColor(Color("PrimaryColor"))
                         }
                     }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .foregroundColor(.blue)
+                        .frame(width: 22, height: 22)
+                        .padding(.trailing, 8)
+                        .onTapGesture {
+                            withAnimation(.easeOut) {
+                                isSheetPresented.toggle()
+                            }
+                        }.sheet(isPresented: $isSheetPresented) {
+                            SleepStageSheetView()
+                        }
                 }
                 EventChart(events: healthStore.sleepData.filter { entry in
                     entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"},
@@ -170,6 +185,13 @@ struct EventChart: View {
 
 //struct TimeBarChartView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        TimeBarChartView(healthStore: SleepStore(), weekStore: WeekStore(), sleepEntry: SleepEntry)
+//        TimeBarChartView(healthStore: SleepStore(), weekStore: WeekStore(), selectedDay: Date(), sleepData: [])
 //    }
 //}
+
+
+
+
+
+
+

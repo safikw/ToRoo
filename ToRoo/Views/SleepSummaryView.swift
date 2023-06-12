@@ -21,6 +21,7 @@ struct SleepSummaryView: View {
             VStack(alignment: .leading){
                 InfiniteWeekView()
                     .environmentObject(weekStore)
+                    .environmentObject(healthStore)
                 
                 VStack{
                     TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate, sleepData: healthStore.sleepData)

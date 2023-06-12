@@ -23,6 +23,8 @@ struct CharacterStateView {
         let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         var imageName: String
         switch totalInBed/3600{
+        case 0:
+            imageName = "0"
         case ...1:
             imageName = "1"
         case ...2:

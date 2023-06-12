@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeekView: View {
     @EnvironmentObject var weekStore: WeekStore
+    @EnvironmentObject var healthStore: SleepStore
 
     var week: Week
 
@@ -34,10 +35,12 @@ struct WeekView: View {
                                 .size(width: 52, height: 55)
                                 .padding(.top, -4)
                                 .foregroundColor(week.dates[i] == week.referenceDate ? Color("SecondaryColor") : .white)
-                            Image("7")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40)
+                            if( Date() < Date(timeIntervalSinceNow: 86400)){
+                                Image(CharacterStateView(healthStore: healthStore, weekStore: weekStore, selectedDay: week.dates[i], sleepData: healthStore.sleepData).imageState())
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40)
+                            }
                         }
                         
                     
