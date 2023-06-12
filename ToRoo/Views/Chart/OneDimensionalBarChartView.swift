@@ -23,7 +23,7 @@ struct OneDimensionalBarChartView: View {
         self.healthStore = healthStore
         self.data = healthStore.sleepData
             .filter { entry in
-                 return entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay)
+                return entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
              }
              .reduce(into: [:]) { dict, entry in
                  dict[entry.sleepStages, default: 0] += entry.duration

@@ -38,14 +38,14 @@ struct SleepFilteringFunc {
         return totalInBedDuration
     }
     
-//    static func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
-//        let filteredEntries = sleepData.filter { entry in
-//            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
-//        }
-//        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
-//        
-//        return totalDuration
-//    }
+    static func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
+        let filteredEntries = sleepData.filter { entry in
+            entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
+        }
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        
+        return totalDuration
+    }
     
     static func calculateUnspecified(sleepData: [SleepEntry],selectedDay: Date) -> Double{
         let filteredEntriesUnspecified = sleepData.filter { entry in
@@ -57,10 +57,20 @@ struct SleepFilteringFunc {
     }
     
     static func calculateTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+        var totalDuration: TimeInterval = 0
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages == "Unspecified"
         }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        var filteredEntriesInBed = sleepData.filter { entry in
+            entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "In Bed"
+        }
+        
+        if filteredEntries.isEmpty {
+            totalDuration = filteredEntriesInBed.reduce(0) { $0 + $1.duration } / 7
+        }else{
+            totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
+        }
+//        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
         //formatter hour
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
@@ -72,10 +82,21 @@ struct SleepFilteringFunc {
     }
     
     static func calculateComparationTotalWeekDuration(sleepData: [SleepEntry]) -> String {
-        let filteredEntries = sleepData.filter { entry in
+        var totalDuration: TimeInterval = 0
+        var filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "Unspecified"
         }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        
+        var filteredEntriesInBed = sleepData.filter { entry in
+            entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "In Bed"
+        }
+        
+        if filteredEntries.isEmpty {
+            totalDuration = filteredEntriesInBed.reduce(0) { $0 + $1.duration }
+        }else{
+            totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+        }
+        
         //formatter hour
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]

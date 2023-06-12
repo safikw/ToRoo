@@ -38,9 +38,8 @@ struct SleepEfficiency: View {
     
     var body: some View {
         
-        
-        let filteredSleep = filteredData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Unspecified"
+        let filteredInBed = filteredData.filter { entry in
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "In Bed"
         }
         
         let filteredREM = filteredData.filter { entry in
@@ -51,12 +50,14 @@ struct SleepEfficiency: View {
             entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
         }
         
-        let totalSleep = filteredSleep.reduce(0) { $0 + $1.duration }/60
+//        let totalUnspecified = filteredUnspecified.reduce(0) { $0 + $1.duration }/60
+        let totalInBed = filteredInBed.reduce(0) { $0 + $1.duration }/60
         let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
         let totalAwake = (filteredAwake.reduce(0) { $0 + $1.duration })/60
         
+        let sleepEfficiency = ((totalInBed  -  totalREM - totalAwake )/480)*100
+
         
-        let sleepEfficiency = ((totalSleep  -  totalREM - totalAwake )/480)*100
         
         VStack(alignment: .leading){
             Text("Sleep Eficiency: ")
