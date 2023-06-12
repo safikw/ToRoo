@@ -10,13 +10,6 @@
 		74336CEE2A37088500EB7C47 /* SleepStageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */; };
 		7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */; };
 		7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC3C2A345D9000B3DB7C /* Font.swift */; };
-		7475BC482A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC3F2A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf */; };
-		7475BC4A2A34619100B3DB7C /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC412A34619100B3DB7C /* SF-Pro-Rounded-Semibold.otf */; };
-		7475BC4B2A34619100B3DB7C /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC422A34619100B3DB7C /* SF-Pro-Rounded-Light.otf */; };
-		7475BC4C2A34619100B3DB7C /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC432A34619100B3DB7C /* SF-Pro-Rounded-Medium.otf */; };
-		7475BC4D2A34619100B3DB7C /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC442A34619100B3DB7C /* SF-Pro-Rounded-Bold.otf */; };
-		7475BC4E2A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC452A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf */; };
-		7475BC502A34619100B3DB7C /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7475BC472A34619100B3DB7C /* SF-Pro-Rounded-Black.otf */; };
 		7475BC522A34653500B3DB7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color.swift */; };
 		7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
@@ -48,13 +41,6 @@
 		7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDimensionalBarChartView.swift; sourceTree = "<group>"; };
 		7475BC3C2A345D9000B3DB7C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7475BC3E2A345F5400B3DB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7475BC3F2A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Heavy.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
-		7475BC412A34619100B3DB7C /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Semibold.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
-		7475BC422A34619100B3DB7C /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
-		7475BC432A34619100B3DB7C /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
-		7475BC442A34619100B3DB7C /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Bold.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
-		7475BC452A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Regular.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
-		7475BC472A34619100B3DB7C /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Black.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
 		7475BC512A34653500B3DB7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateView.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
@@ -72,7 +58,14 @@
 		A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		A2EE7AD32A36B9860055B5CC /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
 		A2EE7AD52A370C180055B5CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		A2EF5B5D2A252324001EBA7B /* ToRoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToRoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2EE7AD82A3757DE0055B5CC /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		A2EE7AD92A3757DE0055B5CC /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		A2EE7ADA2A3757DE0055B5CC /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		A2EE7ADB2A3757DE0055B5CC /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
+		A2EE7ADC2A3757DE0055B5CC /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		A2EE7ADD2A3757DF0055B5CC /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		A2EE7ADE2A3757DF0055B5CC /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		A2EF5B5D2A252324001EBA7B /* SleepWithToRoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWithToRoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2EF5B602A252324001EBA7B /* ToRooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToRooApp.swift; sourceTree = "<group>"; };
 		A2EF5B622A252324001EBA7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A2EF5B642A252325001EBA7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,20 +87,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7475BC322A345D0E00B3DB7C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				7475BC472A34619100B3DB7C /* SF-Pro-Rounded-Black.otf */,
-				7475BC442A34619100B3DB7C /* SF-Pro-Rounded-Bold.otf */,
-				7475BC3F2A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf */,
-				7475BC422A34619100B3DB7C /* SF-Pro-Rounded-Light.otf */,
-				7475BC432A34619100B3DB7C /* SF-Pro-Rounded-Medium.otf */,
-				7475BC452A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf */,
-				7475BC412A34619100B3DB7C /* SF-Pro-Rounded-Semibold.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		A2A6B7E12A2F9B2600048231 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +125,20 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		A2EE7AD72A3757D40055B5CC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A2EE7AD92A3757DE0055B5CC /* SF-Pro-Rounded-Black.otf */,
+				A2EE7ADA2A3757DE0055B5CC /* SF-Pro-Rounded-Bold.otf */,
+				A2EE7AD82A3757DE0055B5CC /* SF-Pro-Rounded-Heavy.otf */,
+				A2EE7ADB2A3757DE0055B5CC /* SF-Pro-Rounded-Light.otf */,
+				A2EE7ADD2A3757DF0055B5CC /* SF-Pro-Rounded-Medium.otf */,
+				A2EE7ADE2A3757DF0055B5CC /* SF-Pro-Rounded-Regular.otf */,
+				A2EE7ADC2A3757DE0055B5CC /* SF-Pro-Rounded-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A2EF5B542A252323001EBA7B = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +150,7 @@
 		A2EF5B5E2A252324001EBA7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2EF5B5D2A252324001EBA7B /* ToRoo.app */,
+				A2EF5B5D2A252324001EBA7B /* SleepWithToRoo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,9 +158,9 @@
 		A2EF5B5F2A252324001EBA7B /* ToRoo */ = {
 			isa = PBXGroup;
 			children = (
+				A2EE7AD72A3757D40055B5CC /* Fonts */,
 				7475BC3E2A345F5400B3DB7C /* Info.plist */,
 				A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */,
-				7475BC322A345D0E00B3DB7C /* Fonts */,
 				A2EF5BA12A2799C6001EBA7B /* Utils */,
 				A2EF5BA02A2799BE001EBA7B /* Views */,
 				A2EF5B9D2A278E06001EBA7B /* Model */,
@@ -228,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A2EF5B5C2A252323001EBA7B /* ToRoo */ = {
+		A2EF5B5C2A252323001EBA7B /* SleepWithToRoo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2EF5B702A252325001EBA7B /* Build configuration list for PBXNativeTarget "ToRoo" */;
+			buildConfigurationList = A2EF5B702A252325001EBA7B /* Build configuration list for PBXNativeTarget "SleepWithToRoo" */;
 			buildPhases = (
 				A2EF5B592A252323001EBA7B /* Sources */,
 				A2EF5B5A2A252323001EBA7B /* Frameworks */,
@@ -240,9 +233,9 @@
 			);
 			dependencies = (
 			);
-			name = ToRoo;
+			name = SleepWithToRoo;
 			productName = ToRoo;
-			productReference = A2EF5B5D2A252324001EBA7B /* ToRoo.app */;
+			productReference = A2EF5B5D2A252324001EBA7B /* SleepWithToRoo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +253,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A2EF5B582A252323001EBA7B /* Build configuration list for PBXProject "ToRoo" */;
+			buildConfigurationList = A2EF5B582A252323001EBA7B /* Build configuration list for PBXProject "SleepWithToRoo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -273,7 +266,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A2EF5B5C2A252323001EBA7B /* ToRoo */,
+				A2EF5B5C2A252323001EBA7B /* SleepWithToRoo */,
 			);
 		};
 /* End PBXProject section */
@@ -284,14 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2EF5B682A252325001EBA7B /* Preview Assets.xcassets in Resources */,
-				7475BC502A34619100B3DB7C /* SF-Pro-Rounded-Black.otf in Resources */,
-				7475BC4D2A34619100B3DB7C /* SF-Pro-Rounded-Bold.otf in Resources */,
-				7475BC4C2A34619100B3DB7C /* SF-Pro-Rounded-Medium.otf in Resources */,
-				7475BC4B2A34619100B3DB7C /* SF-Pro-Rounded-Light.otf in Resources */,
 				A2EF5B652A252325001EBA7B /* Assets.xcassets in Resources */,
-				7475BC4E2A34619100B3DB7C /* SF-Pro-Rounded-Regular.otf in Resources */,
-				7475BC482A34619100B3DB7C /* SF-Pro-Rounded-Heavy.otf in Resources */,
-				7475BC4A2A34619100B3DB7C /* SF-Pro-Rounded-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +447,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToRoo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ToRoo ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "this app will use health share";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "this app will use health upadte";
@@ -474,7 +461,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = safikw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataEmpat.ToRoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -496,6 +483,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToRoo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ToRoo ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "this app will use health share";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "this app will use health upadte";
@@ -509,7 +497,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = safikw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataEmpat.ToRoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -520,7 +508,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2EF5B582A252323001EBA7B /* Build configuration list for PBXProject "ToRoo" */ = {
+		A2EF5B582A252323001EBA7B /* Build configuration list for PBXProject "SleepWithToRoo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2EF5B6E2A252325001EBA7B /* Debug */,
@@ -529,7 +517,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2EF5B702A252325001EBA7B /* Build configuration list for PBXNativeTarget "ToRoo" */ = {
+		A2EF5B702A252325001EBA7B /* Build configuration list for PBXNativeTarget "SleepWithToRoo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2EF5B712A252325001EBA7B /* Debug */,
