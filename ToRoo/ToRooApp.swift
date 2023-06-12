@@ -10,11 +10,21 @@ import SwiftUI
 @main
 struct ToRooApp: App {
 //    let persistenceController = PersistenceController.shared
+    @AppStorage("isFirstOpenApp") var isFirstOpenApp: Bool = true
+    
+    func onCompleteOnBoarding() {
+        isFirstOpenApp = false
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            if isFirstOpenApp {
+//                OnboardingView(onComplete: onCompleteOnBoarding)
+//            } else {
+                ContentView()
+            }
+           
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+//        }
     }
 }

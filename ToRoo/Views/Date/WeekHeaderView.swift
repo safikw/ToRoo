@@ -17,8 +17,6 @@ struct WeekHeaderView: View {
                 DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
                     .datePickerStyle(.compact)
                     .labelsHidden()
-//                    .frame(width: 24, height: 35)
-                    .background(Color.clear)
                 SwiftUIWrapper{
                     HStack {
                         Text(weekStore.selectedDate.monthToString())
@@ -27,9 +25,7 @@ struct WeekHeaderView: View {
                             .font(.sfRoundedSemiBold(fontSize: 32))
                         Image(systemName: "chevron.down")
                     }
-                    
                 }
-                
                 .allowsHitTesting(false)
             }
             Button{

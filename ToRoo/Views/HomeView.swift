@@ -78,22 +78,8 @@ struct HomeView: View {
                     .offset(y: 65)
                 VStack(spacing: 20){
                     
-                    Button("req askjdba"){
-                        notify.requestNotif()
-                    }
-                    
-                    Button("send notif in 5 sec") {
-                        notify.schedulerNotif(date: Date(), type: "time", timeInterval: 5, title: "hi", body: "this is a reminder you set")
-                    }
-                    
                 }
                 
-                
-//                NavigationLink{
-//                    SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-//                }label: {
-//                    Text("Sleep Summary Screen")
-//                }.offset(y: 100)
                 Spacer()
                 ZStack{
                     Image("BAWAH")
@@ -123,8 +109,14 @@ struct HomeView: View {
                 
             }
             .onAppear() {
+                if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
+                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
+                } else {
+                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Congrats, you nailed the sleep and took care of me today!",notifHour: 12)
+                }
                 
-                healthStore.requestAuthorization()
+                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
+                healthStore.fetchSleepAnalysis()
             }
             .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
                                        endPoint: UnitPoint(x: 0.5, y: 1)))

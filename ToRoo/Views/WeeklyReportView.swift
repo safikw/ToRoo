@@ -29,6 +29,7 @@ struct WeeklyReportView: View {
         .font(.caption)
         Text("Your average sleep hour is:")
             .foregroundColor(Color("PrimaryColor"))
+            .padding(.top, 20)
         HStack{
             ZStack{
                 Circle()

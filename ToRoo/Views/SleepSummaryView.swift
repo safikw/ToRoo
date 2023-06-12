@@ -32,13 +32,13 @@ struct SleepSummaryView: View {
                 
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
                 SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
+                    .padding(.top, 20)
                 WeeklyReportView(healthStore: healthStore)
             }.padding([.leading,.trailing], 10)
             //request access healthStore
 
         }
         .navigationBarBackButtonHidden(true)
-        .background(Color(hex: "#f5f5f5"))
 
         
     }

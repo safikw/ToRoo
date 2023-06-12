@@ -31,6 +31,7 @@
 		A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */; };
 		A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */; };
 		A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD32A36B9860055B5CC /* UserNotif.swift */; };
+		A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD52A370C180055B5CC /* OnboardingView.swift */; };
 		A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B602A252324001EBA7B /* ToRooApp.swift */; };
 		A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B622A252324001EBA7B /* ContentView.swift */; };
 		A2EF5B652A252325001EBA7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2EF5B642A252325001EBA7B /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksTabView.swift; sourceTree = "<group>"; };
 		A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		A2EE7AD32A36B9860055B5CC /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
+		A2EE7AD52A370C180055B5CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A2EF5B5D2A252324001EBA7B /* ToRoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToRoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2EF5B602A252324001EBA7B /* ToRooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToRooApp.swift; sourceTree = "<group>"; };
 		A2EF5B622A252324001EBA7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */,
 				A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */,
 				A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */,
+				A2EE7AD52A370C180055B5CC /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
 				A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */,
 				A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */,
+				A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */,
 				A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */,
 				A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */,
 				A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */,
