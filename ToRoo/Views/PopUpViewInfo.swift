@@ -30,7 +30,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("7")
+                            Image("7").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -47,7 +47,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("6")
+                            Image("6").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -64,7 +64,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("5")
+                            Image("5").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -81,7 +81,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("4")
+                            Image("4").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -98,7 +98,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("3")
+                            Image("3").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -115,7 +115,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("2")
+                            Image("2").resizable().scaledToFit()
                             Spacer()
                         }
                     )
@@ -132,7 +132,7 @@ struct PopUpViewInfo: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Image("1")
+                            Image("1").resizable().scaledToFit()
                             Spacer()
                         }
                     )
