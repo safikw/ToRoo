@@ -45,6 +45,7 @@ class SleepStore: ObservableObject {
                 // Authorization granted, fetch sleep analysis data
                 
                 print("berhasil request")
+                self.fetchSleepAnalysis()
             } else {
                 print("gagal request healthkit")
                 // Authorization denied

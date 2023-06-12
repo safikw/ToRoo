@@ -22,6 +22,7 @@ struct ToRooApp: App {
 //                OnboardingView(onComplete: onCompleteOnBoarding)
 //            } else {
                 ContentView()
+                .preferredColorScheme(.light)
             }
            
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)

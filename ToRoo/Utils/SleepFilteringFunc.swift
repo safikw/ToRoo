@@ -61,7 +61,7 @@ struct SleepFilteringFunc {
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages == "Unspecified"
         }
-        var filteredEntriesInBed = sleepData.filter { entry in
+        let filteredEntriesInBed = sleepData.filter { entry in
             entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "In Bed"
         }
         
@@ -83,11 +83,11 @@ struct SleepFilteringFunc {
     
     static func calculateComparationTotalWeekDuration(sleepData: [SleepEntry]) -> String {
         var totalDuration: TimeInterval = 0
-        var filteredEntries = sleepData.filter { entry in
+        let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "Unspecified"
         }
         
-        var filteredEntriesInBed = sleepData.filter { entry in
+        let filteredEntriesInBed = sleepData.filter { entry in
             entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "In Bed"
         }
         
