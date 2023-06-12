@@ -57,10 +57,20 @@ struct SleepFilteringFunc {
     }
     
     static func calculateTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+        var totalDuration: TimeInterval = 0
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages == "Unspecified"
         }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
+        var filteredEntriesInBed = sleepData.filter { entry in
+            entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "In Bed"
+        }
+        
+        if filteredEntries.isEmpty {
+            totalDuration = filteredEntriesInBed.reduce(0) { $0 + $1.duration } / 7
+        }else{
+            totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
+        }
+//        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
         //formatter hour
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
