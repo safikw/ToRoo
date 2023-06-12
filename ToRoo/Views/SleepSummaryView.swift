@@ -36,7 +36,6 @@ struct SleepSummaryView: View {
                 WeeklyReportView(healthStore: healthStore)
             }.padding([.leading,.trailing], 10)
             //request access healthStore
-
         }
         .navigationBarBackButtonHidden(true)
         .background(Color(hex: "#f5f5f5"))
