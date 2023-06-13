@@ -18,14 +18,14 @@ struct ToRooApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            if isFirstOpenApp {
-//                OnboardingView(onComplete: onCompleteOnBoarding)
-//            } else {
+            if isFirstOpenApp {
+                OnboardingView(onComplete: onCompleteOnBoarding)
+            } else {
                 ContentView()
                 .preferredColorScheme(.light)
             }
            
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//        }
+        }
     }
 }
