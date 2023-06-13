@@ -53,6 +53,8 @@ class SleepStore: ObservableObject {
     }
     
     func fetchSleepAnalysis() {
+        let oneMonthAgo = Calendar.current.date(byAdding: .weekOfYear, value: -3, to: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: oneMonthAgo, end: nil, options: .strictStartDate)
         
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
             // Sleep analysis not available
@@ -60,7 +62,7 @@ class SleepStore: ObservableObject {
             return
         }
         
-        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
             if error != nil {
                 // Handle error
                 return
