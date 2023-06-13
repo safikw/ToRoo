@@ -106,6 +106,7 @@ struct HomeView: View {
                 
             }
             .onAppear() {
+                notify.requestNotif()
                 if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
                     notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
                 } else {

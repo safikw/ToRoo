@@ -11,6 +11,7 @@ struct OnboardingView: View {
     @State private var nextPage1 = false
     @State private var currentTab = 0
     let onComplete: () -> Void
+    var notify = NotificationHandler()
     
     var body: some View {
         
@@ -159,6 +160,7 @@ struct OnboardingView: View {
                     .foregroundColor(.white)
                     .onTapGesture {
                         onComplete()
+                        notify.requestNotif()
                     }
             }.tag(2)
             
