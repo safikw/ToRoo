@@ -8,10 +8,12 @@
 import Foundation
 
 
+
+//TODO: FIX This Query
 struct SleepFilteringFunc {
 //    var selectedDay: Date
 
-    static func startOfOpeningHours(selectedDate: Date) -> Date{
+      func startOfOpeningHours(selectedDate: Date) -> Date{
         let dayChart = selectedDate.toString(format: "dd")
         let monthChart = selectedDate.toString(format: "MM")
         let yearChart = selectedDate.toString(format: "yyyy")
@@ -20,7 +22,7 @@ struct SleepFilteringFunc {
         return startTime
     }
     
-    static func endOfOpeningHours(selectedDate: Date) -> Date {
+      func endOfOpeningHours(selectedDate: Date) -> Date {
         let dayChart = selectedDate.toString(format: "dd")
         let monthChart = selectedDate.toString(format: "MM")
         let yearChart = selectedDate.toString(format: "yyyy")
@@ -29,7 +31,7 @@ struct SleepFilteringFunc {
         return endTime
     }
     
-    static func calculateInBed(sleepData: [SleepEntry],selectedDay: Date) -> Double {
+      func calculateInBed(sleepData: [SleepEntry],selectedDay: Date) -> Double {
         let filteredEntriesInBed = sleepData.filter { entry in
             entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "In Bed"
         }
@@ -38,7 +40,7 @@ struct SleepFilteringFunc {
         return totalInBedDuration
     }
     
-    static func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
+      func calculateTotal(sleepData: [SleepEntry],selectedDay: Date) -> Double{
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
         }
@@ -47,7 +49,7 @@ struct SleepFilteringFunc {
         return totalDuration
     }
     
-    static func calculateUnspecified(sleepData: [SleepEntry],selectedDay: Date) -> Double{
+      func calculateUnspecified(sleepData: [SleepEntry],selectedDay: Date) -> Double{
         let filteredEntriesUnspecified = sleepData.filter { entry in
             entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "Unspecified"
         }
@@ -56,7 +58,7 @@ struct SleepFilteringFunc {
         return totalUnspecifiedDuration
     }
     
-    static func calculateTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+      func calculateTotalWeekDuration(sleepData: [SleepEntry]) -> String {
         var totalDuration: TimeInterval = 0
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfWeek()! && entry.endDate <= getEndsOfWeek()! && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
@@ -81,7 +83,7 @@ struct SleepFilteringFunc {
         return formattedTotalDuration
     }
     
-    static func calculateComparationTotalWeekDuration(sleepData: [SleepEntry]) -> String {
+      func calculateComparationTotalWeekDuration(sleepData: [SleepEntry]) -> String {
         var totalDuration: TimeInterval = 0
         let filteredEntries = sleepData.filter { entry in
             entry.startDate >= getStartsOfPreviousPreviousWeek()! && entry.endDate <= getEndsOfPreviousPreviousWeek()! && entry.sleepStages == "Unspecified"
@@ -108,7 +110,7 @@ struct SleepFilteringFunc {
     }
     
     
-    static func getStartsOfWeek()-> (Date)?{
+      func getStartsOfWeek()-> (Date)?{
             let calendar = Calendar.current
             let currentDate = Date()
             
@@ -121,7 +123,7 @@ struct SleepFilteringFunc {
             return startOfPreviousWeek
         }
     
-    static func getStartsOfPreviousPreviousWeek()-> (Date)?{
+      func getStartsOfPreviousPreviousWeek()-> (Date)?{
             let calendar = Calendar.current
             let currentDate = Date()
             
@@ -134,7 +136,7 @@ struct SleepFilteringFunc {
             return startOfPreviousWeek
         }
     
-    static func getEndsOfPreviousPreviousWeek()-> (Date)?{
+      func getEndsOfPreviousPreviousWeek()-> (Date)?{
             let calendar = Calendar.current
             
         guard let endOfPreviousWeek = calendar.date(byAdding: .day, value: +7, to: getStartsOfPreviousPreviousWeek() ?? Date()) else {
@@ -144,7 +146,7 @@ struct SleepFilteringFunc {
             return endOfPreviousWeek
         }
     
-    static func getEndsOfWeek()-> (Date)?{
+      func getEndsOfWeek()-> (Date)?{
             let calendar = Calendar.current
             
         guard let endOfPreviousWeek = calendar.date(byAdding: .day, value: +7, to: getStartsOfWeek() ?? Date()) else {
@@ -155,7 +157,7 @@ struct SleepFilteringFunc {
         }
     
     
-    static func rangeStartsWeekFormatter() -> String {
+      func rangeStartsWeekFormatter() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
 
@@ -165,7 +167,7 @@ struct SleepFilteringFunc {
         
     }
     
-    static func rangeEndsWeekFormatter() -> String {
+      func rangeEndsWeekFormatter() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM yyyy"
         let endsOfWeekString = formatter.string(from: getEndsOfWeek()!)

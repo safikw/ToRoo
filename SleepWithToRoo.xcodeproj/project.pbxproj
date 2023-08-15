@@ -138,6 +138,22 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		A2A6BA3E2A8B1C6500AE84A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A2A6BA3F2A8B1CA200AE84A1 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A2EE7AD72A3757D40055B5CC /* Fonts */,
+				A2EF5B642A252325001EBA7B /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		A2EE7AD72A3757D40055B5CC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +187,7 @@
 		A2EF5B5F2A252324001EBA7B /* ToRoo */ = {
 			isa = PBXGroup;
 			children = (
-				A2EE7AD72A3757D40055B5CC /* Fonts */,
+				A2A6BA3E2A8B1C6500AE84A1 /* ViewModel */,
 				7475BC3E2A345F5400B3DB7C /* Info.plist */,
 				A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */,
 				A2EF5BA12A2799C6001EBA7B /* Utils */,
@@ -179,7 +195,7 @@
 				A2EF5B9D2A278E06001EBA7B /* Model */,
 				A2EF5B602A252324001EBA7B /* ToRooApp.swift */,
 				A2EF5B622A252324001EBA7B /* ContentView.swift */,
-				A2EF5B642A252325001EBA7B /* Assets.xcassets */,
+				A2A6BA3F2A8B1CA200AE84A1 /* SupportingFiles */,
 				A2EF5B662A252325001EBA7B /* Preview Content */,
 			);
 			path = ToRoo;

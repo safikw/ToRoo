@@ -11,10 +11,10 @@ struct WeeklyReportView: View {
     @ObservedObject var healthStore: SleepStore
     
     var body: some View {
-        let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)
-        let startsOfWeek = SleepFilteringFunc.rangeStartsWeekFormatter()
-        let endsOfWeek = SleepFilteringFunc.rangeEndsWeekFormatter()
-        let totalPreviousWeekDuration = SleepFilteringFunc.calculateComparationTotalWeekDuration(sleepData: healthStore.sleepData)
+//        let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)
+//        let startsOfWeek = SleepFilteringFunc.rangeStartsWeekFormatter()
+//        let endsOfWeek = SleepFilteringFunc.rangeEndsWeekFormatter()
+//        let totalPreviousWeekDuration = SleepFilteringFunc.calculateComparationTotalWeekDuration(sleepData: healthStore.sleepData)
         
         VStack(alignment: .leading){
         Text("Weekly Zzz Report")
@@ -38,6 +38,9 @@ struct WeeklyReportView: View {
                 Circle()
                     .frame(width: 150)
                     .foregroundColor(Color.white)
+                
+                
+//TODO: AVERAGE SLEEP HOUR
                 VStack{
                     Text("\(totalWeekDuration)")
                         .font(.sfRoundedBold(fontSize: 32))

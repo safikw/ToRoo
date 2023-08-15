@@ -44,10 +44,6 @@ class NotificationHandler{
             
             UNUserNotificationCenter.current().add(request)
         
-        
-
-        
-        
         }
         
         

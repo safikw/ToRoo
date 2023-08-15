@@ -40,13 +40,13 @@ struct SleepEntry: Identifiable, Equatable{
         self.duration = duration
     }
     
-    static var allEntries: [SleepEntry] = []
-    
-    static func getTotalDuration(for entries: [SleepEntry], sleepStage: String) -> TimeInterval {
-        let filteredEntries = entries.filter { $0.sleepStages == sleepStage }
-        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
-        return totalDuration
-    }
+//    static var allEntries: [SleepEntry] = []
+//
+//    static func getTotalDuration(for entries: [SleepEntry], sleepStage: String) -> TimeInterval {
+//        let filteredEntries = entries.filter { $0.sleepStages == sleepStage }
+//        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration }
+//        return totalDuration
+//    }
 }
 
 struct Series: Identifiable {

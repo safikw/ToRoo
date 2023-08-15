@@ -105,19 +105,20 @@ struct HomeView: View {
                 )
                 
             }
-            .onAppear() {
-                notify.requestNotif()
-                if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
-                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
-                } else {
-                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Congrats, you nailed the sleep and took care of me today!",notifHour: 12)
-                }
-                
-                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
-                healthStore.requestAuthorization()
-            }
-            .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
-                                       endPoint: UnitPoint(x: 0.5, y: 1)))
+            //TODO: USER NOTIFICATION
+//            .onAppear() {
+//                notify.requestNotif()
+//                if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
+//                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
+//                } else {
+//                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Congrats, you nailed the sleep and took care of me today!",notifHour: 12)
+//                }
+//
+//                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
+//                healthStore.requestAuthorization()
+//            }
+//            .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
+//                                       endPoint: UnitPoint(x: 0.5, y: 1)))
             .ignoresSafeArea()
             .overlay (
                 Group {

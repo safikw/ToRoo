@@ -17,7 +17,6 @@ struct SleepEfficiency: View {
     private var startOfOpeningHours: Date
     private var endOfOpeningHours: Date
     var filteredData: [SleepEntry] = []
-//    var sleepEfficiency: Double
     
 
     
@@ -38,24 +37,24 @@ struct SleepEfficiency: View {
     
     var body: some View {
         
-        let filteredInBed = filteredData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "In Bed"
-        }
-        
-        let filteredREM = filteredData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "REM"
-        }
-        
-        let filteredAwake = filteredData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
-        }
+//        let filteredInBed = filteredData.filter { entry in
+//            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "In Bed"
+//        }
+//
+//        let filteredREM = filteredData.filter { entry in
+//            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "REM"
+//        }
+//
+//        let filteredAwake = filteredData.filter { entry in
+//            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
+//        }
         
 //        let totalUnspecified = filteredUnspecified.reduce(0) { $0 + $1.duration }/60
-        let totalInBed = filteredInBed.reduce(0) { $0 + $1.duration }/60
-        let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
-        let totalAwake = (filteredAwake.reduce(0) { $0 + $1.duration })/60
-        
-        let sleepEfficiency = ((totalInBed  -  totalREM - totalAwake )/480)*100
+//        let totalInBed = filteredInBed.reduce(0) { $0 + $1.duration }/60
+//        let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
+//        let totalAwake = (filteredAwake.reduce(0) { $0 + $1.duration })/60
+//
+//        let sleepEfficiency = ((totalInBed  -  totalREM - totalAwake )/480)*100
 
         
         
@@ -63,7 +62,7 @@ struct SleepEfficiency: View {
             Text("Sleep Eficiency: ")
                 .font(.system(size: 16))
             HStack(alignment: .top){
-                
+                //TODO: Sleep Efficiency
                 Text("\(String(format: "%.2f", sleepEfficiency))%")
                     .font(.system(size: 32))
                     .foregroundColor(Color("PrimaryColor"))
@@ -77,17 +76,17 @@ struct SleepEfficiency: View {
                         .scaledToFit()
                         .frame(width: 16)
                 }
-                .iOSPopover(isPresented: $showingPopover, arrowDirection: .up){
-                    ScrollViewReader { value in
-                        ScrollView{
-                            Text("""
-                The amount of time you spend actually sleeping while in bed is known as sleep  efficiency. This measurement should ideally be 85 percent or more for optimal health benefits\n(National Sleep Foundation, thensf.org).
-                """)
-                            .padding()
-                        }.frame(height: 155)
-                            .shadow(radius: 25)
-                    }
-                }
+//                .iOSPopover(isPresented: $showingPopover, arrowDirection: .up){
+//                    ScrollViewReader { value in
+//                        ScrollView{
+//                            Text("""
+//                The amount of time you spend actually sleeping while in bed is known as sleep  efficiency. This measurement should ideally be 85 percent or more for optimal health benefits\n(National Sleep Foundation, thensf.org).
+//                """)
+//                            .padding()
+//                        }.frame(height: 155)
+//                            .shadow(radius: 25)
+//                    }
+//                }
             }
         }
     

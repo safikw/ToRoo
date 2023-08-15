@@ -10,8 +10,10 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var nextPage1 = false
     @State private var currentTab = 0
+    
+    //TODO: ONBOARDING VIEW ONCE TIME
     let onComplete: () -> Void
-    var notify = NotificationHandler()
+//    var notify = NotificationHandler()
     
     var body: some View {
         
