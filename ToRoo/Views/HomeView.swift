@@ -9,7 +9,7 @@ import SwiftUI
 //import UserNotifications
 
 struct HomeView: View {
-    @ObservedObject var healthStore: SleepStore
+    @EnvironmentObject var healthStore: Sleep
     @ObservedObject var weekStore: WeekStore
     
     @State private var customAlertInfo = false
@@ -24,7 +24,7 @@ struct HomeView: View {
     @State private var rotationDegrees = 0.0
     @State var moving = false
     @State private var selectedDate = Date()
-    var notify = NotificationHandler()
+//    var notify = NotificationHandler()
     
     
     var body: some View {
@@ -38,7 +38,6 @@ struct HomeView: View {
                     .onTapGesture {
                         withAnimation(.easeOut) {
                             isPanelVisible.toggle()
-                            
                         }
                         
                     }
@@ -117,8 +116,8 @@ struct HomeView: View {
 //                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
 //                healthStore.requestAuthorization()
 //            }
-//            .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
-//                                       endPoint: UnitPoint(x: 0.5, y: 1)))
+            .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
+                                       endPoint: UnitPoint(x: 0.5, y: 1)))
             .ignoresSafeArea()
             .overlay (
                 Group {
@@ -129,7 +128,9 @@ struct HomeView: View {
                     }
                 }
             )
-        }
+        } .onAppear {
+            healthStore.fetchSleepAnalysis(startDate: Calendar.current.startOfDay(for: Date()), endDate: Date())
+                                }
     }
 }
 //

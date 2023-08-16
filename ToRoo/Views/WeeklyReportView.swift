@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeeklyReportView: View {
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     
     var body: some View {
 //        let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)
@@ -41,35 +41,35 @@ struct WeeklyReportView: View {
                 
                 
 //TODO: AVERAGE SLEEP HOUR
-                VStack{
-                    Text("\(totalWeekDuration)")
-                        .font(.sfRoundedBold(fontSize: 32))
-                    Text("on average this week")
-                        .font(.sfRoundedRegular(fontSize: 12))
-                    Text("\(startsOfWeek) - \(endsOfWeek)")
-                        .font(.sfRoundedRegular(fontSize: 12))
-                        .foregroundColor(.black)
-                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
+//                VStack{
+//                    Text("\(totalWeekDuration)")
+//                        .font(.sfRoundedBold(fontSize: 32))
+//                    Text("on average this week")
+//                        .font(.sfRoundedRegular(fontSize: 12))
+//                    Text("\(startsOfWeek) - \(endsOfWeek)")
+//                        .font(.sfRoundedRegular(fontSize: 12))
+//                        .foregroundColor(.black)
+//                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
             }
             
-            ZStack{
-                Circle()
-                    .frame(width: 180)
-                    .foregroundColor(Color.gray.opacity(0.2))
-                Circle()
-                    .frame(width: 150)
-                    .foregroundColor(Color.white)
-                VStack{
-                    Image( totalWeekDuration < totalPreviousWeekDuration ? "8" : "7")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 70)
-                    Text(totalWeekDuration < totalPreviousWeekDuration ? "decreased" : "increased")
-                        .font(.sfRoundedBold(fontSize: 16))
-                    Text("compared to last week")
-                        .font(.sfRoundedRegular(fontSize: 12))
-                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
-            }
+//            ZStack{
+//                Circle()
+//                    .frame(width: 180)
+//                    .foregroundColor(Color.gray.opacity(0.2))
+//                Circle()
+//                    .frame(width: 150)
+//                    .foregroundColor(Color.white)
+//                VStack{
+//                    Image( totalWeekDuration < totalPreviousWeekDuration ? "8" : "7")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 70)
+//                    Text(totalWeekDuration < totalPreviousWeekDuration ? "decreased" : "increased")
+//                        .font(.sfRoundedBold(fontSize: 16))
+//                    Text("compared to last week")
+//                        .font(.sfRoundedRegular(fontSize: 12))
+//                }.foregroundColor(totalWeekDuration < totalPreviousWeekDuration ? .red : .green)
+//            }
         }
         }
 }

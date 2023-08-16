@@ -11,7 +11,7 @@ import HealthKit
 
 struct SleepSummaryView: View {
     
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     @ObservedObject var weekStore: WeekStore
     
     
@@ -30,8 +30,8 @@ struct SleepSummaryView: View {
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
-                
-                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
+//                
+//                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
                 SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
                     .padding(.top, 20)
                 WeeklyReportView(healthStore: healthStore)

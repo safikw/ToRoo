@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct CharacterStateView {
-    @ObservedObject var healthStore: Sleep
+    @EnvironmentObject var healthStore: Sleep
     @EnvironmentObject var weekStore: WeekStore
+    
     var selectedDay: Date
     var sleepData: [SleepEntry]
     
     init(healthStore: Sleep, weekStore: WeekStore, selectedDay: Date, sleepData: [SleepEntry]) {
-        self.healthStore = healthStore
+//        self.healthStore = healthStore
         self.selectedDay = selectedDay
         self.sleepData = healthStore.sleepData
     }
     
     func imageState() -> String{
-        let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
+//        let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
+//
+////        let totalInBed1 = sleepData.
+        
+        let totalUnspecifiedDuration = sleepData.reduce(0) { $0 + $1.duration }
+        print(totalUnspecifiedDuration)
+        print(sleepData)
         var imageName: String
-        switch totalInBed/3600{
+        switch totalUnspecifiedDuration/3600{
         case 0:
             imageName = "0"
         case ...1:

@@ -63,11 +63,11 @@ struct SleepEfficiency: View {
                 .font(.system(size: 16))
             HStack(alignment: .top){
                 //TODO: Sleep Efficiency
-                Text("\(String(format: "%.2f", sleepEfficiency))%")
-                    .font(.system(size: 32))
-                    .foregroundColor(Color("PrimaryColor"))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 10)
+//                Text("\(String(format: "%.2f", sleepEfficiency))%")
+//                    .font(.system(size: 32))
+//                    .foregroundColor(Color("PrimaryColor"))
+//                    .fontWeight(.bold)
+//                    .padding(.bottom, 10)
                 Button() {
                     showingPopover.toggle()
                 }label: {

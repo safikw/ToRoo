@@ -19,19 +19,19 @@ class Sleep: ObservableObject {
         }
     }
     
-    func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
-    }
+//    func formatDate(_ date: Date) -> String {
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .short
+//        formatter.timeStyle = .short
+//        return formatter.string(from: date)
+//    }
     
-    func formatDuration(_ duration: TimeInterval) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .abbreviated
-        formatter.allowedUnits = [.hour, .minute]
-        return formatter.string(from: duration) ?? ""
-    }
+//    func formatDuration(_ duration: TimeInterval) -> String {
+//        let formatter = DateComponentsFormatter()
+//        formatter.unitsStyle = .abbreviated
+//        formatter.allowedUnits = [.hour, .minute]
+//        return formatter.string(from: duration) ?? ""
+//    }
     
     func requestAuthorization() {
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
@@ -58,9 +58,9 @@ class Sleep: ObservableObject {
     
     
     //TODO:FIX Fetch function
-    func fetchSleepAnalysis() {
+    func fetchSleepAnalysis(startDate: Date, endDate: Date) {
 //        let oneMonthAgo = Calendar.current.date(byAdding: .weekOfYear, value: -3, to: Date())
-//        let predicate = HKQuery.predicateForSamples(withStart: oneMonthAgo, end: nil, options: .strictStartDate)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
             // Sleep analysis not available
@@ -68,7 +68,7 @@ class Sleep: ObservableObject {
             return
         }
         
-        let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
             if error != nil {
                 // Handle error
                 return
@@ -81,6 +81,8 @@ class Sleep: ObservableObject {
         }
         
         healthStore?.execute(query)
+        
+        print(query)
     }
     
     
@@ -121,7 +123,7 @@ class Sleep: ObservableObject {
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
             
             sleepData.append(sleepEntry)
-//            print(sleepEntry)
+            print(sleepEntry)
         }
         
         DispatchQueue.main.async {

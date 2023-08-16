@@ -10,10 +10,11 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var nextPage1 = false
     @State private var currentTab = 0
+    @StateObject var healthStore: Sleep = Sleep()
     
     //TODO: ONBOARDING VIEW ONCE TIME
     let onComplete: () -> Void
-//    var notify = NotificationHandler()
+    //    var notify = NotificationHandler()
     
     var body: some View {
         
@@ -102,7 +103,7 @@ struct OnboardingView: View {
                         .padding(.leading, 50)
                         .padding(.horizontal, 30)
                         .padding(.trailing, 50)
-                       
+                    
                 }
                 .padding(.top, 250)
                 
@@ -111,14 +112,14 @@ struct OnboardingView: View {
                     .frame(width: 490, height: 480)
                     .offset(x:10, y:-240)
                 
-//                Image(systemName: "arrow.right.circle.fill")
-//                    .resizable()
-//                    .frame(width: 60, height: 60)
-//                    .foregroundColor(.white)
-//                    .padding(.top, 600)
-                    
+                //                Image(systemName: "arrow.right.circle.fill")
+                //                    .resizable()
+                //                    .frame(width: 60, height: 60)
+                //                    .foregroundColor(.white)
+                //                    .padding(.top, 600)
+                
             }.tag(1)
-            .navigationBarBackButtonHidden(true)
+                .navigationBarBackButtonHidden(true)
             
             ZStack{
                 Color(hex: "0xffC89FD2")
@@ -162,13 +163,15 @@ struct OnboardingView: View {
                     .foregroundColor(.white)
                     .onTapGesture {
                         onComplete()
-                        notify.requestNotif()
+                        healthStore.requestAuthorization()
+                        
+                        //                        notify.requestNotif()
                     }
             }.tag(2)
             
             
         }).ignoresSafeArea()
-        .tabViewStyle(PageTabViewStyle())
+            .tabViewStyle(PageTabViewStyle())
     }
     
     @available(iOS 16.0, *)

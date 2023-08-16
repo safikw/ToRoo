@@ -17,7 +17,7 @@ struct TimeBarChartView: View {
     
     var body: some View {
 //        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
-        let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
+//        let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         
 //        if healthStore.sleepData.isEmpty {
 //            Text("No Sleep Data today")
@@ -31,9 +31,9 @@ struct TimeBarChartView: View {
                             .font(.sfRoundedRegular(fontSize: 16))
                         
 //                        if totalDuration != 0 || totalInBed != 0 {
-                            Text("\(healthStore.formatDuration(totalInBed != 0 ? totalInBed : totalDuration))")
-                                .font(.sfRoundedBold(fontSize: 32))
-                                .foregroundColor(Color("PrimaryColor"))
+//                            Text("\(healthStore.formatDuration(totalInBed != 0 ? totalInBed : totalDuration))")
+//                                .font(.sfRoundedBold(fontSize: 32))
+//                                .foregroundColor(Color("PrimaryColor"))
 //                        } else {
 //                            Text("No Data")
 //                                .font(.sfRoundedBold(fontSize: 32))
@@ -56,31 +56,31 @@ struct TimeBarChartView: View {
                             SleepStageSheetView()
                         }
                 }
-                EventChart(events: healthStore.sleepData.filter { entry in
-                    entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"},
-                           chartXScaleRangeStart: SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay),
-                           chartXScaleRangeEnd: SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay))
-            }
+//                EventChart(events: healthStore.sleepData.filter { entry in
+//                    entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"},
+//                           chartXScaleRangeStart: SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay),
+//                           chartXScaleRangeEnd: SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay))
+//            }
         }   
         
     }
     
     
-    static func getEventsTotalDuration(_ events: [SleepEntry]) -> String {
-        var durationInSeconds: TimeInterval = 0
-        for event in events {
-            durationInSeconds += event.startDate.distance(to: event.endDate)
-        }
-        return getFormattedDuration(seconds: durationInSeconds)
-    }
-    
-    static func getFormattedDuration(seconds: Double) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .pad
-        formatter.allowedUnits = [.hour, .minute]
-        
-        return formatter.string(from: seconds) ?? "N/A"
+//    static func getEventsTotalDuration(_ events: [SleepEntry]) -> String {
+//        var durationInSeconds: TimeInterval = 0
+//        for event in events {
+//            durationInSeconds += event.startDate.distance(to: event.endDate)
+//        }
+//        return getFormattedDuration(seconds: durationInSeconds)
+//    }
+//
+//    static func getFormattedDuration(seconds: Double) -> String {
+//        let formatter = DateComponentsFormatter()
+//        formatter.unitsStyle = .abbreviated
+//        formatter.zeroFormattingBehavior = .pad
+//        formatter.allowedUnits = [.hour, .minute]
+//
+//        return formatter.string(from: seconds) ?? "N/A"
     }
     
 }
@@ -114,9 +114,9 @@ struct EventChart: View {
                                 .offset(x: (plotWidth / getEventMiddle(start: selectedEvent.startDate, end: selectedEvent.endDate))) // Align with middle of bar
                                 .annotation(position: .top) {
                                     VStack(alignment: .leading, spacing: 6) {
-                                        Text("Duration: \(TimeBarChartView.getEventsTotalDuration([selectedEvent]))")
-                                            .font(.body.bold())
-                                            .foregroundColor(Color("PrimaryColor"))
+//                                        Text("Duration: \(TimeBarChartView.getEventsTotalDuration([selectedEvent]))")
+//                                            .font(.body.bold())
+//                                            .foregroundColor(Color("PrimaryColor"))
                                     }
                                     .padding(.horizontal, 10)
                                     .padding(.vertical, 4)
