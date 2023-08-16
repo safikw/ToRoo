@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SleepEfficiency: View {
     @State private var showingPopover = false
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     @EnvironmentObject var weekStore: WeekStore
     let dayChart: String
     let monthChart: String
@@ -20,7 +20,7 @@ struct SleepEfficiency: View {
     
 
     
-    init(healthStore: SleepStore, weekStore: WeekStore) {
+    init(healthStore: Sleep, weekStore: WeekStore) {
         self.healthStore = healthStore
         self.dayChart = weekStore.selectedDate.toString(format: "dd")
         self.monthChart = weekStore.selectedDate.toString(format: "MM")

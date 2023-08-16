@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CharacterStateView {
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     @EnvironmentObject var weekStore: WeekStore
     var selectedDay: Date
     var sleepData: [SleepEntry]
     
-    init(healthStore: SleepStore, weekStore: WeekStore, selectedDay: Date, sleepData: [SleepEntry]) {
+    init(healthStore: Sleep, weekStore: WeekStore, selectedDay: Date, sleepData: [SleepEntry]) {
         self.healthStore = healthStore
         self.selectedDay = selectedDay
         self.sleepData = healthStore.sleepData

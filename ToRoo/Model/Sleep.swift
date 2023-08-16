@@ -9,7 +9,7 @@ import HealthKit
 
 
 
-class SleepStore: ObservableObject {
+class Sleep: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
     
@@ -34,7 +34,11 @@ class SleepStore: ObservableObject {
     }
     
     func requestAuthorization() {
-        let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
+        guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
+            print("Sleep analysis not available")
+            return
+        }
+        
         healthStore?.requestAuthorization(toShare: nil, read: [sleepType]) { success, error in
             if error != nil {
                 print("Request auth for sleeping data can't ")

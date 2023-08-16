@@ -9,20 +9,20 @@ import SwiftUI
 import Charts
 
 struct TimeBarChartView: View {
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     @ObservedObject var weekStore: WeekStore
     @State var isSheetPresented = false
     var selectedDay: Date
     var sleepData: [SleepEntry]
     
     var body: some View {
-        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
+//        let totalDuration = SleepFilteringFunc.calculateTotal(sleepData: sleepData, selectedDay: selectedDay)
         let totalInBed = SleepFilteringFunc.calculateInBed(sleepData: sleepData, selectedDay: selectedDay)
         
-        if healthStore.sleepData.isEmpty {
-            Text("No Sleep Data today")
-                .font(.system(size: 18))
-        } else {
+//        if healthStore.sleepData.isEmpty {
+//            Text("No Sleep Data today")
+//                .font(.system(size: 18))
+//        } else {
             VStack(alignment: .leading, spacing: -20){
                 
                 HStack {
@@ -30,16 +30,16 @@ struct TimeBarChartView: View {
                         Text("TIME ASLEEP")
                             .font(.sfRoundedRegular(fontSize: 16))
                         
-                        if totalDuration != 0 || totalInBed != 0 {
+//                        if totalDuration != 0 || totalInBed != 0 {
                             Text("\(healthStore.formatDuration(totalInBed != 0 ? totalInBed : totalDuration))")
                                 .font(.sfRoundedBold(fontSize: 32))
                                 .foregroundColor(Color("PrimaryColor"))
-                        } else {
-                            Text("No Data")
-                                .font(.sfRoundedBold(fontSize: 32))
-                                .foregroundColor(Color("PrimaryColor"))
-                        }
-                    }
+//                        } else {
+//                            Text("No Data")
+//                                .font(.sfRoundedBold(fontSize: 32))
+//                                .foregroundColor(Color("PrimaryColor"))
+//                        }
+//                    }
                     
                     Spacer()
                     

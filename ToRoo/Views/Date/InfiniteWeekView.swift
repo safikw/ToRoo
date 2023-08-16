@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfiniteWeekView: View {
     @EnvironmentObject var weekStore: WeekStore
-    @EnvironmentObject var healthStore: SleepStore
+    @EnvironmentObject var healthStore: Sleep
 
 //    @State var tasks: [Task] = MockTasks().all()
 

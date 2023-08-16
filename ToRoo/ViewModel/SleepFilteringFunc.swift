@@ -49,6 +49,8 @@ struct SleepFilteringFunc {
         return totalDuration
     }
     
+    
+    
       func calculateUnspecified(sleepData: [SleepEntry],selectedDay: Date) -> Double{
         let filteredEntriesUnspecified = sleepData.filter { entry in
             entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages == "Unspecified"

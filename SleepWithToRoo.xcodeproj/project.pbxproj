@@ -25,13 +25,14 @@
 		A2A6B7EC2A2F9CB300048231 /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */; };
 		A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */; };
 		A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */; };
+		A2A6BA452A8C7ADA00AE84A1 /* SleepEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6BA442A8C7ADA00AE84A1 /* SleepEntry.swift */; };
 		A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD32A36B9860055B5CC /* UserNotif.swift */; };
 		A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD52A370C180055B5CC /* OnboardingView.swift */; };
 		A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B602A252324001EBA7B /* ToRooApp.swift */; };
 		A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B622A252324001EBA7B /* ContentView.swift */; };
 		A2EF5B652A252325001EBA7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2EF5B642A252325001EBA7B /* Assets.xcassets */; };
 		A2EF5B682A252325001EBA7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2EF5B672A252325001EBA7B /* Preview Assets.xcassets */; };
-		A2EF5B9F2A278E16001EBA7B /* SleepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B9E2A278E16001EBA7B /* SleepController.swift */; };
+		A2EF5B9F2A278E16001EBA7B /* Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B9E2A278E16001EBA7B /* Sleep.swift */; };
 		A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */; };
 		A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderView.swift; sourceTree = "<group>"; };
 		A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksTabView.swift; sourceTree = "<group>"; };
 		A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		A2A6BA442A8C7ADA00AE84A1 /* SleepEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEntry.swift; sourceTree = "<group>"; };
 		A2EE7AD32A36B9860055B5CC /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
 		A2EE7AD52A370C180055B5CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A2EE7AD82A3757DE0055B5CC /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		A2EF5B622A252324001EBA7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A2EF5B642A252325001EBA7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2EF5B672A252325001EBA7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A2EF5B9E2A278E16001EBA7B /* SleepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
+		A2EF5B9E2A278E16001EBA7B /* Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sleep.swift; sourceTree = "<group>"; };
 		A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEnum.swift; sourceTree = "<group>"; };
 		A2EF5BA42A279CD8001EBA7B /* ToRoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToRoo.entitlements; sourceTree = "<group>"; };
 		A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSummaryView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,8 @@
 		A2A6BA3E2A8B1C6500AE84A1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
+				A2EE7AD32A36B9860055B5CC /* UserNotif.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -213,7 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				A2A6B7E42A2F9B8800048231 /* WeekStore.swift */,
-				A2EF5B9E2A278E16001EBA7B /* SleepController.swift */,
+				A2EF5B9E2A278E16001EBA7B /* Sleep.swift */,
+				A2A6BA442A8C7ADA00AE84A1 /* SleepEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,11 +243,9 @@
 		A2EF5BA12A2799C6001EBA7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
 				A2A6B7E62A2F9BE400048231 /* Enum */,
 				A2A6B7E12A2F9B2600048231 /* Extensions */,
 				A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */,
-				A2EE7AD32A36B9860055B5CC /* UserNotif.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -329,11 +332,12 @@
 				A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */,
 				A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */,
 				7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */,
-				A2EF5B9F2A278E16001EBA7B /* SleepController.swift in Sources */,
+				A2EF5B9F2A278E16001EBA7B /* Sleep.swift in Sources */,
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
 				A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */,
 				A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */,
 				A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */,
+				A2A6BA452A8C7ADA00AE84A1 /* SleepEntry.swift in Sources */,
 				A2EF5B632A252324001EBA7B /* ContentView.swift in Sources */,
 				A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */,
 				A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */,

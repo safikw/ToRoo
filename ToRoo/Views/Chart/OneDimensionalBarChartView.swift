@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct OneDimensionalBarChartView: View {
-    @ObservedObject var healthStore: SleepStore
+    @ObservedObject var healthStore: Sleep
     @EnvironmentObject var weekStore: WeekStore
     var data: [(category: String, size: Double)] = []
     var selectedDay: Date
@@ -19,7 +19,7 @@ struct OneDimensionalBarChartView: View {
     }
 
     
-    init(healthStore: SleepStore, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
+    init(healthStore: Sleep, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
         self.healthStore = healthStore
         self.data = healthStore.sleepData
             .filter { entry in
