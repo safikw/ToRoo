@@ -19,22 +19,24 @@ struct SleepSummaryView: View {
         
         ScrollView(.vertical){
             VStack(alignment: .leading){
+                //MARK: INFINITE DATE
                 InfiniteWeekView()
                     .environmentObject(weekStore)
                     .environmentObject(healthStore)
                 
-                VStack{
-                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate, sleepData: healthStore.sleepData)
-                        .padding()
-                }
-                .frame(maxWidth: .infinity)
-                .background(.gray.opacity(0.2))
-                .cornerRadius(10)
-//                
-//                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
-                SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
-                    .padding(.top, 20)
-                WeeklyReportView(healthStore: healthStore)
+                //MARK: CHART
+//                VStack{
+//                    TimeBarChartView(healthStore: healthStore, weekStore: weekStore, selectedDay: weekStore.selectedDate, sleepData: healthStore.sleepData)
+//                        .padding()
+//                }
+//                .frame(maxWidth: .infinity)
+//                .background(.gray.opacity(0.2))
+//                .cornerRadius(10)
+////                
+////                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
+//                SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
+//                    .padding(.top, 20)
+//                WeeklyReportView(healthStore: healthStore)
             }.padding([.leading,.trailing], 10)
             //request access healthStore
         }

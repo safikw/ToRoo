@@ -10,7 +10,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var healthStore: Sleep
-    @ObservedObject var weekStore: WeekStore
+//    @ObservedObject var weekStore: WeekStore
+    
+    @State private var sleepStages: SleepStages = .AwakeStage
     
     @State private var customAlertInfo = false
     
@@ -45,13 +47,14 @@ struct HomeView: View {
             ZStack {
                 Image("radial").resizable().scaledToFit()
                 VStack{
-                    Text("\(weekStore.selectedDate.toString(format: "dd MMMM yyyy"))")
+                    Text("\(Date.getCurrentDate())")
                         .foregroundColor(.white)
                         .textCase(.uppercase)
                         .font(.sfRoundedBlack(fontSize: 32))
                         .padding(.bottom, 20)
                     Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
-                    Image(CharacterStateView(healthStore: healthStore, weekStore: weekStore, selectedDay: Date(), sleepData: healthStore.sleepData).imageState())
+                    
+                    Image(CharacterStateViewModel(selectedDay: Date(), sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
                         .resizable()
                         .scaledToFit()
                         .frame(width: 318, height: 219)
@@ -95,11 +98,11 @@ struct HomeView: View {
                         }
                 )
                 .background(
-                    withAnimation(){
-                        NavigationLink("Move to summary",isActive: $isDetailViewActive) {
-                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-                        }
-                    }
+//                    withAnimation(){
+//                        NavigationLink("Move to summary",isActive: $isDetailViewActive) {
+//                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+//                        }
+//                    }
                     
                 )
                 

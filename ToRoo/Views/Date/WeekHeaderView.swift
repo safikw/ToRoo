@@ -13,21 +13,25 @@ struct WeekHeaderView: View {
     
     var body: some View {
         VStack{
-            ZStack {
-                DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
-                    .datePickerStyle(.compact)
-                    .labelsHidden()
-                SwiftUIWrapper{
+                
+//                SwiftUIWrapper{
                     HStack {
                         Text(weekStore.selectedDate.monthToString())
                             .font(.sfRoundedHeavy(fontSize: 32))
                         Text(weekStore.selectedDate.toString(format: "yyyy"))
                             .font(.sfRoundedSemiBold(fontSize: 32))
-                        Image(systemName: "chevron.down")
+//                        ZStack {
+//                            DatePicker("label", selection: $weekStore.selectedDate, displayedComponents: .date)
+//                                .datePickerStyle(.compact)
+//                                .labelsHidden()
+//                                .frame(width: 30)
+//                                .opacity(0)
+                            Image(systemName: "chevron.down")
+//                        }
                     }
-                }
-                .allowsHitTesting(false)
-            }
+//                }
+//                .allowsHitTesting(false)
+            
             Button{
                 withAnimation {
                     weekStore.selectToday()
@@ -53,13 +57,13 @@ struct WeekHeaderView: View {
 }
 
 
-struct SwiftUIWrapper<T: View>: UIViewControllerRepresentable {
-    let content: () -> T
-    func makeUIViewController(context: Context) -> UIHostingController<T> {
-        UIHostingController(rootView: content())
-    }
-    func updateUIViewController(_ uiViewController: UIHostingController<T>, context: Context) {}
-}
+//struct SwiftUIWrapper<T: View>: UIViewControllerRepresentable {
+//    let content: () -> T
+//    func makeUIViewController(context: Context) -> UIHostingController<T> {
+//        UIHostingController(rootView: content())
+//    }
+//    func updateUIViewController(_ uiViewController: UIHostingController<T>, context: Context) {}
+//}
 
 
 //struct WeekHeaderView_Previews: PreviewProvider {

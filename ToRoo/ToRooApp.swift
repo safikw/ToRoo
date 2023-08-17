@@ -30,7 +30,7 @@ struct ToRooApp: App {
 //            }
 //            .environmentObject(sleep)
             
-            HomeView(weekStore: weekStore)
+            HomeView()
                 .environmentObject(sleep)
 //            } else {
 //                ContentView()

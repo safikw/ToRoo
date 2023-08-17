@@ -11,14 +11,14 @@
 		7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */; };
 		7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC3C2A345D9000B3DB7C /* Font.swift */; };
 		7475BC522A34653500B3DB7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color.swift */; };
-		7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */; };
+		7485EF8E2A36B50E0063A376 /* CharacterStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
 		A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */; };
 		A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */; };
 		A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */; };
 		A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */; };
 		A263145B2A32BED50044D204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A263145A2A32BED50044D204 /* HomeView.swift */; };
-		A2A6B7E32A2F9B4300048231 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E22A2F9B4300048231 /* DateExtension.swift */; };
+		A2A6B7E32A2F9B4300048231 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */; };
 		A2A6B7E52A2F9B8800048231 /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E42A2F9B8800048231 /* WeekStore.swift */; };
 		A2A6B7E82A2F9BF400048231 /* TimeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E72A2F9BF400048231 /* TimeDirection.swift */; };
 		A2A6B7EA2A2F9C4B00048231 /* InfiniteWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */; };
@@ -56,14 +56,14 @@
 		7475BC3C2A345D9000B3DB7C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7475BC3E2A345F5400B3DB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7475BC512A34653500B3DB7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateView.swift; sourceTree = "<group>"; };
+		7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateViewModel.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
 		A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewInfo.swift; sourceTree = "<group>"; };
 		A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
 		A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEfficiency.swift; sourceTree = "<group>"; };
 		A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepFilteringFunc.swift; sourceTree = "<group>"; };
 		A263145A2A32BED50044D204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		A2A6B7E22A2F9B4300048231 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A2A6B7E42A2F9B8800048231 /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
 		A2A6B7E72A2F9BF400048231 /* TimeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDirection.swift; sourceTree = "<group>"; };
 		A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteWeekView.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		A2A6B7E12A2F9B2600048231 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A2A6B7E22A2F9B4300048231 /* DateExtension.swift */,
+				A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */,
 				7475BC3C2A345D9000B3DB7C /* Font.swift */,
 				7475BC512A34653500B3DB7C /* Color.swift */,
 			);
@@ -143,6 +143,7 @@
 		A2A6BA3E2A8B1C6500AE84A1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */,
 				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
 				A2EE7AD32A36B9860055B5CC /* UserNotif.swift */,
 			);
@@ -226,7 +227,6 @@
 		A2EF5BA02A2799BE001EBA7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7485EF8D2A36B50E0063A376 /* CharacterStateView.swift */,
 				A2A6B7F22A2FA01F00048231 /* Chart */,
 				A2A6B7F12A2FA01100048231 /* Date */,
 				A263145A2A32BED50044D204 /* HomeView.swift */,
@@ -326,12 +326,12 @@
 				A263145B2A32BED50044D204 /* HomeView.swift in Sources */,
 				A2A6B7E82A2F9BF400048231 /* TimeDirection.swift in Sources */,
 				7475BC522A34653500B3DB7C /* Color.swift in Sources */,
-				A2A6B7E32A2F9B4300048231 /* DateExtension.swift in Sources */,
+				A2A6B7E32A2F9B4300048231 /* Date+Extension.swift in Sources */,
 				A2A6B7EA2A2F9C4B00048231 /* InfiniteWeekView.swift in Sources */,
 				A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */,
 				A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */,
 				A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */,
-				7485EF8E2A36B50E0063A376 /* CharacterStateView.swift in Sources */,
+				7485EF8E2A36B50E0063A376 /* CharacterStateViewModel.swift in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* Sleep.swift in Sources */,
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
 				A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */,

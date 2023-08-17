@@ -17,7 +17,7 @@ struct InfiniteWeekView: View {
                         VStack {
                             WeekHeaderView()
                             WeeksTabView() { week in
-                                WeekView(week: week).environmentObject(healthStore)
+//                                WeekView(week: week).environmentObject(healthStore)
                             }
                         }
         

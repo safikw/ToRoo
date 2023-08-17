@@ -21,6 +21,15 @@ public enum HKCategoryValueSleepAnalysis : Int {
     case asleepREM
 }
 
+enum SleepStages: String {
+    case InBedStage = "In Bed"
+    case AwakeStage
+    case REMStage
+    case DeepStage
+    case CoreStage
+    case UnspecifiedStage
+}
+
 func date(year: Int, month: Int, day: Int = 1, hour: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date {
     Calendar.current.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minutes, second: seconds)) ?? Date()
 }
@@ -31,10 +40,10 @@ func date(year: Int, month: Int, day: Int = 1, hour: Int = 0, minutes: Int = 0, 
 struct Series: Identifiable {
     /// Data Group.
     let category: String
-
+    
     /// Size of data in gigabytes?
     let size: Double
-
+    
     /// The identifier for the series.
     var id: String { category }
 }

@@ -115,8 +115,6 @@ class Sleep: ObservableObject {
             
             // Calculate the duration of the sleep sample
             let duration = endDate.timeIntervalSince(startDate)
-
-            
             
             
             // Create a SleepEntry object and add it to the sleepData array
