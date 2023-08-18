@@ -17,6 +17,7 @@ struct PopUpViewInfo: View {
                 Text ("ToRoo's Represent")
                     .font(.system(.largeTitle, design: .rounded, weight: .bold))
                     .foregroundColor(Color(hex: "452680"))
+                
                 PopUpViewComponent(sleepDurationText: "7 Hours Sleep", torooImage: "7")
                 PopUpViewComponent(sleepDurationText: "6 Hours Sleep", torooImage: "6")
                 PopUpViewComponent(sleepDurationText: "5 Hours Sleep", torooImage: "5")

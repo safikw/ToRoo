@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var healthStore: Sleep
-    @StateObject var weekStore: WeekStore
+    @ObservedObject var weekStore: WeekStore
     
     @State private var sleepStages: SleepStages = .AwakeStage
     
@@ -65,6 +65,9 @@ struct HomeView: View {
                                 withAnimation(animation){
                                     isMoving = true
                                 }
+                            }
+                            .onAppear {
+                                healthStore.fetchSleepAnalysis(startDate: Date().startOfDay, endDate: Date().endOfDay)
                             }
                     }
                 }.offset(y: 45)
@@ -132,8 +135,6 @@ struct HomeView: View {
                     }
                 }
             )
-        } .onAppear {
-            healthStore.fetchSleepAnalysis(startDate: Date().startOfDay, endDate: Date().endOfDay)
         }
     }
 }

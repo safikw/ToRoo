@@ -14,7 +14,7 @@ struct SleepEntry: Identifiable, Equatable{
     let sleepStages: String
     let duration: TimeInterval
     
-    init(id: UUID = UUID(), startDate: Date, endDate: Date, sleepStages: String, duration: TimeInterval) {
+    init(id: UUID, startDate: Date, endDate: Date, sleepStages: String, duration: TimeInterval) {
         self.id = id
         self.startDate = startDate
         self.endDate = endDate

@@ -12,7 +12,7 @@ struct CharacterStateViewModel {
     var selectedDay: Date
     var sleepStage: String
     var sleepData: [SleepEntry]
-    let sleepFilter = SleepFilteringFunc()
+    let sleepFilter = SleepFiltering()
 
     
     func imageState() -> String{

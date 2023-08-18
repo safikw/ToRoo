@@ -20,20 +20,6 @@ class Sleep: ObservableObject {
         }
     }
     
-//    func formatDate(_ date: Date) -> String {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .short
-//        formatter.timeStyle = .short
-//        return formatter.string(from: date)
-//    }
-    
-//    func formatDuration(_ duration: TimeInterval) -> String {
-//        let formatter = DateComponentsFormatter()
-//        formatter.unitsStyle = .abbreviated
-//        formatter.allowedUnits = [.hour, .minute]
-//        return formatter.string(from: duration) ?? ""
-//    }
-    
     func requestAuthorization() {
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
             print("Sleep analysis not available")
@@ -83,9 +69,6 @@ class Sleep: ObservableObject {
         healthStore?.execute(query)
         
     }
-    
-    
-    
     
     func processSleepSamples(_ samples: [HKCategorySample]) {
         var sleepData: [SleepEntry] = []
