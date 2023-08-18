@@ -12,6 +12,7 @@ import HealthKit
 class Sleep: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
+    @Published var isSleepDataFetched = false
     
     init() {
         if HKHealthStore.isHealthDataAvailable() {
@@ -59,7 +60,6 @@ class Sleep: ObservableObject {
     
     //TODO:FIX Fetch function
     func fetchSleepAnalysis(startDate: Date, endDate: Date) {
-//        let oneMonthAgo = Calendar.current.date(byAdding: .weekOfYear, value: -3, to: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
@@ -82,7 +82,6 @@ class Sleep: ObservableObject {
         
         healthStore?.execute(query)
         
-        print(query)
     }
     
     
@@ -121,7 +120,7 @@ class Sleep: ObservableObject {
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
             
             sleepData.append(sleepEntry)
-            print(sleepEntry)
+//            print(sleepEntry)
         }
         
         DispatchQueue.main.async {

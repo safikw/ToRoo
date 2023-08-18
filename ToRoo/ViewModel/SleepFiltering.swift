@@ -2,6 +2,7 @@ import Foundation
 
 struct SleepFilteringFunc {
     private let calendar = Calendar.current
+    
     private func startOfOpeningHours(selectedDate: Date) -> Date {
         return calendar.startOfDay(for: selectedDate)
     }

@@ -9,8 +9,8 @@ import SwiftUI
 //import UserNotifications
 
 struct HomeView: View {
-    @EnvironmentObject var healthStore: Sleep
-//    @ObservedObject var weekStore: WeekStore
+    @StateObject var healthStore: Sleep
+    @StateObject var weekStore: WeekStore
     
     @State private var sleepStages: SleepStages = .AwakeStage
     
@@ -24,9 +24,7 @@ struct HomeView: View {
         .repeatForever(autoreverses: true)
     }
     @State private var rotationDegrees = 0.0
-    @State var moving = false
-    @State private var selectedDate = Date()
-//    var notify = NotificationHandler()
+    @State var isMoving = false
     
     
     var body: some View {
@@ -44,30 +42,33 @@ struct HomeView: View {
                         
                     }
                 
-            ZStack {
-                Image("radial").resizable().scaledToFit()
-                VStack{
-                    Text("\(Date.getCurrentDate())")
-                        .foregroundColor(.white)
-                        .textCase(.uppercase)
-                        .font(.sfRoundedBlack(fontSize: 32))
-                        .padding(.bottom, 20)
-                    Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
-                    
-                    Image(CharacterStateViewModel(selectedDay: Date(), sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
+                ZStack {
+                    Image("radial")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 318, height: 219)
-                        .shadow(radius: 25, y: 10)
-                        .offset(y: moving ? -60: -50)
-                        .onAppear{
-                            withAnimation(animation){
-                                moving = true
+                    
+                    VStack{
+                        Text("\(Date.getCurrentDate())")
+                            .foregroundColor(.white)
+                            .textCase(.uppercase)
+                            .font(.sfRoundedBlack(fontSize: 32))
+                            .padding(.bottom, 20)
+                        Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
+                        
+                        Image(CharacterStateViewModel(selectedDay: Date(), sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 318, height: 219)
+                            .shadow(radius: 25, y: 10)
+                            .offset(y: isMoving ? -60: -50)
+                            .onAppear{
+                                withAnimation(animation){
+                                    isMoving = true
+                                }
                             }
-                        }
-                }
-            }.offset(y: 45)
-
+                    }
+                }.offset(y: 45)
+                
                 Text("Someone had a blissful slumber while the rest of us were working overtime. Living the dream!")
                     .font(.sfRoundedMedium(fontSize: 16))
                     .foregroundColor(Color(hex: "#35127A"))
@@ -78,7 +79,7 @@ struct HomeView: View {
                     .background(Rectangle().fill(Color(hex: "#EADFEF")).cornerRadius(12))
                     .shadow(color:Color(uiColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)) ,radius: 16, y: 4)
                     .offset(y: 65)
-
+                
                 Spacer()
                 ZStack{
                     Image("BAWAH")
@@ -98,27 +99,27 @@ struct HomeView: View {
                         }
                 )
                 .background(
-//                    withAnimation(){
-//                        NavigationLink("Move to summary",isActive: $isDetailViewActive) {
-//                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
-//                        }
-//                    }
+                    withAnimation(){
+                        NavigationLink("Move to summary",isActive: $isDetailViewActive) {
+                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+                        }
+                    }
                     
                 )
                 
             }
             //TODO: USER NOTIFICATION
-//            .onAppear() {
-//                notify.requestNotif()
-//                if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
-//                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
-//                } else {
-//                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Congrats, you nailed the sleep and took care of me today!",notifHour: 12)
-//                }
-//
-//                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
-//                healthStore.requestAuthorization()
-//            }
+            //            .onAppear() {
+            //                notify.requestNotif()
+            //                if SleepFilteringFunc.calculateTotal(sleepData: healthStore.sleepData, selectedDay: Date()) < 25200 {
+            //                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Your sleep means to me. Take care of me, please",notifHour: 12)
+            //                } else {
+            //                    notify.schedulerNotif( type: "date",  title: "Daily Toroo Reminder", body: "Congrats, you nailed the sleep and took care of me today!",notifHour: 12)
+            //                }
+            //
+            //                notify.schedulerNotif(type: "date", title: "Daily Toroo Recap", body: "Stay informed with a friendly nudge from ToRoo as it provides a delightful recap of your sleep status from the previous day.", notifHour: 9)
+            //                healthStore.requestAuthorization()
+            //            }
             .background(LinearGradient(colors: [Color(hex: "#BFA0C7"), Color(hex: "#38177D")], startPoint: UnitPoint(x: 0.5, y: 0),
                                        endPoint: UnitPoint(x: 0.5, y: 1)))
             .ignoresSafeArea()
@@ -132,8 +133,8 @@ struct HomeView: View {
                 }
             )
         } .onAppear {
-            healthStore.fetchSleepAnalysis(startDate: Calendar.current.startOfDay(for: Date()), endDate: Date())
-                                }
+            healthStore.fetchSleepAnalysis(startDate: Date().startOfDay, endDate: Date().endOfDay)
+        }
     }
 }
 //

@@ -13,7 +13,6 @@ struct WeekHeaderView: View {
     
     var body: some View {
         VStack{
-                
 //                SwiftUIWrapper{
                     HStack {
                         Text(weekStore.selectedDate.monthToString())

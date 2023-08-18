@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SleepEfficiency: View {
     @State private var showingPopover = false
-    @ObservedObject var healthStore: Sleep
+    @StateObject var healthStore: Sleep
     @EnvironmentObject var weekStore: WeekStore
     let dayChart: String
     let monthChart: String
@@ -17,9 +17,9 @@ struct SleepEfficiency: View {
     private var startOfOpeningHours: Date
     private var endOfOpeningHours: Date
     var filteredData: [SleepEntry] = []
-    
 
-    
+
+
     init(healthStore: Sleep, weekStore: WeekStore) {
         self.healthStore = healthStore
         self.dayChart = weekStore.selectedDate.toString(format: "dd")
@@ -33,10 +33,10 @@ struct SleepEfficiency: View {
         }
     }
 
-    
-    
+
+
     var body: some View {
-        
+
 //        let filteredInBed = filteredData.filter { entry in
 //            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "In Bed"
 //        }
@@ -48,7 +48,7 @@ struct SleepEfficiency: View {
 //        let filteredAwake = filteredData.filter { entry in
 //            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
 //        }
-        
+
 //        let totalUnspecified = filteredUnspecified.reduce(0) { $0 + $1.duration }/60
 //        let totalInBed = filteredInBed.reduce(0) { $0 + $1.duration }/60
 //        let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
@@ -57,7 +57,7 @@ struct SleepEfficiency: View {
 //        let sleepEfficiency = ((totalInBed  -  totalREM - totalAwake )/480)*100
 
         
-        
+
         VStack(alignment: .leading){
             Text("Sleep Eficiency: ")
                 .font(.system(size: 16))
@@ -89,7 +89,7 @@ struct SleepEfficiency: View {
 //                }
             }
         }
-    
+
     }
 }
 

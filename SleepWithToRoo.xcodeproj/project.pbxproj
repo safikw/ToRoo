@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		74336CEE2A37088500EB7C47 /* SleepStageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */; };
 		7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */; };
-		7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC3C2A345D9000B3DB7C /* Font.swift */; };
-		7475BC522A34653500B3DB7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color.swift */; };
+		7475BC3D2A345D9000B3DB7C /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC3C2A345D9000B3DB7C /* Font+Extension.swift */; };
+		7475BC522A34653500B3DB7C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475BC512A34653500B3DB7C /* Color+Extension.swift */; };
 		7485EF8E2A36B50E0063A376 /* CharacterStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */; };
 		74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B121812A2D8E780080CF55 /* TimeBarChartView.swift */; };
 		A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */; };
 		A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */; };
 		A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */; };
-		A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */; };
+		A245D4042A35AE540058EABB /* SleepFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = A245D4032A35AE540058EABB /* SleepFiltering.swift */; };
 		A263145B2A32BED50044D204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A263145A2A32BED50044D204 /* HomeView.swift */; };
 		A2A6B7E32A2F9B4300048231 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */; };
 		A2A6B7E52A2F9B8800048231 /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E42A2F9B8800048231 /* WeekStore.swift */; };
 		A2A6B7E82A2F9BF400048231 /* TimeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E72A2F9BF400048231 /* TimeDirection.swift */; };
-		A2A6B7EA2A2F9C4B00048231 /* InfiniteWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */; };
 		A2A6B7EC2A2F9CB300048231 /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */; };
 		A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */; };
 		A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */; };
 		A2A6BA452A8C7ADA00AE84A1 /* SleepEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6BA442A8C7ADA00AE84A1 /* SleepEntry.swift */; };
+		A2BF37EF2A8F61C700EC797B /* PopUpViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */; };
 		A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD32A36B9860055B5CC /* UserNotif.swift */; };
 		A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD52A370C180055B5CC /* OnboardingView.swift */; };
 		A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B602A252324001EBA7B /* ToRooApp.swift */; };
@@ -53,24 +53,24 @@
 /* Begin PBXFileReference section */
 		74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStageSheetView.swift; sourceTree = "<group>"; };
 		7475BC302A32C14600B3DB7C /* OneDimensionalBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDimensionalBarChartView.swift; sourceTree = "<group>"; };
-		7475BC3C2A345D9000B3DB7C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		7475BC3C2A345D9000B3DB7C /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		7475BC3E2A345F5400B3DB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7475BC512A34653500B3DB7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7475BC512A34653500B3DB7C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStateViewModel.swift; sourceTree = "<group>"; };
 		74B121812A2D8E780080CF55 /* TimeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartView.swift; sourceTree = "<group>"; };
 		A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewInfo.swift; sourceTree = "<group>"; };
 		A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
 		A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEfficiency.swift; sourceTree = "<group>"; };
-		A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepFilteringFunc.swift; sourceTree = "<group>"; };
+		A245D4032A35AE540058EABB /* SleepFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepFiltering.swift; sourceTree = "<group>"; };
 		A263145A2A32BED50044D204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A2A6B7E42A2F9B8800048231 /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
 		A2A6B7E72A2F9BF400048231 /* TimeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDirection.swift; sourceTree = "<group>"; };
-		A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteWeekView.swift; sourceTree = "<group>"; };
 		A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderView.swift; sourceTree = "<group>"; };
 		A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksTabView.swift; sourceTree = "<group>"; };
 		A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		A2A6BA442A8C7ADA00AE84A1 /* SleepEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepEntry.swift; sourceTree = "<group>"; };
+		A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewComponent.swift; sourceTree = "<group>"; };
 		A2EE7AD32A36B9860055B5CC /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
 		A2EE7AD52A370C180055B5CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A2EE7AD82A3757DE0055B5CC /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				A2A6B7E22A2F9B4300048231 /* Date+Extension.swift */,
-				7475BC3C2A345D9000B3DB7C /* Font.swift */,
-				7475BC512A34653500B3DB7C /* Color.swift */,
+				7475BC3C2A345D9000B3DB7C /* Font+Extension.swift */,
+				7475BC512A34653500B3DB7C /* Color+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A6B7E72A2F9BF400048231 /* TimeDirection.swift */,
+				A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -123,7 +124,6 @@
 		A2A6B7F12A2FA01100048231 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				A2A6B7E92A2F9C4B00048231 /* InfiniteWeekView.swift */,
 				A2A6B7EB2A2F9CB300048231 /* WeekHeaderView.swift */,
 				A2A6B7ED2A2F9CE400048231 /* WeeksTabView.swift */,
 				A2A6B7EF2A2F9D1B00048231 /* WeekView.swift */,
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				7485EF8D2A36B50E0063A376 /* CharacterStateViewModel.swift */,
-				A245D4032A35AE540058EABB /* SleepFilteringFunc.swift */,
+				A245D4032A35AE540058EABB /* SleepFiltering.swift */,
 				A2EE7AD32A36B9860055B5CC /* UserNotif.swift */,
 			);
 			path = ViewModel;
@@ -157,6 +157,14 @@
 				A2EF5B642A252325001EBA7B /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A2BF37F02A8F61CF00EC797B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A2EE7AD72A3757D40055B5CC /* Fonts */ = {
@@ -231,11 +239,12 @@
 				A2A6B7F12A2FA01100048231 /* Date */,
 				A263145A2A32BED50044D204 /* HomeView.swift */,
 				A23E36342A36303800EB2D12 /* PopUpViewInfo.swift */,
+				A2BF37F02A8F61CF00EC797B /* Components */,
 				A245D3FF2A34C0AD0058EABB /* WeeklyReportView.swift */,
 				A245D4012A34CD0B0058EABB /* SleepEfficiency.swift */,
-				A2EE7AD52A370C180055B5CC /* OnboardingView.swift */,
 				A2EF5BA52A2B273B001EBA7B /* SleepSummaryView.swift */,
 				74336CED2A37088500EB7C47 /* SleepStageSheetView.swift */,
+				A2EE7AD52A370C180055B5CC /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,7 +254,6 @@
 			children = (
 				A2A6B7E62A2F9BE400048231 /* Enum */,
 				A2A6B7E12A2F9B2600048231 /* Extensions */,
-				A2EF5BA22A2799E1001EBA7B /* SleepEnum.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -325,12 +333,11 @@
 				A2EF5BA32A2799E1001EBA7B /* SleepEnum.swift in Sources */,
 				A263145B2A32BED50044D204 /* HomeView.swift in Sources */,
 				A2A6B7E82A2F9BF400048231 /* TimeDirection.swift in Sources */,
-				7475BC522A34653500B3DB7C /* Color.swift in Sources */,
+				7475BC522A34653500B3DB7C /* Color+Extension.swift in Sources */,
 				A2A6B7E32A2F9B4300048231 /* Date+Extension.swift in Sources */,
-				A2A6B7EA2A2F9C4B00048231 /* InfiniteWeekView.swift in Sources */,
 				A23E36352A36303800EB2D12 /* PopUpViewInfo.swift in Sources */,
 				A2EF5BA62A2B273B001EBA7B /* SleepSummaryView.swift in Sources */,
-				A245D4042A35AE540058EABB /* SleepFilteringFunc.swift in Sources */,
+				A245D4042A35AE540058EABB /* SleepFiltering.swift in Sources */,
 				7485EF8E2A36B50E0063A376 /* CharacterStateViewModel.swift in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* Sleep.swift in Sources */,
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
@@ -342,11 +349,12 @@
 				A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */,
 				A2A6B7F02A2F9D1B00048231 /* WeekView.swift in Sources */,
 				A2A6B7EE2A2F9CE400048231 /* WeeksTabView.swift in Sources */,
-				7475BC3D2A345D9000B3DB7C /* Font.swift in Sources */,
+				7475BC3D2A345D9000B3DB7C /* Font+Extension.swift in Sources */,
 				A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */,
 				74336CEE2A37088500EB7C47 /* SleepStageSheetView.swift in Sources */,
 				7475BC312A32C14600B3DB7C /* OneDimensionalBarChartView.swift in Sources */,
 				A2A6B7EC2A2F9CB300048231 /* WeekHeaderView.swift in Sources */,
+				A2BF37EF2A8F61C700EC797B /* PopUpViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
