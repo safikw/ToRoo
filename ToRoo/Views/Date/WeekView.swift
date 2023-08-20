@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeekView: View {
     @EnvironmentObject var weekStore: WeekStore
-    @StateObject var healthStore: Sleep
+    @StateObject var healthStore: SleepManager
     
     var week: Week
     
@@ -38,7 +38,7 @@ struct WeekView: View {
                         
                         
 //                        if healthStore.isSleepDataFetched && Date() < Date(timeIntervalSinceNow: 86400) {
-                            Image(CharacterStateViewModel(selectedDay: week.dates[i], sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
+                        Image(CharacterStateViewModel(selectedDay: week.dates[i], sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40)
@@ -52,12 +52,15 @@ struct WeekView: View {
                 .shadow(radius: 5)
                 .onTapGesture {
                     weekStore.selectedDate = week.dates[i]
+                    print(weekStore.selectedDate)
                 }
                 .frame(maxWidth: .infinity)
                 .onAppear{
 //                    print(week, "Weeek")
                     healthStore.fetchSleepAnalysis(startDate: weekStore.weeks[1].dates.first!, endDate: weekStore.weeks[1].dates.last!)
-//                    print(weekStore.weeks[1].dates.first!,weekStore.weeks[1].dates.last! )
+                    
+                    
+                    print(weekStore.weeks[1].dates.first!,weekStore.weeks[1].dates.last! )
                     
                 }
                 

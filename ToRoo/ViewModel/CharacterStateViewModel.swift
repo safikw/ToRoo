@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CharacterStateViewModel {
     
-    var selectedDay: Date
+    var selectedDay: ClosedRange<Date>
     var sleepStage: String
     var sleepData: [SleepEntry]
     let sleepFilter = SleepFiltering()
 
     
     func imageState() -> String{
-        let totalInBed = sleepFilter.calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: sleepStage)
+        let totalInBed = sleepFilter.calculateDuration(sleepData: sleepData, selectedDay: sleepFilter.startOfOpeningHours(selectedDate: <#T##Date#>), sleepStage: sleepStage)
 //        print(totalInBed)
         var imageName: String
         switch totalInBed/3600{

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeeklyReportView: View {
-    @StateObject var healthStore: Sleep
+    @StateObject var healthStore: SleepManager
     
     var body: some View {
 //        let totalWeekDuration = SleepFilteringFunc.calculateTotalWeekDuration(sleepData: healthStore.sleepData)

@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct TimeBarChartView: View {
-    @StateObject var healthStore: Sleep
+    @StateObject var healthStore: SleepManager
     @EnvironmentObject var weekStore: WeekStore
     @State var isSheetPresented = false
     var selectedDay: Date

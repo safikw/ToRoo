@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var nextPage1 = false
     @State private var currentTab = 0
-    @StateObject var healthStore: Sleep = Sleep()
+    @StateObject var healthStore: SleepManager = SleepManager()
     
     //TODO: ONBOARDING VIEW ONCE TIME
     let onComplete: () -> Void

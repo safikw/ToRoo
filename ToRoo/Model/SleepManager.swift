@@ -9,7 +9,7 @@ import HealthKit
 
 
 
-class Sleep: ObservableObject {
+class SleepManager: ObservableObject {
     @Published var healthStore: HKHealthStore?
     @Published var sleepData: [SleepEntry] = []
     @Published var isSleepDataFetched = false
@@ -33,14 +33,11 @@ class Sleep: ObservableObject {
             }
             
             if success {
-                // Authorization granted, fetch sleep analysis data
-                
                 print("berhasil request")
-//                self.fetchSleepAnalysis()
             } else {
                 print("gagal request healthkit")
-                // Authorization denied
-            }    }
+            }
+        }
     }
     
     
@@ -76,7 +73,7 @@ class Sleep: ObservableObject {
         for sample in samples {
             let startDate = sample.startDate
             let endDate = sample.endDate
-
+            
             
             // Determine the sleep quality based on the value of the sample
             let sleepStages: String
@@ -103,7 +100,7 @@ class Sleep: ObservableObject {
             let sleepEntry = SleepEntry(id: UUID(), startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration)
             
             sleepData.append(sleepEntry)
-//            print(sleepEntry)
+            //            print(sleepEntry)
         }
         
         DispatchQueue.main.async {

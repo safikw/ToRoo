@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 
 struct ContentView: View {
-    @StateObject var healthStore: Sleep = Sleep()
+    @StateObject var healthStore: SleepManager = SleepManager()
     @StateObject var weekStore: WeekStore = WeekStore()
     
     var body: some View {

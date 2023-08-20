@@ -11,7 +11,7 @@ import SwiftUI
 struct ToRooApp: App {
 //    let persistenceController = PersistenceController.shared
     @AppStorage("isFirstOpenApp") var isFirstOpenApp: Bool = true
-    @StateObject var sleep: Sleep = Sleep()
+    @StateObject var sleep: SleepManager = SleepManager()
     @StateObject var weekStore: WeekStore = WeekStore()
     
     

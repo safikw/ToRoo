@@ -3,15 +3,20 @@ import Foundation
 struct SleepFiltering {
     private let calendar = Calendar.current
     
-     private func startOfOpeningHours(selectedDate: Date) -> Date {
-        return calendar.startOfDay(for: selectedDate)
+     func startOfOpeningHours(selectedDate: Date) -> Date {
+         let calendar = Calendar.current
+             var components = calendar.dateComponents([.year, .month, .day], from: selectedDate)
+             components.hour = 23
+             components.minute = 1
+             components.second = 0
+             return calendar.date(from: components)!
     }
     
-     private func endOfOpeningHours(selectedDate: Date) -> Date {
+     func endOfOpeningHours(selectedDate: Date) -> Date {
         var components = DateComponents()
-        components.day = 1
-        components.second = -1
-        return calendar.date(byAdding: components, to: startOfOpeningHours(selectedDate: selectedDate))!
+        components.hour = 23
+        components.minute = 0
+        return calendar.date(byAdding: components, to: startOfOpeningHours(selectedDate: selectedDate+1))!
     }
     
     func filteringSleepStages(sleepData: [SleepEntry],selectedDay: Date, sleepStage: String) -> [SleepEntry] {

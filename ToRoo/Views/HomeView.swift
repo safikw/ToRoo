@@ -9,7 +9,7 @@ import SwiftUI
 //import UserNotifications
 
 struct HomeView: View {
-    @StateObject var healthStore: Sleep
+    @StateObject var healthStore: SleepManager
     @ObservedObject var weekStore: WeekStore
     
     @State private var sleepStages: SleepStages = .AwakeStage
@@ -68,6 +68,7 @@ struct HomeView: View {
                             }
                             .onAppear {
                                 healthStore.fetchSleepAnalysis(startDate: Date().startOfDay, endDate: Date().endOfDay)
+                                print(Date().startOfDay)
                             }
                     }
                 }.offset(y: 45)
