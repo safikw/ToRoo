@@ -9,31 +9,29 @@ import SwiftUI
 import Charts
 
 struct OneDimensionalBarChartView: View {
-    @StateObject var healthStore: Sleep
+    @ObservedObject var healthStore: SleepManager
     @EnvironmentObject var weekStore: WeekStore
-    
-    var sleepFilter: Sleep = Sleep()
-    
     var data: [(category: String, size: Double)] = []
     var selectedDay: Date
     private var totalPercentage: Double {
         let totalDuration = data.reduce(0) { $0 + $1.size }
         return (totalDuration / totalSize) * 100
     }
+    
+    var sleepFilter = SleepFiltering()
 
     
-    init(healthStore: Sleep, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
+    init(healthStore: SleepManager, weekStore: WeekStore, data: [(category: String, size: Double)], selectedDay: Date) {
+        self.healthStore = healthStore
+        self.selectedDay = selectedDay
         self.data = healthStore.sleepData
-            .filter { entry in
-                return entry.startDate >= SleepFilteringFunc.startOfOpeningHours(selectedDate: selectedDay) && entry.endDate <= SleepFilteringFunc.endOfOpeningHours(selectedDate: selectedDay) && entry.sleepStages != "Unspecified" && entry.sleepStages != "In Bed"
-             }
              .reduce(into: [:]) { dict, entry in
                  dict[entry.sleepStages, default: 0] += entry.duration
              }
              .map { category, totalDuration in
                  return (category: category, size: totalDuration )
              }
-        self.selectedDay = selectedDay
+        
         
         
     }

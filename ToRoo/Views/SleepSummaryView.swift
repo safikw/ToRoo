@@ -24,25 +24,26 @@ struct SleepSummaryView: View {
                     WeekHeaderView()
                     WeeksTabView() { week in
                         WeekView(healthStore: healthStore, week: week)
-                            .environmentObject(weekStore)
                     }
                 }//: INFINITE DATE
                 
                 //MARK: CHART
                 VStack {
                     TimeBarChartView(healthStore: healthStore, selectedDay: weekStore.selectedDate, sleepData: healthStore.sleepData)
-                        .environmentObject(weekStore)
+                        
                         .padding()
                 }
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
                 
-                                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore, data: [], selectedDay: weekStore.selectedDate)
+                OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore,  data: [], selectedDay: weekStore.selectedDate)
                 //                SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
                 //                    .padding(.top, 20)
                 //                WeeklyReportView(healthStore: healthStore)
-            }.padding([.leading,.trailing], 10)
+            }
+            .environmentObject(weekStore)
+            .padding([.leading,.trailing], 10)
             //request access healthStore
         }
         

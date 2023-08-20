@@ -68,7 +68,6 @@ struct HomeView: View {
                             }
                             .onAppear {
                                 healthStore.fetchSleepAnalysis(startDate: Date().startOfDay, endDate: Date().endOfDay)
-                                print(Date().startOfDay)
                             }
                     }
                 }.offset(y: 45)
