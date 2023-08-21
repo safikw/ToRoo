@@ -52,7 +52,6 @@ struct WeekView: View {
                         .scaledToFit()
                         .frame(width: 40)
                         
-                        //                        }
                     }
                 }
                 .background(week.dates[i] == week.referenceDate ? Color("PrimaryColor") : Color("SecondaryColor"))
@@ -64,8 +63,7 @@ struct WeekView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .onAppear{
-                    //                    print(week, "Weeek")
-                    healthStore.fetchSleepAnalysis(startDate: weekStore.weeks[1].dates.first!, endDate: weekStore.weeks[1].dates.last!)
+                    healthStore.fetchSleepAnalysis(startDate: weekStore.weeks[1].dates.first!, endDate: weekStore.weeks[2].dates[0])
                     
                 }
                 

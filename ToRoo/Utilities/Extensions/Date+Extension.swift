@@ -67,4 +67,10 @@ extension Date {
         return Calendar.current.date(byAdding: components, to: startOfDay)!
     }
     
+    func formattedAsDayMonthYear() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
 }

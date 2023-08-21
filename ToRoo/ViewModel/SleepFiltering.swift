@@ -3,47 +3,44 @@ import Foundation
 struct SleepFiltering {
     private let calendar = Calendar.current
     
-//     func startOfOpeningHours(selectedDate: Date) -> Date {
-//         let calendar = Calendar.current
-//             var components = calendar.dateComponents([.year, .month, .day], from: selectedDate)
-//             components.hour = 00
-//             components.minute = 1
-//             components.second = 0
-//             return calendar.date(from: components)!
-//    }
-//
-//     func endOfOpeningHours(selectedDate: Date) -> Date {
-//        var components = DateComponents()
-//        components.hour = 23
-//        components.minute = 0
-//        return calendar.date(byAdding: components, to: startOfOpeningHours(selectedDate: selectedDate))!
-//    }
     
     
-    //        let filteredInBed = filteredData.filter { entry in
-    //            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "In Bed"
-    //        }
-    //
-    //        let filteredREM = filteredData.filter { entry in
-    //            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "REM"
-    //        }
-    //
-    //        let filteredAwake = filteredData.filter { entry in
-    //            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == "Awake"
-    //        }
-
-    //        let totalUnspecified = filteredUnspecified.reduce(0) { $0 + $1.duration }/60
-    //        let totalInBed = filteredInBed.reduce(0) { $0 + $1.duration }/60
-    //        let totalREM = (filteredREM.reduce(0) { $0 + $1.duration })/60
-    //        let totalAwake = (filteredAwake.reduce(0) { $0 + $1.duration })/60
-    //
-    //        let sleepEfficiency = ((totalInBed  -  totalREM - totalAwake )/480)*100
+    private func filteringSleepStagesInWeek(sleepData: [SleepEntry],startOfWeek: Date, sleepStage: String, endOfWeek: Date) -> [SleepEntry] {
+        let filteredEntries = sleepData.filter { entry in
+            entry.startDate >= startOfWeek && entry.endDate <= endOfWeek && entry.sleepStages == sleepStage
+        }
+        
+        return filteredEntries
+        
+    }
     
+    func formattedTotalWeekDuration(sleepData: [SleepEntry], startOfWeek: Date, endOfWeek: Date) -> String{
+        
+        let totalWeekDuration = calculateTotalWeekDuration(sleepData: sleepData, startOfWeek: startOfWeek, endOfWeek: endOfWeek)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        
+        let formattedTotalDuration = formatter.string(from: TimeInterval(totalWeekDuration))!
+        
+        return formattedTotalDuration
+    }
+    
+    
+    private func filteringSleepStages(sleepData: [SleepEntry],selectedDay: Date, sleepStage: String, startOfOpeningHours: Date, endOfOpeningHours: Date) -> [SleepEntry] {
+        let filteredEntries = sleepData.filter { entry in
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == sleepStage
+        }
+        
+        return filteredEntries
+        
+    }
     
     func calculateTotalSleepEfficiency(sleepData: [SleepEntry], selectedDay: Date, startOfOpeningHours: Date, endOfOpeningHours: Date) -> Double {
         let totalInBed = calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: SleepStages.InBedStage.rawValue, startOfOpeningHours: startOfOpeningHours, endOfOpeningHours: endOfOpeningHours)
-
-
+        
+        
         let totalREM = calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: SleepStages.REMStage.rawValue, startOfOpeningHours: startOfOpeningHours, endOfOpeningHours: endOfOpeningHours)
         
         let totalAwake = calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: SleepStages.AwakeStage.rawValue, startOfOpeningHours: startOfOpeningHours, endOfOpeningHours: endOfOpeningHours)
@@ -53,14 +50,13 @@ struct SleepFiltering {
         return sleepEfficiency
     }
     
-    
-    func filteringSleepStages(sleepData: [SleepEntry],selectedDay: Date, sleepStage: String, startOfOpeningHours: Date, endOfOpeningHours: Date) -> [SleepEntry] {
-        let filteredEntries = sleepData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == sleepStage
-        }
+    func calculateTotalWeekDuration(sleepData: [SleepEntry], startOfWeek: Date, endOfWeek: Date) -> Double {
         
-        return filteredEntries
+        let filteredEntries = filteringSleepStagesInWeek(sleepData: sleepData, startOfWeek: startOfWeek, sleepStage: SleepStages.InBedStage.rawValue, endOfWeek: endOfWeek)
         
+        let totalDuration = filteredEntries.reduce(0) { $0 + $1.duration } / 7
+        
+        return totalDuration
     }
     
     func calculateDuration(sleepData: [SleepEntry], selectedDay: Date, sleepStage: String,startOfOpeningHours: Date, endOfOpeningHours: Date) -> Double {
@@ -73,5 +69,6 @@ struct SleepFiltering {
         
         return totalDuration
     }
+    
     
 }

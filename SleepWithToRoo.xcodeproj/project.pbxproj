@@ -28,6 +28,7 @@
 		A2BF37EF2A8F61C700EC797B /* PopUpViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */; };
 		A2BF37F22A8F88E300EC797B /* TimeBarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF37F12A8F88E300EC797B /* TimeBarChartViewModel.swift */; };
 		A2BF37F42A8F8EDD00EC797B /* EventChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BF37F32A8F8EDD00EC797B /* EventChart.swift */; };
+		A2D37BD42A93BEB3006E7EB1 /* WeeklyCircleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D37BD32A93BEB3006E7EB1 /* WeeklyCircleComponent.swift */; };
 		A2EE7AD42A36B9860055B5CC /* UserNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD32A36B9860055B5CC /* UserNotif.swift */; };
 		A2EE7AD62A370C180055B5CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE7AD52A370C180055B5CC /* OnboardingView.swift */; };
 		A2EF5B612A252324001EBA7B /* ToRooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF5B602A252324001EBA7B /* ToRooApp.swift */; };
@@ -75,6 +76,7 @@
 		A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewComponent.swift; sourceTree = "<group>"; };
 		A2BF37F12A8F88E300EC797B /* TimeBarChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarChartViewModel.swift; sourceTree = "<group>"; };
 		A2BF37F32A8F8EDD00EC797B /* EventChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventChart.swift; sourceTree = "<group>"; };
+		A2D37BD32A93BEB3006E7EB1 /* WeeklyCircleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCircleComponent.swift; sourceTree = "<group>"; };
 		A2EE7AD32A36B9860055B5CC /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
 		A2EE7AD52A370C180055B5CC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A2EE7AD82A3757DE0055B5CC /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A2BF37EE2A8F61C700EC797B /* PopUpViewComponent.swift */,
+				A2D37BD32A93BEB3006E7EB1 /* WeeklyCircleComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				7485EF8E2A36B50E0063A376 /* CharacterStateViewModel.swift in Sources */,
 				A2EF5B9F2A278E16001EBA7B /* SleepManager.swift in Sources */,
 				74B121822A2D8E780080CF55 /* TimeBarChartView.swift in Sources */,
+				A2D37BD42A93BEB3006E7EB1 /* WeeklyCircleComponent.swift in Sources */,
 				A2BF37F22A8F88E300EC797B /* TimeBarChartViewModel.swift in Sources */,
 				A245D4002A34C0AD0058EABB /* WeeklyReportView.swift in Sources */,
 				A245D4022A34CD0B0058EABB /* SleepEfficiency.swift in Sources */,
