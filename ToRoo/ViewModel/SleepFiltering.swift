@@ -27,6 +27,19 @@ struct SleepFiltering {
         return formattedTotalDuration
     }
     
+    func formattedTotalDuration(sleepData: [SleepEntry], selectedDay: Date, sleepStage: String,startOfOpeningHours: Date, endOfOpeningHours: Date ) -> String{
+        
+        let totalWeekDuration = calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: sleepStage, startOfOpeningHours: startOfOpeningHours, endOfOpeningHours: endOfOpeningHours)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        
+        let formattedTotalDuration = formatter.string(from: TimeInterval(totalWeekDuration))!
+        
+        return formattedTotalDuration
+    }
+    
     
     private func filteringSleepStages(sleepData: [SleepEntry],selectedDay: Date, sleepStage: String, startOfOpeningHours: Date, endOfOpeningHours: Date) -> [SleepEntry] {
         let filteredEntries = sleepData.filter { entry in

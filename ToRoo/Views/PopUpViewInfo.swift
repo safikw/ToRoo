@@ -3,7 +3,7 @@ import Combine
 
 struct PopUpViewInfo: View {
     @Binding var isPanelVisible : Bool
-    //@State private var isPanelVisible = false
+    
     var body: some View {
         ZStack{
             

@@ -11,7 +11,7 @@ import SwiftUI
 struct ToRooApp: App {
 //    let persistenceController = PersistenceController.shared
     @AppStorage("isFirstOpenApp") var isFirstOpenApp: Bool = true
-    @StateObject var sleep: SleepManager = SleepManager()
+    @StateObject var healthStore: SleepManager = SleepManager()
     @StateObject var weekStore: WeekStore = WeekStore()
     
     
@@ -28,12 +28,12 @@ struct ToRooApp: App {
 //                        sleep.fetchSleepAnalysis(startDate: Calendar.current.startOfDay(for: Date()), endDate: Date())
 //                    }
 //            }
-//            .environmentObject(sleep)
             
-            HomeView(healthStore: sleep, weekStore: weekStore)
+            HomeView()
                 .environmentObject(weekStore)
+                .environmentObject(healthStore)
                 .onAppear {
-                    sleep.requestAuthorization()
+                    healthStore.requestAuthorization()
                 }
 //            } else {
 //                ContentView()

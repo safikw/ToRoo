@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SleepEfficiency: View {
     @State private var showingPopover = false
-    @StateObject var healthStore: SleepManager
+    @EnvironmentObject var healthStore: SleepManager
     @EnvironmentObject var weekStore: WeekStore
     var sleepFilter = SleepFiltering()
 

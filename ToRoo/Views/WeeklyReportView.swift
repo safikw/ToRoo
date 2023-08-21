@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeeklyReportView: View {
-    @StateObject var healthStore: SleepManager
+    @EnvironmentObject var healthStore: SleepManager
     @EnvironmentObject var weekStore: WeekStore
     var sleepFilter = SleepFiltering()
     

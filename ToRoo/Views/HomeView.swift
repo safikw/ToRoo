@@ -9,8 +9,8 @@ import SwiftUI
 //import UserNotifications
 
 struct HomeView: View {
-    @StateObject var healthStore: SleepManager
-    @ObservedObject var weekStore: WeekStore
+    @EnvironmentObject var healthStore: SleepManager
+    @EnvironmentObject var weekStore: WeekStore
     
     @State private var sleepStages: SleepStages = .AwakeStage
     
@@ -103,7 +103,7 @@ struct HomeView: View {
                 .background(
                     withAnimation(){
                         NavigationLink("Move to summary",isActive: $isDetailViewActive) {
-                            SleepSummaryView(healthStore: healthStore, weekStore: weekStore)
+                            SleepSummaryView()
                         }
                     }
                     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeekView: View {
     @EnvironmentObject var weekStore: WeekStore
-    @StateObject var healthStore: SleepManager
+    @EnvironmentObject var healthStore: SleepManager
     
     var week: Week
     

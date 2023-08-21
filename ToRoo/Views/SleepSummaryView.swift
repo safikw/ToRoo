@@ -11,8 +11,8 @@ import HealthKit
 
 struct SleepSummaryView: View {
     
-    @StateObject var healthStore: SleepManager
-    @StateObject var weekStore: WeekStore
+    @EnvironmentObject var healthStore: SleepManager
+    @EnvironmentObject var weekStore: WeekStore
     
     
     var body: some View {
@@ -23,7 +23,7 @@ struct SleepSummaryView: View {
                 VStack {
                     WeekHeaderView()
                     WeeksTabView() { week in
-                        WeekView(healthStore: healthStore, week: week)
+                        WeekView( week: week)
                     }
                 }//: INFINITE DATE
                 
@@ -39,11 +39,10 @@ struct SleepSummaryView: View {
                 
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore,  data: [], selectedDay: weekStore.selectedDate)
                 
-                SleepEfficiency(healthStore: healthStore)
+                SleepEfficiency()
                                     .padding(.top, 20)
-                                WeeklyReportView(healthStore: healthStore)
+                WeeklyReportView()
             }
-            .environmentObject(weekStore)
             .padding([.leading,.trailing], 10)
         }
         

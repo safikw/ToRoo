@@ -29,7 +29,7 @@ struct TimeBarChartView: View {
                         Text("TIME ASLEEP")
                             .font(.sfRoundedRegular(fontSize: 16))
                         
-                        Text("Halppp")
+                        Text(sleepFilter.formattedTotalDuration(sleepData: healthStore.sleepData, selectedDay: weekStore.selectedDate, sleepStage: SleepStages.InBedStage.rawValue, startOfOpeningHours: weekStore.selectedDate.startOfDay, endOfOpeningHours: weekStore.selectedDate.endOfDay))
                             .font(.sfRoundedBold(fontSize: 32))
                             .foregroundColor(Color("PrimaryColor"))
                         
