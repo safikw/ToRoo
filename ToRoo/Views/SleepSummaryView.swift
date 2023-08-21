@@ -38,8 +38,8 @@ struct SleepSummaryView: View {
                 .cornerRadius(10)
                 
                 OneDimensionalBarChartView(healthStore: healthStore, weekStore: weekStore,  data: [], selectedDay: weekStore.selectedDate)
-                //                SleepEfficiency(healthStore: healthStore, weekStore: weekStore)
-                //                    .padding(.top, 20)
+                SleepEfficiency(healthStore: healthStore)
+                                    .padding(.top, 20)
                 //                WeeklyReportView(healthStore: healthStore)
             }
             .environmentObject(weekStore)

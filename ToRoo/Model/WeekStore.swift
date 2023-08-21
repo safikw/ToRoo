@@ -11,6 +11,7 @@ struct Week {
     let index: Int
     let dates: [Date]
     var referenceDate: Date
+    
 }
 
 class WeekStore: ObservableObject {
@@ -22,6 +23,7 @@ class WeekStore: ObservableObject {
     }
     
     @Published var dayChart: Int
+    var maxDate: Date
     
     
     init(with date: Date = Date()) {
@@ -34,6 +36,7 @@ class WeekStore: ObservableObject {
         components.second = 0
         
         self.selectedDate = calendar.date(from: components)!
+        self.maxDate = Calendar.current.date(byAdding: .year, value: 1, to: date) ?? Date()
         calcWeeks(with: selectedDate)
     }
     
@@ -86,10 +89,8 @@ class WeekStore: ObservableObject {
         switch direction {
         case .future:
             selectedDate = Calendar.current.date(byAdding: .day, value: 7, to: selectedDate)!
-            
         case .past:
             selectedDate = Calendar.current.date(byAdding: .day, value: -7, to: selectedDate)!
-            
         case .unknown:
             selectedDate = selectedDate
         }

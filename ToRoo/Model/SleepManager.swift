@@ -26,24 +26,25 @@ class SleepManager: ObservableObject {
             return
         }
         
-        healthStore?.requestAuthorization(toShare: nil, read: [sleepType]) { success, error in
-            if error != nil {
-                print("Request auth for sleeping data can't ")
+        healthStore?.requestAuthorization(toShare: nil, read: [sleepType]) { [weak self] success, error in
+            guard let self = self else {
                 return
             }
             
-            if success {
-                print("berhasil request")
+            if error != nil {
+                print("Request auth for sleeping data = \(String(describing: error?.localizedDescription)) ")
+                return
             } else {
-                print("gagal request healthkit")
+                print("berhasil request")
             }
+            
         }
     }
     
     
     //TODO:FIX Fetch function
     func fetchSleepAnalysis(startDate: Date, endDate: Date) {
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+        weak var predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
             // Sleep analysis not available
@@ -51,7 +52,7 @@ class SleepManager: ObservableObject {
             return
         }
         
-        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { [weak self] query, results, error in
             if error != nil {
                 // Handle error
                 return
@@ -59,7 +60,7 @@ class SleepManager: ObservableObject {
             
             if let sleepSamples = results as? [HKCategorySample] {
                 // Process sleep samples
-                self.processSleepSamples(sleepSamples)
+                self?.processSleepSamples(sleepSamples)
             }
         }
         

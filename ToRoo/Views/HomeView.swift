@@ -39,7 +39,6 @@ struct HomeView: View {
                         withAnimation(.easeOut) {
                             isPanelVisible.toggle()
                         }
-                        
                     }
                 
                 ZStack {
@@ -55,7 +54,7 @@ struct HomeView: View {
                             .padding(.bottom, 20)
                         Spacer().frame(minHeight: 10.0, idealHeight: 48.0, maxHeight: 48.0)
                         
-                        Image(CharacterStateViewModel(selectedDay: Date(), sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData).imageState())
+                        Image(CharacterStateViewModel(selectedDay: Date(), sleepStage: SleepStages.InBedStage.rawValue, sleepData: healthStore.sleepData, startOfOpeningHours: Date().startOfDay, endOfOpeningHours: Date().endOfDay).imageState())
                             .resizable()
                             .scaledToFit()
                             .frame(width: 318, height: 219)

@@ -13,10 +13,13 @@ struct CharacterStateViewModel {
     var sleepStage: String
     var sleepData: [SleepEntry]
     let sleepFilter = SleepFiltering()
+    var startOfOpeningHours: Date
+    var endOfOpeningHours: Date
 
     
     func imageState() -> String{
-        let totalInBed = sleepFilter.calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: sleepStage)
+        let totalInBed = sleepFilter.calculateDuration(sleepData: sleepData, selectedDay: selectedDay, sleepStage: sleepStage, startOfOpeningHours: startOfOpeningHours, endOfOpeningHours: endOfOpeningHours)
+        
 //        print(totalInBed)
         var imageName: String
         switch totalInBed/3600{

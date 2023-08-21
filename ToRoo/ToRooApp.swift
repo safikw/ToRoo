@@ -32,6 +32,9 @@ struct ToRooApp: App {
             
             HomeView(healthStore: sleep, weekStore: weekStore)
                 .environmentObject(weekStore)
+                .onAppear {
+                    sleep.requestAuthorization()
+                }
 //            } else {
 //                ContentView()
 //                .preferredColorScheme(.light)
